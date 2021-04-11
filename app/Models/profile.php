@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class profile extends Model
 {
     use HasFactory;
+    public function account(){
+        $this->belongsTo(Account::class);
+    }
 }

@@ -14,7 +14,7 @@ class AddColumnToAdmins extends Migration
     public function up()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->unsignedBigInteger('account_id');
+            $table->unsignedBigInteger('account_id')->unique();
             $table->foreign('account_id')->references('id')->on('accounts');
 
         });

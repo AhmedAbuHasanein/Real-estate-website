@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
+    public function account(){
+        $this->belongsTo(Account::class);
+    }
+    public function subsecriperes(){
+        $this->hasMany(Subscripe::class);
+    }
 }
