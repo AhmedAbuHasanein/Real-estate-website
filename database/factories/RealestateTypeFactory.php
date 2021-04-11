@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Acount;
+use App\Models\Realestate_type;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class AcountFactory extends Factory
+class RealestateTypeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Acount::class;
+    protected $model = Realestate_type::class;
 
     /**
      * Define the model's default state.
