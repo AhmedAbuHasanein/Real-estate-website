@@ -28,9 +28,17 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
     public function authenticate(Request $request){
+       // $input = $request->all();
 
-        $login =['email'=> $request->email , 'password'=>$request->password];
-        if(Auth::attempt($login)) {
+        $this->validate($request, [
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'user_name';
+        if(auth()->attempt(array($fieldType => $request->username, 'password' => $request->password)))
+        {
+
             $user = Auth::guard('web')->user();
             $user->status = "Active";
             $user->save();

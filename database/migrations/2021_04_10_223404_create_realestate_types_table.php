@@ -15,7 +15,7 @@ class CreateRealestateTypesTable extends Migration
     {
         Schema::create('realestate_types', function (Blueprint $table) {
             $table->id();
-            $table->string("type");
+            $table->string("type")->unique();
             $table->string("emoji");
             $table->timestamps();
         });

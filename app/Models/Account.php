@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Account extends Authenticatable
 {
     use HasFactory;
+    protected $fillable =['user_name'];
     public function user(){
         $this->hasOne(User::class);
     }

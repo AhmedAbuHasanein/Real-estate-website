@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Subscripe;
 use Illuminate\Database\Seeder;
 
 class SubscripeSeeder extends Seeder
@@ -13,6 +14,6 @@ class SubscripeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Subscripe::factory()->count(50)->create();
     }
 }

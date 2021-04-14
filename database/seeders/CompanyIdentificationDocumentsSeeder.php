@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Admin;
+use App\Models\Company_Identification_Documents;
 use Illuminate\Database\Seeder;
 
-class AdminSeeder extends Seeder
+class CompanyIdentificationDocumentsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        Admin::factory()->count(10)->create();
+        Company_Identification_Documents::factory()->count(50)->create();
     }
 }

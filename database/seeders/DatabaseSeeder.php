@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Realestate_type;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,7 +14,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+
         $this->call(AccountSeeder::class);
-    }
+        $this->call(ProfileSeeder::class);
+        $this->call(AdminSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(CompanySeeder::class);
+//        $this->call(RealestateTypeSeeder::class);
+//        $this->call(RealestateSeeder::class);
+//        $this->call(ImageRealestateSeeder::class);
+//        $this->call(SubscripeSeeder::class);
+//        $this->call(CompanyIdentificationDocumentsSeeder::class);
+//        $this->call(ProofOfOwnershipRealEstateSeeder::class);
+        }
 }

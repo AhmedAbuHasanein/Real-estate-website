@@ -17,7 +17,7 @@ class CreateCompaniesTable extends Migration
             $table->id();
             $table->string("company_name");
            $table->string("ssid");
-           $table->string("score");
+           $table->integer("score");
            $table->softDeletes();
             $table->timestamps();
         });

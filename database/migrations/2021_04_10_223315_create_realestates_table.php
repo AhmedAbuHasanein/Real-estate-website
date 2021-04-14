@@ -20,6 +20,7 @@ class CreateRealestatesTable extends Migration
             $table->string("size");
             $table->string("main_image");
             $table->string("location");
+            $table->string("status")->default('effective');
             $table->softDeletes();
             $table->timestamps();
         });

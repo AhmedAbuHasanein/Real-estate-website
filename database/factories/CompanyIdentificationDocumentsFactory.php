@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Realestate_type;
+use App\Models\Company_Identification_Documents;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class RealestateTypeFactory extends Factory
+class CompanyIdentificationDocumentsFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Realestate_type::class;
+    protected $model = Company_Identification_Documents::class;
 
     /**
      * Define the model's default state.

@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Admin;
+use App\Models\Proof_Of_Ownership_RealEstate;
 use Illuminate\Database\Seeder;
 
-class AdminSeeder extends Seeder
+class ProofOfOwnershipRealEstateSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        Admin::factory()->count(10)->create();
+        Proof_Of_Ownership_RealEstate::factory()->count(50)->create();
     }
 }

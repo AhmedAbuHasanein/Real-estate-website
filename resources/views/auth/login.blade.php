@@ -38,11 +38,12 @@
                             @csrf
                             <div class="form-group">
                                 <label for="name">البريد الالكتروني أو اسم المستخدم</label>
-                                <input type="text" class="form-control" id="name" name="email">
+                                <input type="text"  id="name" class="form-control"  name="username" value="{{ old('username') }}" required  autofocus>
                             </div>
+
                             <div class="form-group">
                                 <label for="password">كلمة السر </label>
-                                <input type="password" class="form-control" id="password" name="password">
+                                <input type="password" class="form-control" id="password" name="password" required autofocus>
                             </div>
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input" id="remember-me">

@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Account;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class AccountFactory extends Factory
 {
@@ -16,13 +18,17 @@ class AccountFactory extends Factory
 
     /**
      * Define the model's default state.
-     *
+     * @Faker
      * @return array
      */
     public function definition()
     {
         return [
-            //
+            'user_name' => $this->faker->unique()->userName ,
+            'email' =>  $this->faker->unique()->safeEmail,
+            'password' => Hash::make( $this->faker->password),
+            'remember_token' =>Str::random(10),
+
         ];
     }
 }

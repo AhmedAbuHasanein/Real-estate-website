@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Image_Realestate;
 use Illuminate\Database\Seeder;
 
 class ImageRealestateSeeder extends Seeder
@@ -13,6 +14,6 @@ class ImageRealestateSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Image_Realestate::factory()->count(100)->create();
     }
 }
