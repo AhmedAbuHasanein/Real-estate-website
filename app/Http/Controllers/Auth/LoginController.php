@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
+use App\Models\Company;
+use App\Models\User;
 use \Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -44,9 +47,16 @@ class LoginController extends Controller
             $user->save();
             \Illuminate\Support\Facades\Cookie::queue('active_user',60*60*24);
 
+                if( Admin::all()->where('account_id','=',auth::user()->id)->isNotEmpty()){
+                    return redirect()->route('admin');
+                }elseif (Company::all()->where('account_id','=',auth::user()->id)->isNotEmpty()){
+                    return redirect()->route('company');
+                }elseif(User::all()->where('account_id','=',auth::user()->id)->isNotEmpty()){
+                    return redirect()->route('user');
+                }
             return redirect()->route('index');
         }
-        return redirect()->back()->withInput()->with('error','Login fails, please try again');
+        return redirect()->back()->withInput()->with('error','البريد الالكنروني أو كلمة السر غير صحيحة');
     }
     public  function  logout(){
         if (Auth::check()){

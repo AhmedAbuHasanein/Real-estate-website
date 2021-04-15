@@ -30,9 +30,9 @@ class AccountSeeder extends Seeder
         $admin->save();
 
         $account2 = new Account();
-        $account2->user_name = "compamycompany";
+        $account2->user_name = "companycompany";
         $account2->email = "company@company.com";
-        $account2->password = Hash::make("compamycompany");
+        $account2->password = Hash::make("companycompany");
         $account2->remember_token = Str::random(10);
         $account2->save();
         $Company = new Company();

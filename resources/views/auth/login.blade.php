@@ -34,6 +34,7 @@
                 <div class="card">
                     <div class="card-header">تسجيل الدخول</div>
                     <div class="card-body">
+                         @include('massege')
                         <form action="{{route('authenticate')}}" method="POST">
                             @csrf
                             <div class="form-group">
