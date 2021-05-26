@@ -46,32 +46,22 @@
                                 <label for="password">كلمة السر </label>
                                 <input type="password" class="form-control" id="password" name="password" required autofocus>
                             </div>
-                            <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="remember-me">
+
+                            <div class="form-check form-check-inline">
+                                <input  type="checkbox" class="form-check-input" id="remember-me">
                                 <label class="form-check-label" for="remember-me">تذكرني</label>
                             </div>
-                            <input type="submit" class="btn btn-primary" value="تسجيل الدخول">
+                            <div >
+
+                                <h6 style="display: inline; padding-right: 10px">  <a href="{{Route('register')}}">    أنشئ حساب</a></h6>
+                                <input type="submit" class="btn btn-primary" value="تسجيل الدخول">
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <!-- Register area -->
-            <div class="col-lg-4 ">
-                <div class="card">
-                    <div class="card-header">انشاء حساب</div>
-                    <div class="card-body">
-                        <a href="{{route('form_user')}}" style="margin-right: 20%">
-                            <button class="btn btn-primary col-8">حساب زبون</button>
-                        </a>
-                        <br/>
-                        <br/>
-                        <a href="{{route('form_company')}}" style="margin-right: 20%">
-                            <button class="btn btn-primary col-8" >حساب شركة</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
 

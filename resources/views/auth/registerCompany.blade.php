@@ -82,11 +82,11 @@
                         <div class="form-group">
                             <label for="sex">الجنس *</label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="Buyer" id="male" value="male">
+                                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
                                 <label class="form-check-label" for="male">ذكر</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="Customer" id="female" value="female">
+                                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
                                 <label class="form-check-label" for="female">انثى</label>
                             </div>
                         </div>

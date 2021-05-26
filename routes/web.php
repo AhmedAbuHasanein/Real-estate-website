@@ -1,8 +1,5 @@
 <?php
 
-use App\Models\Account;
-use App\Models\Admin;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 //login
@@ -10,6 +7,7 @@ Route::get('/','Auth\LoginController@login');
 Route::get('/login','Auth\LoginController@login')->name('login');
 Route::post('/authenticate','Auth\LoginController@authenticate')->name('authenticate');
 Route::get('/logout','Auth\LoginController@logout')->name('logout');
+Route::get('/register','Auth\RegisterController@form_register')->name('register');
 Route::get('/registerUser','Auth\RegisterController@form_user')->name('form_user');
 Route::get('/registerCompany','Auth\RegisterController@form_company')->name('form_company');
 
@@ -38,7 +36,7 @@ Route::prefix('Visitor')->group(function () {
 });
 
 Route::get('/index', function () {
-    return  Admin::all()->where('account_id','=',auth::user()->id)->isNotEmpty();
+  return "xxx";
 })->name('index');
 
 

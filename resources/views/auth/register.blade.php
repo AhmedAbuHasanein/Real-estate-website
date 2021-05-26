@@ -31,73 +31,70 @@
             <div class="card">
                 <div class="card-header">انشاء حساب</div>
                 <div class="card-body">
-                    <form>
+                    <form  id = 'forms' >
                         <div class="form-group">
                             <label for="type">اختار واحدة *</label> <br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="account" id="type1" value="option1">
+                                <input class="form-check-input" type="radio" name="account" id="type1" value="company"
+                                @if(old('account')=='company') checked @endif>
                                 <label class="form-check-label" for="type1">بائع</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="account" id="type" value="option2">
+                                <input class="form-check-input" type="radio" name="account" id="type" value="user"
+                                       @if(old('account')=='user') checked @endif>
                                 <label class="form-check-label" for="type2">زبون</label>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="fname">الاسم الاول</label>
-                                    <input type="text" class="form-control" id="fname">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="lname">اسم العائلة</label>
-                                    <input type="text" class="form-control" id="lname">
-                                </div>
-                            </div>
-                        </div>
+
 
                         <div class="form-group">
-                            <label for="company">اسم الشركة *</label>
+                            <label for="email">البريد الالكتروني</label>
+                            <div class="input-group mb-2">
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">اسم المستخدم</label>
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">@</div>
                                 </div>
-                                <input type="text" class="form-control" id="company">
+                                <input type="text" class="form-control" id="username">
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <label for="ftitle">العنوان الاول *</label>
-                            <input type="text" class="form-control" id="ftitle">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="stitle">العنوان الثاني (اختياري)</label>
-                            <input type="text" class="form-control" id="stitle">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="sex">الجنس *</label>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
-                                <label class="form-check-label" for="male">ذكر</label>
+                            <label for="password">كلمة السر</label>
+                            <div class="input-group mb-2">
+                                <input type="password" class="form-control" id="password" name="password" required>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                                <label class="form-check-label" for="female">انثى</label>
+                            <label for="verify_password"> تأكيد كلمة السر</label>
+                            <div class="input-group mb-2">
+                                <input type="password" class="form-control" id="verify_password" name="verify_password" onkeyup="verify()" required>
                             </div>
+                            <label id="verify" style="color:red"></label>
                         </div>
 
+                          <br />
                         <button type="submit" class="btn btn-primary">انشئ الحساب</button>
                     </form>
                 </div>
             </div>
         </div>
 
-    </div>
+    </div><script>
+        function verify() {
+            var x = document.forms['forms'];
+            var password = x.elements[4].value;
+            var verify_password = x.elements[5].value;
+            if(verify_password != password){
+                document.getElementById("verify").innerHTML = '<b>'+'كلمة المرور غير متطابقة'+'</b>';
+            }else {
+                document.getElementById("verify").innerHTML =  '<b>'+'كلمة المرور متطابقة'+'</b>';
+
+            }
+        }
+    </script>
 </div>
 </body>
 
