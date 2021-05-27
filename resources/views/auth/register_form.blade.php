@@ -21,51 +21,65 @@
             justify-content: center;
             align-items: center;
         }
+        input[type=submit]{
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 <div class="page-content">
     <div class="form-v1-content">
         <div class="wizard-form">
-            <form id="forms" class="form-register" action="#" method="post">
+            <form id="forms" class="form-register" method="post" action="{{route('register_account')}}">
+                @csrf
                 <div id="form-total">
                     <!-- SECTION 1 -->
                     <h2>
                         <p class="step-icon"><span>01</span></p>
-                        <span class="step-text">Account Infomation</span>
+                        <span class="step-text">بيانات الحساب</span>
                     </h2>
                     <section>
                         <div class="inner">
                             <div class="wizard-header">
-                                <h3 class="heading">Account Infomation</h3>
-                                <p>Please enter your infomation and proceed to the next step so we can build your accounts.  </p>
+                                <h3 class="heading">معلومات الحساب</h3>
+                                <p>يرجى إدخال معلوماتك والانتقال إلى الخطوة التالية حتى نتمكن من إنشاء حساباتك. </p>
                             </div>
                             <div class="form-row">
 
-                                <label class="container" style="margin: 5px">زبون
-                                    <input type="radio" checked="checked" name="account_type" value="user"
-                                           @if(old('account_type')=='user') checked @endif>
+                                <label class="container"  style="margin: 5px">زبون
+                                    <input type="radio" checked name="account_type" value="user"
+                                           @if(old('account_type')=='user') checked @endif onclick="check()">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="container" style="margin: 5px">شركة
                                     <input type="radio" name="account_type" value="company"
-                                           @if(old('account_type')=='company') checked @endif>
+                                           @if(old('account_type')=='company') checked @endif   onclick="check()" >
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <div class="form-row">
-                                <div class="form-holder form-holder-2">
-                                    <fieldset>
-                                        <legend>البريد الالكتروني</legend>
-                                        <input type="text" name="email" id="your_email" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="example@email.com" required>
-                                    </fieldset>
-                                </div>
+                            <div class="form-row" id="append_company_name">
+
                             </div>
                             <div class="form-row">
                                 <div class="form-holder form-holder-2">
                                     <fieldset>
                                         <legend>اسم المستخدم</legend>
                                         <input type="text" class="form-control" id="username" name="username"  required>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-holder form-holder-2">
+                                    <fieldset>
+                                        <legend>البريد الالكتروني</legend>
+                                        <input type="email" name="email" id="your_email" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="example@email.com" required>
                                     </fieldset>
                                 </div>
                             </div>
@@ -90,16 +104,16 @@
                             </div>
                         </div>
                     </section>
-                    <!-- SECTION 1 -->
+                    <!-- SECTION 2 -->
                     <h2>
                         <p class="step-icon"><span>02</span></p>
-                        <span class="step-text">Peronal Infomation</span>
+                        <span class="step-text">معلومات شخصية</span>
                     </h2>
                     <section>
                         <div class="inner">
                             <div class="wizard-header">
-                                <h3 class="heading">Peronal Infomation</h3>
-                                <p>Please enter your infomation and proceed to the next step so we can build your accounts.  </p>
+                                <h3 class="heading">معلومات شخصية</h3>
+                                <p>يرجى إدخال معلوماتك والانتقال إلى الخطوة التالية حتى نتمكن من إنشاء حساباتك. </p>
                             </div>
                             <div class="form-row">
 
@@ -160,10 +174,11 @@
                                     </fieldset>
                                 </div>
                             </div>
-
+                            <div class="form-row">
+                                    <input  type="submit">
+                            </div>
                         </div>
                     </section>
-
                 </div>
 
             </form>
@@ -174,14 +189,36 @@
     function verify() {
 
         var password = document.forms['forms']['password'].value;
-        var verify_password =document.forms['forms']['verify_password'].value;
-        if(verify_password != password){
-            document.getElementById("verify").innerHTML = '<b>'+'كلمة المرور غير متطابقة'+'</b>';
-        }else {
-            document.getElementById("verify").innerHTML =  '<b>'+'كلمة المرور متطابقة'+'</b>';
+        var verify_password = document.forms['forms']['verify_password'].value;
+        if (verify_password != password) {
+            document.getElementById("verify").innerHTML = '<b>' + 'كلمة المرور غير متطابقة' + '</b>';
+        } else {
+            document.getElementById("verify").innerHTML = '<b>' + 'كلمة المرور متطابقة' + '</b>';
 
         }
     }
+    function check() {
+           var value = document.forms['forms']['account_type'].value;
+           if(value =='company'){
+               var company_name =' <div class="form-holder form-holder-2">\n' +
+                   '                     <fieldset >\n' +
+                   '                           <legend>اسم الشركة</legend>\n' +
+                   '                           <input type="text"  name="company_name" id="company_name" class="form-control"   required>\n' +
+                   '                     </fieldset>\n' +
+                   '               </div>';
+               var ssid =' <div class="form-holder form-holder-2">\n' +
+                   '                     <fieldset >\n' +
+                   '                           <legend>الرقم الوطني</legend>\n' +
+                   '                           <input type="number"  name="ssid" id="ssid" class="form-control"   required>\n' +
+                   '                     </fieldset>\n' +
+                   '               </div>';
+                document.getElementById('append_company_name').innerHTML =company_name +ssid ;
+            }else{
+               document.getElementById('append_company_name').innerHTML = '';
+
+            }
+        }
+
 </script>
 <script src="{{asset("asset/auth/register/js/jquery-3.3.1.min.js")}}"></script>
 <script src="{{asset("asset/auth/register/js/jquery.steps.js")}}"></script>
