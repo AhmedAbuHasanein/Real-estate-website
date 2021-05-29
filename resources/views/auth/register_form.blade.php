@@ -2,7 +2,7 @@
 <html >
 <head>
     <meta charset="utf-8">
-    <title>form-v1 by Colorlib</title>
+    <title>إنشاء حساب</title>
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Font-->
@@ -22,7 +22,7 @@
             align-items: center;
         }
         input[type=submit]{
-            background-color: #4CAF50;
+            background-color: #ccc;
             border: none;
             color: white;
             padding: 16px 32px;
@@ -34,44 +34,50 @@
     </style>
 </head>
 <body>
-<div class="page-content">
-    <div class="form-v1-content">
-        <div class="wizard-form">
-            <form id="forms" class="form-register" method="post" action="{{route('register_account')}}">
+<div class="page-content" >
+    <div class="form-v1-content" >
+        <div class="wizard-form" >
+            <form id="forms"  class="form-register" method="post" action="{{route('register_account')}}">
                 @csrf
-                <div id="form-total">
+                <div  id="form-total">
                     <!-- SECTION 1 -->
                     <h2>
-                        <p class="step-icon"><span>01</span></p>
+                        <p class="step-icon" style="margin-left: 15px"><span>01</span></p>
                         <span class="step-text">بيانات الحساب</span>
                     </h2>
-                    <section>
+                    <section style="direction: rtl">
                         <div class="inner">
                             <div class="wizard-header">
                                 <h3 class="heading">معلومات الحساب</h3>
                                 <p>يرجى إدخال معلوماتك والانتقال إلى الخطوة التالية حتى نتمكن من إنشاء حساباتك. </p>
                             </div>
+                            @include('massege')
                             <div class="form-row">
+                            <div class="form-holder form-holder-2">
+                            <fieldset>
+                                <legend>نوع الحساب</legend>
+                                <div class="form-row">
 
-                                <label class="container"  style="margin: 5px">زبون
-                                    <input type="radio" checked name="account_type" value="user"
-                                           @if(old('account_type')=='user') checked @endif onclick="check()">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container" style="margin: 5px">شركة
-                                    <input type="radio" name="account_type" value="company"
-                                           @if(old('account_type')=='company') checked @endif   onclick="check()" >
-                                    <span class="checkmark"></span>
-                                </label>
+                                    <label class="container"  style="margin: 5px">زبون
+                                        <input type="radio" checked name="account_type" value="user"
+                                               @if(old('account_type')=='user') checked @endif onclick="check()">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container" style="margin: 5px">شركة
+                                        <input type="radio" name="account_type" value="company"
+                                               @if(old('account_type')=='company') checked @endif   onclick="check()" >
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </fieldset>
                             </div>
-                            <div class="form-row" id="append_company_name">
-
                             </div>
+                            <div class="form-row" id="append_company_name"> </div>
                             <div class="form-row">
                                 <div class="form-holder form-holder-2">
                                     <fieldset>
                                         <legend>اسم المستخدم</legend>
-                                        <input type="text" class="form-control" id="username" name="username"  required>
+                                        <input type="text" class="form-control" id="username" name="user_name" value="{{old('user_name')}}"  required>
                                     </fieldset>
                                 </div>
                             </div>
@@ -79,7 +85,7 @@
                                 <div class="form-holder form-holder-2">
                                     <fieldset>
                                         <legend>البريد الالكتروني</legend>
-                                        <input type="email" name="email" id="your_email" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="example@email.com" required>
+                                        <input type="email" name="email" id="your_email" class="form-control" value="{{old('email')}}" placeholder="example@email.com" required>
                                     </fieldset>
                                 </div>
                             </div>
@@ -87,7 +93,7 @@
                                 <div class="form-holder form-holder-2">
                                     <fieldset>
                                         <legend>كلمة المرور</legend>
-                                        <input type="password" class="form-control" id="password" name="password"  required>
+                                        <input type="password" class="form-control" id="password" name="password" onkeyup="verify()"  required>
                                     </fieldset>
                                 </div>
                             </div>
@@ -102,35 +108,41 @@
                             <div class="form-row">
                                 <label id="verify" style="color:red"></label>
                             </div>
+
                         </div>
                     </section>
                     <!-- SECTION 2 -->
                     <h2>
-                        <p class="step-icon"><span>02</span></p>
+                        <p class="step-icon" style="margin-left: 15px"><span>02</span></p>
                         <span class="step-text">معلومات شخصية</span>
                     </h2>
-                    <section>
+                    <section style="direction: rtl">
                         <div class="inner">
                             <div class="wizard-header">
                                 <h3 class="heading">معلومات شخصية</h3>
                                 <p>يرجى إدخال معلوماتك والانتقال إلى الخطوة التالية حتى نتمكن من إنشاء حساباتك. </p>
                             </div>
                             <div class="form-row">
-
-                                <div class="form-holder">
-                                    <fieldset>
-                                        <legend>اسم العائلة</legend>
-                                        <input type="text" class="form-control" id="last-name" name="last_name" placeholder="الاسم الأخير" required>
-                                    </fieldset>
-                                </div>
                                 <div class="form-holder">
                                     <fieldset>
                                         <legend>الاسم الأول</legend>
-                                        <input type="text" class="form-control" id="first-name" name="first_name" placeholder="الاسم الأول" required>
+                                        <input type="text" class="form-control" id="first-name" name="first_name" value="{{old('first_name')}}" placeholder="الاسم الأول" required>
                                     </fieldset>
                                 </div>
+                                <div class="form-holder">
+
+                                    <fieldset>
+                                        <legend>اسم العائلة</legend>
+                                        <input type="text" class="form-control" id="last-name" name="last_name"  value="{{old('last_name')}}" placeholder="الاسم الأخير" required>
+                                    </fieldset>
+                                </div>
+
                             </div>
                             <div class="form-row">
+                                <div class="form-holder form-holder-2">
+                                    <fieldset>
+                                        <legend>الجنس</legend>
+                                        <div class="form-row">
                                 <label class="container" style="margin: 5px">ذكر
                                     <input type="radio" checked="checked" name="gender" value="male"
                                     @if(old('gender')=='male') checked @endif>
@@ -141,12 +153,15 @@
                                            @if(old('gender')=='female') checked @endif>
                                     <span class="checkmark"></span>
                                 </label>
+                                        </div>
+                                    </fieldset>
+                                </div>
                                 </div>
                             <div class="form-row">
                                 <div class="form-holder form-holder-2">
                                     <fieldset>
                                         <legend>تاريخ الميلاد</legend>
-                                        <input type="date" class="form-control" id="dob" name="dob"  required>
+                                        <input type="date" class="form-control" id="dob" name="dob" value="{{old('dob')}}" required>
                                     </fieldset>
                                 </div>
                             </div>
@@ -154,7 +169,7 @@
                                 <div class="form-holder form-holder-2">
                                     <fieldset>
                                         <legend>العنوان الأول</legend>
-                                        <input type="text" class="form-control" id="address_1" name="address_1"  required>
+                                        <input type="text" class="form-control" id="address_1" name="address_1" value="{{old('address_1')}}" required>
                                     </fieldset>
                                 </div>
                             </div>
@@ -162,20 +177,24 @@
                                 <div class="form-holder form-holder-2">
                                     <fieldset>
                                         <legend>العنوان الثاني (اختياري)</legend>
-                                        <input type="text" class="form-control" id="address_2" name="address_2"  >
+                                        <input type="text" class="form-control" id="address_2" value="{{old('address_2')}}" name="address_2"  >
                                     </fieldset>
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-holder form-holder-2">
+
+                                <div class="form-holder">
+                                    @include('auth.drop_select_country')
+                                </div>
+                                <div class="form-holder">
                                     <fieldset>
                                         <legend>رقم الهاتف</legend>
-                                        <input type="text" class="form-control" id="phone" name="phone_number" placeholder="+1 888-999-7777" required>
+                                        <input type="number" class="form-control" id="phone" value="{{old('phone_number')}}"  name="phone_number" placeholder="+1 888-999-7777" required>
                                     </fieldset>
                                 </div>
                             </div>
                             <div class="form-row">
-                                    <input  type="submit">
+                                    <input disabled type="submit" id="submit">
                             </div>
                         </div>
                     </section>
@@ -192,9 +211,12 @@
         var verify_password = document.forms['forms']['verify_password'].value;
         if (verify_password != password) {
             document.getElementById("verify").innerHTML = '<b>' + 'كلمة المرور غير متطابقة' + '</b>';
+            document.getElementById("submit").disabled =true;
+            document.getElementById("submit").style = 'background: #ccc';
         } else {
-            document.getElementById("verify").innerHTML = '<b>' + 'كلمة المرور متطابقة' + '</b>';
-
+            document.getElementById("verify").innerHTML = '<b style="color:green; ">' + 'كلمة المرور متطابقة' + '</b>' ;
+            document.getElementById("submit").disabled = false;
+            document.getElementById("submit").style = 'background:#4CAF50';
         }
     }
     function check() {
