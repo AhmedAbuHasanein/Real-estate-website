@@ -1,5 +1,5 @@
 
-            <select name="country"  required style="direction: ltr;margin-top: 8px" >
+            <select name="country"  required style="direction: ltr;margin-top: 8px" class="@error('country') is-invalid @enderror" >
                 <option value="" disabled selected>إختر</option>
                 <option value="أفغانستان">أفغانستان</option>
                 <option value="ألبانيا">ألبانيا</option>

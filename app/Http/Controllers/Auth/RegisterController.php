@@ -8,6 +8,7 @@ use App\Models\Company;
 use App\Models\profile;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -29,6 +30,7 @@ class RegisterController extends Controller
            'first_name' => 'required|string|max:150',
            'last_name' => 'required|string|max:150',
            'gender' => 'required',
+           'country' => 'required',
            'dob' => 'required|date',
            'address_1' => 'required|string|max:255',
            'phone_number' => 'required|unique:profiles',
@@ -46,7 +48,7 @@ class RegisterController extends Controller
        $account = new Account();
        $account->email = $request->email;
        $account->user_name = $request->user_name;
-       $account->password = $request->password;
+       $account->password = Hash::make($request->password);
        $account->save();
        $profile = new profile();
        $profile->account_id = $account->id;
