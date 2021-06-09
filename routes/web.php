@@ -14,8 +14,18 @@ Route::middleware('auth')->group(function () {
     //Routes Admin
     Route::prefix('Admin')->middleware("IsAdmin")->group(function () {
         Route::get('/index', function () {
-            return "on sucsses admin";
-        })->name('admin');
+            return view('admin.index');
+        })->name('admin_index');
+        Route::get('/management_users', 'Admin\users@index')->name('management_users');
+        Route::get('/show_user/{id}/profile','Admin\users@show')->name('show_user');
+        Route::get('/delete_user/{id}','Admin\users@delete')->name('delete_user');
+
+
+        Route::get('/management_companies', 'Admin\companies@index')->name('management_companies');
+
+
+        Route::get('/management_admins', 'Admin\admins@index')->name('management_admins');
+
     });
     //Routes Company
     Route::prefix('Company')->middleware("IsCompany")->group(function () {
@@ -33,10 +43,6 @@ Route::middleware('auth')->group(function () {
 //Routes Visitor
 Route::prefix('Visitor')->group(function () {
 });
-
-Route::get('/index', function () {
-  return "xxx";
-})->name('index');
 
 
 

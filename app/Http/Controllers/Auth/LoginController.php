@@ -8,7 +8,6 @@ use App\Models\Company;
 use App\Models\User;
 use \Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use App\Providers\RouteServiceProvider;
 class LoginController extends Controller
 {
@@ -48,11 +47,11 @@ class LoginController extends Controller
             \Illuminate\Support\Facades\Cookie::queue('active_user',60*60*24);
 
                 if( Admin::all()->where('account_id','=',auth::user()->id)->isNotEmpty()){
-                    return redirect()->route('admin');
+                    return redirect()->route('admin_index');
                 }elseif (Company::all()->where('account_id','=',auth::user()->id)->isNotEmpty()){
-                    return redirect()->route('company');
+                    return redirect()->route('company_index');
                 }elseif(User::all()->where('account_id','=',auth::user()->id)->isNotEmpty()){
-                    return redirect()->route('user');
+                    return redirect()->route('user_index');
                 }
             return redirect()->route('index');
         }

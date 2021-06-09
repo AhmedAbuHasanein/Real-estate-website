@@ -9,6 +9,6 @@ class Image_Realestate extends Model
 {
     use HasFactory;
     public function realestate(){
-        $this->belongsTo(Realestate::class);
+        return $this->belongsTo(Realestate::class);
     }
 }

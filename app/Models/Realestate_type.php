@@ -9,6 +9,6 @@ class Realestate_type extends Model
 {
     use HasFactory;
     public function realestates(){
-        $this->belongsToMany(Realestate::class);
+        return $this->belongsToMany(Realestate::class);
     }
 }

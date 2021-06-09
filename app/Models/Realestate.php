@@ -9,12 +9,12 @@ class Realestate extends Model
 {
     use HasFactory;
     public function realestate_type(){
-        $this->belongsTo(Realestate_type::class);
+        return $this->belongsTo(Realestate_type::class);
     }
     public function company(){
-        $this->belongsTo(Company::class);
+        return $this->belongsTo(Company::class);
     }
     public function image_realestates(){
-        $this->hasMany(Image_Realestate::class);
+        return $this->hasMany(Image_Realestate::class);
     }
 }

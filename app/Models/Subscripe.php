@@ -9,9 +9,9 @@ class Subscripe extends Model
 {
     use HasFactory;
     public function usersubsecripe(){
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
     public function companysubsecripe(){
-        $this->belongsTo(Company::class);
+        return $this->belongsTo(Company::class);
     }
 }

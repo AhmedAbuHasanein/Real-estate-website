@@ -9,6 +9,6 @@ class profile extends Model
 {
     use HasFactory;
     public function account(){
-        $this->belongsTo(Account::class);
+        return  $this->belongsTo(Account::class);
     }
 }
