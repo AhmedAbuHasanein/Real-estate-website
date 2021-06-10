@@ -16,7 +16,7 @@ class CreateImageRealestatesTable extends Migration
         Schema::create('image_realestates', function (Blueprint $table) {
             $table->id();
             $table->string("url")->unique();
-
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ class CreateSubscripesTable extends Migration
     {
         Schema::create('subscripes', function (Blueprint $table) {
             $table->id();
+            $table->softDeletes();
             $table->timestamps();
 
 

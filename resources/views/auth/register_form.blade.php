@@ -171,13 +171,13 @@
                                         <legend>الجنس</legend>
                                         <div class="form-row">
                                 <label class="container" style="margin: 5px">ذكر
-                                    <input type="radio" checked="checked" name="gender" value="male" class="@error('gender') is-invalid @enderror"
-                                    @if(old('gender')=='male') checked @endif>
+                                    <input type="radio" checked="checked" name="gender" value="ذكر" class="@error('gender') is-invalid @enderror"
+                                    @if(old('gender')=='ذكر') checked @endif>
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="container" style="margin: 5px">أنثى
-                                    <input type="radio" name="gender" value="female" class="@error('gender') is-invalid @enderror"
-                                           @if(old('gender')=='female') checked @endif>
+                                    <input type="radio" name="gender" value="أنثى" class="@error('gender') is-invalid @enderror"
+                                           @if(old('gender')=='أنثى') checked @endif>
                                     <span class="checkmark"></span>
                                 </label>
                                         </div>

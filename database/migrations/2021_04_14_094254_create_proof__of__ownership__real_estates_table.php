@@ -19,6 +19,7 @@ class CreateProofOfOwnershipRealEstatesTable extends Migration
             $table->string('Url');
             $table->unsignedBigInteger('realestate_id')->unique();
             $table->foreign('realestate_id')->references('id')->on('realestates');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

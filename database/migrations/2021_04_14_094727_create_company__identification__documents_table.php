@@ -19,7 +19,7 @@ class CreateCompanyIdentificationDocumentsTable extends Migration
             $table->string('Url');
             $table->unsignedBigInteger('company_id')->unique();
             $table->foreign('company_id')->references('id')->on('companies');
-
+            $table->softDeletes();
             $table->timestamps();
         });
     }

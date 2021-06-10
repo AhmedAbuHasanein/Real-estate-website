@@ -37,7 +37,7 @@ class RegisterController extends Controller
        ];
        if($request->exists('company_name')&& $request->exists('ssid')){
            $rules['company_name']= 'required|string|max:255';
-           $rules['ssid']=  'required|unique:companies';
+           $rules['ssid']=  'required|unique:companyController';
        }
        $masseges =[];
        $validator = Validator::make($request->all(),$rules, $masseges);

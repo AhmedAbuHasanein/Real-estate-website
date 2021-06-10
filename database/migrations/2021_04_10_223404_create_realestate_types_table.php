@@ -17,6 +17,7 @@ class CreateRealestateTypesTable extends Migration
             $table->id();
             $table->string("type")->unique();
             $table->string("emoji");
+            $table->softDeletes();
             $table->timestamps();
         });
     }

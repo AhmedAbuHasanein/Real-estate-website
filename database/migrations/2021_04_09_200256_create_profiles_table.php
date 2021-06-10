@@ -24,6 +24,7 @@ class CreateProfilesTable extends Migration
             $table->string("address_1");
             $table->string("address_2");
             $table->string("profile_image");
+            $table->softDeletes();
             $table->timestamps();
         });
     }

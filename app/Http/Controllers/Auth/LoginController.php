@@ -42,7 +42,7 @@ class LoginController extends Controller
         {
 
             $user = Auth::guard('web')->user();
-            $user->status = "Active";
+            $user->status = "نشط";
             $user->save();
             \Illuminate\Support\Facades\Cookie::queue('active_user',60*60*24);
 
@@ -53,14 +53,18 @@ class LoginController extends Controller
                 }elseif(User::all()->where('account_id','=',auth::user()->id)->isNotEmpty()){
                     return redirect()->route('user_index');
                 }
-            return redirect()->route('index');
+            $user = Auth::user();
+            $user->status = "غير تشط";
+            $user->save();
+            Auth::logout();
+                return redirect()->back()->with('error','تم حذف هذا الحساب من قبل إدارة الموفع !');
         }
         return redirect()->back()->withInput()->with('error','البريد الالكنروني أو كلمة السر غير صحيحة');
     }
     public  function  logout(){
         if (Auth::check()){
             $user = Auth::user();
-            $user->status = "Inactive";
+            $user->status = "غير تشط";
             $user->save();
             Auth::logout();
         }
