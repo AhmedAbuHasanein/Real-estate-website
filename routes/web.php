@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/delete_company/{id}','Admin\CompanyController@delete')->name('admin_delete_company');
 
         Route::get('/management_admins', 'Admin\AdminController@index')->name('admin_management_admins');
-        Route::get('/add_admin',function (){
+        Route::get('/add_admin/',function (){
             return view('admin.add_admin');
         })->name('admin_add_admin_form');
         Route::post('/add_admin','Admin\AdminController@store')->name('admin_add_admin');

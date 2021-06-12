@@ -3,7 +3,6 @@
     <title> إدارة الشركات </title>
 @stop
 @section('page padding')
-    @include('massege')
     <div class="content-wrapper" style="direction: rtl">
 
         <div class="page-header">

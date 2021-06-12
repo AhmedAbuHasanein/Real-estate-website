@@ -9,6 +9,7 @@
        @include('admin.layout.sidebar')
        <!-- partial -->
        <div class="main-panel">
+       @include('massege')
           @yield('page padding')
           <!-- content-wrapper ends -->
           @include('admin.layout.footer')

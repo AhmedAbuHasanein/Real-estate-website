@@ -221,7 +221,7 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-holder">
+                                <div class="form-holder" style="margin-top: 8px">
                                     @include('auth.drop_select_country')
                                     @error('country')
 
