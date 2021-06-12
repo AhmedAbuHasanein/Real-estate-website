@@ -3,10 +3,11 @@
     <title>إدارة الزبائن </title>
 @stop
 @section('page padding')
-   <div class="content-wrapper">
+    @include('massege')
+   <div class="content-wrapper" style="direction: rtl">
        <div class="page-header">
                     <h3 class="page-title">
-                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2" style="margin-left: 10px">
                   <i class="mdi mdi-table-large"></i>
                 </span> إدارة الزبائن
                     </h3>
@@ -16,11 +17,11 @@
                         <div class="card">
 
                             <div class="card-body">
-                                @include('massege')
-                                <h4 class="card-title"></h4>
-                                <div class="card-header border-0 " style="direction: rtl">
 
-                                    <input class="form-control mb-4 col-lg-3 col-md-5 col-sm-6 "  id="tableSearch" type="text" placeholder="Search">
+                                <h4 class="card-title" style="text-align:right">إدارة الزبائن</h4>
+                                <div class="card-header border-0 " >
+
+                                    <input class="form-control mb-4 col-lg-3 col-md-5 col-sm-6 "  id="tableSearch" type="text" placeholder="بحث">
 
                                 </div>
                                 <div class="card-body table-responsive p-0">
@@ -57,7 +58,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group">
-                                                            <a class="btn" href="{{route('admin_show_user',['id'=>$user->account_id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
+                                                            <a class="btn" href="{{route('admin_show_user',['id'=>$user->id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
                                                             <a class="btn" href="{{route('admin_delete_user',['id'=>$user->id])}}"> <i class="nav-item mdi mdi-account-remove"></i></a>
                                                         </div>
                                                     </td>

@@ -10,7 +10,7 @@ class adminController extends Controller
 {
     public function  index(){
         $admins = Admin::all();
-        return view('admin.management_admins','adminController');
+        return view('admin.management_admins',compact('admins'));
     }
     /**
      * @param $id
@@ -39,7 +39,6 @@ class adminController extends Controller
      * @return
      */
     public function delete($id){
-        Admin::find($id)->account->delete();
         Admin::find($id)->delete();
         return redirect()->back()->with(['success'=>'تمت عملية حذف المشرف بنجاح !']);
     }

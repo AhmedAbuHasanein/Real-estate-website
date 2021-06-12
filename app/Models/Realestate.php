@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Realestate extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     public function realestate_type(){
         return $this->belongsTo(Realestate_type::class);
     }

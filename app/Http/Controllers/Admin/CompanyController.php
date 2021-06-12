@@ -4,14 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Company;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class companyController extends Controller
 {
     public function  index(){
         $companies = Company::all();
-        return view('admin.management_companies','companyController');
+        return view('admin.management_companies',compact('companies'));
     }
     /**
      * @param $id
@@ -33,7 +32,6 @@ class companyController extends Controller
      * @return
      */
     public function delete($id){
-        Company::find($id)->account->delete();
         Company::find($id)->delete();
         return redirect()->back()->with(['success'=>'تمت عملية حذف الشركة بنجاح !']);
     }

@@ -18,6 +18,7 @@ class CreateCompaniesTable extends Migration
             $table->string("company_name");
            $table->string("ssid");
            $table->integer("score");
+            $table->string("logo_image");
            $table->softDeletes();
             $table->timestamps();
         });

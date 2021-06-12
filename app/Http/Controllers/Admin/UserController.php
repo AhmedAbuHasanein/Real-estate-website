@@ -34,7 +34,6 @@ class UserController extends Controller
      * @return
      */
     public function delete($id){
-        user::find($id)->account->delete();
         user::find($id)->delete();
         return redirect()->back()->with(['success'=>'تمت عملية حذف الزبون بنجاح']);
     }

@@ -75,6 +75,7 @@ class RegisterController extends Controller
            $company->company_name = $request->company_name;
            $company->ssid = $request->ssid;
            $company->score = 50;
+           $company->logo_image ='asset/logo_images/logo_image.jpg';
            $company->save();
        }else{
          $user = new User();

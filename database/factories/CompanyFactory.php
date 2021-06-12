@@ -41,6 +41,7 @@ class CompanyFactory extends Factory
             'Company_name' => $this->faker->company,
             'ssid' => $this->faker->unique()->ean8,
             'score' => $this->faker->numberBetween(1,100) ,
+            'logo_image' => 'asset/logo_images/logo_image.jpg',
 
         ];
     }

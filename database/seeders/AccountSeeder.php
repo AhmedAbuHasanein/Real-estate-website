@@ -35,12 +35,13 @@ class AccountSeeder extends Seeder
         $account2->password = Hash::make("companycompany");
         $account2->remember_token = Str::random(10);
         $account2->save();
-        $Company = new Company();
-        $Company->account_id = $account2->id;
-        $Company->company_name = "company alhaia";
-        $Company->ssid  = 4047849017;
-        $Company->score = 100;
-        $Company->save();
+        $company = new Company();
+        $company->account_id = $account2->id;
+        $company->company_name = "company alhaia";
+        $company->ssid  = 4047849017;
+        $company->score = 100;
+        $company->logo_image ='asset/logo_images/logo_image.jpg';
+        $company->save();
 
         $account3 = new Account();
         $account3->user_name = "useruser";
