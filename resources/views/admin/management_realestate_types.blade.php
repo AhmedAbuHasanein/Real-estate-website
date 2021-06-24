@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 @section('title')
-    <title>إدارة الزبائن </title>
+    <title>إدارة أنواع العقارات </title>
 @stop
 @section('page padding')
     <div class="content-wrapper" style="direction: rtl">
@@ -8,7 +8,7 @@
             <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2" style="margin-left: 10px">
                   <i class="mdi mdi-table-large"></i>
-                </span> إدارة الزبائن
+                </span>  إدارة أنواع العقارات
             </h3>
         </div>
         <div class="row">
@@ -17,7 +17,7 @@
 
                     <div class="card-body">
 
-                        <h4 class="card-title" style="text-align:right">إدارة الزبائن</h4>
+                        <h4 class="card-title" style="text-align:right">إدارة أنواع العقارات</h4>
                         <div class="card-header border-0 " >
 
                             <input class="form-control mb-4 col-lg-3 col-md-5 col-sm-6 "  id="tableSearch" type="text" placeholder="بحث">
@@ -28,10 +28,10 @@
                                 <thead>
                                 <tr>
                                     <th  style="text-align: center">#</th>
-                                    <th  style="text-align: center">الإسم بالكامل</th>
-                                    <th  style="text-align: center">البريد الإلكتروني</th>
-                                    <th  style="text-align: center">اسم المستخدم</th>
-                                    <th  style="text-align: center">الحالة	</th>
+                                    <th  style="text-align: center">الرمز التعبيري</th>
+                                    <th  style="text-align: center"> نوع العقار</th>
+                                    <th  style="text-align: center">المشرف</th>
+                                    <th  style="text-align: center">البريد الالكتروني</th>
                                     <th  style="text-align: center" >المزيد</th>
                                 </tr>
                                 </thead>
@@ -39,31 +39,27 @@
                                 <?php
                                 $count =1;
                                 ?>
-                                @foreach($users as $user)
+                                @foreach( $realestate_types as  $realestate_type)
                                     <tr>
                                         <td>{{$count++}}</td>
-                                        <td>
-                                            <img src="{{asset($user->account->profile->profile_image)}}" alt="Product1" class="img-circle img-size-32 mr-2">
-                                            {{$user->account->profile->first_name.' '.$user->account->profile->last_name}}
+                                        <td  style="text-align:right">
+                                            <img src="{{asset($realestate_type->emoji)}}" alt="Product1" class="img-circle img-size-32 mr-2">
                                         </td>
-                                        <td style="text-align: center"> <a href="mailto:{{$user->account->email}}"> {{$user->account->email}}</a></td>
-                                        <td style="text-align: center">{{$user->account->user_name}}</td>
-                                        <td style="text-align: center">
-                                            @if($user->account->status =='غير تشط')
-                                                <span class="float-right badge badge-danger " >{{$user->account->status}}</span>
-                                            @else
-                                                <span class="float-right badge badge-success ">{{$user->account->status}}</span>
-                                            @endif
+                                        <td  style="text-align:right">
+                                            {{$realestate_type->type}}
                                         </td>
+                                        <td style="text-align:right">{{$realestate_type->admin->account->profile->first_name.''.$realestate_type->admin->account->profile->last_name}}</td>
+                                        <td style="text-align: center"> <a href="mailto:{{$realestate_type->admin->account->email}}"> {{$realestate_type->admin->account->email}}</a></td>
                                         <td>
                                             <div class="btn-group">
-                                                <a class="btn" href="{{route('admin_show_user',['id'=>$user->id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
-                                                <a class="btn" href="{{route('admin_delete_user',['id'=>$user->id])}}"> <i class="nav-item mdi mdi-account-remove"></i></a>
+                                                <a class="btn" href="{{route('admin_show_admin',['id'=>$realestate_type->admin_id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
+                                                <a class="btn" href="{{route('admin_show_realestate_type',['id'=>$realestate_type->id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
+                                                <a class="btn" href="{{route('admin_delete_realestate_type',['id'=> $realestate_type->id])}}"> <i class="nav-item mdi mdi-account-remove"></i></a>
                                             </div>
                                         </td>
                                     </tr>
                                 @endforeach
-                                @if($users->isEmpty())
+                                @if($realestate_types->isEmpty())
                                     <tr>
                                         <td colspan="6">
                                             <div class="p-3">

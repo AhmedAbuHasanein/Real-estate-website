@@ -33,7 +33,9 @@
 <!-- Custom js for this page -->
 <script src="{{asset('asset/admin/assets/js/dashboard.js')}}"></script>
 <script src="{{asset('asset/admin/assets/js/todolist.js')}}"></script>
+<script src="{{asset('asset/admin/assets/js/file-upload.js')}}"></script>
 <script src="{{asset('asset/admin/search.js')}}"></script>
+
 <!-- End custom js for this page -->
 </body>
 </html>

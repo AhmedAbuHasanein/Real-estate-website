@@ -141,7 +141,7 @@
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">اسم المستخدم</label>
-                            <div class="col-sm-9">
+                            <div class="col-sm-9" style="direction: ltr">
                                 <div class="input-group mb-2 mr-sm-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">@</div>
@@ -172,10 +172,6 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">تأكيد كلمة المرور</label>
                             <div class="col-sm-9">
-                                <div class="input-group mb-2 mr-sm-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">@</div>
-                                    </div>
                                     <input type="password" onkeyup="verify()" class="form-control @error('verify_password') is-invalid @enderror" name="verify_password" value="{{old('verify_password')}}" required id="inlineFormInputGroupUsername2">
 
                                 </div>
@@ -185,7 +181,7 @@
                                 @enderror
                             </div>
                         </div>
-                    </div>
+
                 </div>
 
               <div class="row">

@@ -13,4 +13,7 @@ class Admin extends Model
     public function account(){
         return $this->belongsTo(Account::class);
     }
+    public function image_realestate_types(){
+        return $this->hasMany(Realestate_type::class);
+    }
 }

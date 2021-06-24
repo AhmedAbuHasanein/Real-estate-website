@@ -17,6 +17,8 @@ class CreateRealestateTypesTable extends Migration
             $table->id();
             $table->string("type")->unique();
             $table->string("emoji");
+            $table->unsignedBigInteger('admin_id');
+            $table->foreign('admin_id')->references('id')->on('admins');
             $table->softDeletes();
             $table->timestamps();
         });

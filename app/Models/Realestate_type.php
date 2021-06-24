@@ -13,4 +13,7 @@ class Realestate_type extends Model
     public function realestates(){
         return $this->belongsToMany(Realestate::class);
     }
+    public function admin(){
+        return $this->belongsTo(Admin::class);
+    }
 }
