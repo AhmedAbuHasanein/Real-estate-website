@@ -57,7 +57,7 @@ class LoginController extends Controller
             $user->status = "غير تشط";
             $user->save();
             Auth::logout();
-                return redirect()->back()->with('error','تم حذف هذا الحساب من قبل إدارة الموفع !');
+                return redirect()->back()->with('error','تم حذف هذا الحساب من قبل إدارة الموقع !');
         }
         return redirect()->back()->withInput()->with('error','البريد الالكنروني أو كلمة السر غير صحيحة');
     }

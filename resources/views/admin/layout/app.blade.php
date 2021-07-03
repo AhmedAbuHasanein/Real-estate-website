@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="direction: rtl">
 @include('admin.layout.head')
 <body>
 <div class="container-scroller">

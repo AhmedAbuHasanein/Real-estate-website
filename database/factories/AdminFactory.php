@@ -38,6 +38,23 @@ class AdminFactory extends Factory
         }
         return [
             'account_id' => $id,
+            'grade' => $this->faker->randomElement([2,3,4]) ,
+            'add_admin' => $this->faker->randomElement([true,false]) ,
+            'update_admin' => $this->faker->randomElement([true,false]),
+             'delete_admin' => $this->faker->randomElement([true,false]),
+            'show_admin' => $this->faker->randomElement([true,false]),
+             'add_realestate_type' => $this->faker->randomElement([true,false]),
+            'update_realestate_type' => $this->faker->randomElement([true,false]),
+            'delete_realestate_type' => $this->faker->randomElement([true,false]),
+             'show_realestate_type' => $this->faker->randomElement([true,false]),
+            'delete_realestate' => $this->faker->randomElement([true,false]),
+             'show_realestate' => $this->faker->randomElement([true,false]),
+            'show_company' => $this->faker->randomElement([true,false]),
+             'delete_company' => $this->faker->randomElement([true,false]),
+             'show_user' => $this->faker->randomElement([true,false]),
+             'delete_user' => $this->faker->randomElement([true,false]),
+
+
         ];
     }
 }

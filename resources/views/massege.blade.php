@@ -14,14 +14,14 @@
 @endif
 @if($errors->any())
 
-<div class="alert alert-danger " role="alert" >
+<div class="alert alert-danger " role="alert" style="text-align: right" >
     @foreach($errors->all() as $error)
         {{$error}}
     @endforeach
 </div>
 @endif
 @if(Session::has('error'))
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger" role="alert" style="text-align: right">
         {{Session::get('error')}}
     </div>
 @endif

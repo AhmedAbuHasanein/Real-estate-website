@@ -27,6 +27,21 @@ class AccountSeeder extends Seeder
         $account1->save();
         $admin = new Admin();
         $admin->account_id = $account1->id;
+        $admin->grade = 1;
+        $admin->add_admin = true;
+        $admin->update_admin = true;
+        $admin->delete_admin = true;
+        $admin->show_admin = true;
+        $admin->add_realestate_type = true;
+        $admin->update_realestate_type = true;
+        $admin->delete_realestate_type = true;
+        $admin->show_realestate_type = true;
+        $admin->delete_realestate = true;
+        $admin->show_realestate = true;
+        $admin->delete_user = true;
+        $admin->show_user = true;
+        $admin->delete_company = true;
+        $admin->show_company = true;
         $admin->save();
 
         $account2 = new Account();

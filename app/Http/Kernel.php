@@ -65,5 +65,21 @@ class Kernel extends HttpKernel
         'IsAdmin' => \App\Http\Middleware\IsAdmin::class,
         'IsCompany' => \App\Http\Middleware\IsCompany::class,
         'IsUser' => \App\Http\Middleware\IsUser::class,
+        'IsAddAdmin' => \App\Http\Middleware\ISAddAdmin::class,
+        'IsUpdateAdmin' => \App\Http\Middleware\IsUpdateAdmin::class,
+        'IsShowAdmin' => \App\Http\Middleware\ISShowAdmin::class,
+        'IsDeleteAdmin' => \App\Http\Middleware\ISdeleteAdmin::class,
+        'IsAddRealestateType' => \App\Http\Middleware\ISAddRealestateType::class,
+        'IsUpdateRealestateType' => \App\Http\Middleware\IsUpdateRealestateType::class,
+        'IsDeleteRealestateType' => \App\Http\Middleware\ISdeleteRealestateType::class,
+        'IsShowRealestateType' => \App\Http\Middleware\ISShowRealestateType::class,
+        'IsDeleteRealestate' => \App\Http\Middleware\ISdeleteRealestate::class,
+        'IsShowRealestate' => \App\Http\Middleware\ISShowRealestate::class,
+        'IsShowUser' => \App\Http\Middleware\ISshowUser::class,
+        'IsDeleteUser' => \App\Http\Middleware\ISdeleteUser::class,
+        'IsShowCompany' => \App\Http\Middleware\ISshowCompany::class,
+        'IsDeleteCompany' => \App\Http\Middleware\ISDeleteCompany::class,
+
+
     ];
 }

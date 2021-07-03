@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Validator;
 class adminController extends Controller
 {
     public function  index(){
-        $admins = Admin::all();
+        $grade =auth()->user()->admin->grade;
+        $admins = Admin::all()->where('grade','>',$grade);
         return view('admin.management_admins',compact('admins'));
     }
     /**
@@ -90,7 +91,11 @@ class adminController extends Controller
      * @return
      */
     public function delete($id){
-        Admin::find($id)->delete();
-        return redirect()->back()->with(['success'=>'تمت عملية حذف المشرف بنجاح !']);
+        $grade = auth()->user()->admin->grade;
+       if(Admin::find($id)->where('grade','>', $grade)){
+           Admin::find($id)->delete();
+           return redirect()->back()->with(['success'=>'تمت عملية حذف المشرف بنجاح !']);
+       }
+        return redirect()->back()->with(['error'=>'لا تمتلك صلاحية لحذف هذا مشرف  !']);
     }
 }
