@@ -53,7 +53,7 @@
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn" href="{{route('admin_show_admin',['id'=>$realestate_type->admin_id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
-                                                <a class="btn" href="{{route('admin_show_realestate_type',['id'=>$realestate_type->id])}}"> <i class="nav-item mdi-c"></i></a>
+                                                <a class="btn" href="{{route('admin_show_realestate_type',['id'=>$realestate_type->id])}}"> <i class="nav-item mdi-home-outline"></i></a>
                                                 <a class="btn" data-toggle="modal" data-target="#myModal{{$count}}" > <i class="nav-item mdi mdi-account-remove"></i></a>
                                             </div>
                                         </td>

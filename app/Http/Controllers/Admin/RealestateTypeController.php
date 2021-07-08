@@ -55,7 +55,34 @@ class RealestateTypeController extends Controller
      * @return
      */
     public function update(Request $request){
-        return true;
+        $rules =[
+            'type' => 'required|string',
+            'emoji' => 'mimes:jpeg,jpg,png,gif',
+        ];
+        $masseges =[];
+        $validator = Validator::make($request->all(),$rules, $masseges);
+        if($validator->fails()){
+            return redirect()->back()->withInput()->withErrors($validator->errors());
+        }
+
+
+        $realestate_type = Realestate_type::find($request->id);
+        $realestate_type_request = Realestate_type::all()->where('type','=',$request->type)->first();
+        if($realestate_type_request != null && $realestate_type_request->id != $realestate_type->id  ){
+           return redirect()->back()->withInput()->with(['error'=> 'نوع العقار موجود مسبقا!']);
+        }
+        $realestate_type->type = $request->type;
+        if($request->file('emoji')!=null){
+            $file =$request->file('emoji');
+            $filename = $file->getClientOriginalName().time(). '.' . $file->extension();
+            $request->file('emoji')->move('asset/emoji_realestate_type', $filename);
+            $realestate_type->emoji = 'asset/emoji_realestate_type/'. $filename;
+        }
+
+        $account = Auth::user();
+        $realestate_type->admin_id = $account->admin->id ;
+        $realestate_type->save();
+        return redirect()->route('admin_management_realestate_types')->with(['success'=>'تمت عملية تعديل نوع العقار بنجاح !']);
     }
 
     /**
