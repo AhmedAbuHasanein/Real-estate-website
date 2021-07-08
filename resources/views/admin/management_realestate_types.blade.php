@@ -53,10 +53,36 @@
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn" href="{{route('admin_show_admin',['id'=>$realestate_type->admin_id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
-                                                <a class="btn" href="{{route('admin_show_realestate_type',['id'=>$realestate_type->id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
-                                                <a class="btn" href="{{route('admin_delete_realestate_type',['id'=> $realestate_type->id])}}"> <i class="nav-item mdi mdi-account-remove"></i></a>
+                                                <a class="btn" href="{{route('admin_show_realestate_type',['id'=>$realestate_type->id])}}"> <i class="nav-item mdi-c"></i></a>
+                                                <a class="btn" data-toggle="modal" data-target="#myModal{{$count}}" > <i class="nav-item mdi mdi-account-remove"></i></a>
                                             </div>
                                         </td>
+                                        <div class="modal" id="myModal{{$count}}" style="direction :rtl">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">حذف نوع عقار </h4>
+                                                        <button type="button" class="close" style="margin-right:70%" data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body" style="margin-left:60%">
+                                                        هل تريد حذف نوع العقار؟
+                                                    </div>
+
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <a href="{{route('admin_delete_realestate_type',['id'=> $realestate_type->id])}}"><button type="button" class="btn btn-primary"  >نعم</button></a>
+
+                                                        <button type="button" class="btn btn-danger" style="margin-left:55%" data-dismiss="modal">لا</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </tr>
                                 @endforeach
                                 @if($realestate_types->isEmpty())

@@ -17,24 +17,24 @@ class CreateAdminsTable extends Migration
             $table->id();
             $table->integer('grade');
 
-            $table->boolean('add_admin');
-            $table->boolean('update_admin');
-            $table->boolean('delete_admin');
-            $table->boolean('show_admin');
+            $table->boolean('add_admin')->default(false);
+            $table->boolean('update_admin')->default(false);;
+            $table->boolean('delete_admin')->default(false);;
+            $table->boolean('show_admin')->default(false);;
 
-            $table->boolean('add_realestate_type');
-            $table->boolean('update_realestate_type');
-            $table->boolean('delete_realestate_type');
-            $table->boolean('show_realestate_type');
+            $table->boolean('add_realestate_type')->default(false);;
+            $table->boolean('update_realestate_type')->default(false);;
+            $table->boolean('delete_realestate_type')->default(false);;
+            $table->boolean('show_realestate_type')->default(false);;
 
-            $table->boolean('delete_realestate');
-            $table->boolean('show_realestate');
+            $table->boolean('delete_realestate')->default(false);;
+            $table->boolean('show_realestate')->default(false);;
 
-            $table->boolean('delete_user');
-            $table->boolean('show_user');
+            $table->boolean('delete_user')->default(false);;
+            $table->boolean('show_user')->default(false);;
 
-            $table->boolean('delete_company');
-            $table->boolean('show_company');
+            $table->boolean('delete_company')->default(false);;
+            $table->boolean('show_company')->default(false);;
 
 
             $table->softDeletes();

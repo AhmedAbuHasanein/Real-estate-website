@@ -18,7 +18,7 @@ class CreateAccountsTable extends Migration
             $table->string("user_name")->unique();
             $table->string("email")->unique();
             $table->string("password");
-            $table->string("status")->default("غير تشط");
+            $table->string("status")->default("غير نشط");
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

@@ -183,6 +183,151 @@
                         </div>
 
                 </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">الدرجة</label>
+                            <div class="col-sm-9">
+                                <select class="form-control @error('grade') is-invalid @enderror " name="grade" required>
+                                    <option value="" disabled selected>إختر</option>
+                                    @for($i=\Illuminate\Support\Facades\Auth::user()->admin->grade+1; $i<=5;$i++)
+                                      <option @if(old('grade')==$i) selected @endif>{{$i}}</option>
+                                    @endfor
+                                </select>
+                                @error('grade')
+                                <div class="badge badge-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="card-description"> صلاحيات الحساب </p>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <div class="form-check"  >
+
+                                <label class="form-check-label"   >
+                                   <input type="checkbox" class="form-check-input " value="true" name="add_admin">
+                                </label>
+                            </div>
+                            <span style="margin-right: 15px; margin-top: 13px">اضافة مشرف</span>
+                        </div>
+                        <div class="form-group row">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="true" name="update_admin">
+                                </label>
+                            </div>
+                            <span style="margin-right: 15px; margin-top: 13px">تعديل مشرف</span>
+                        </div>
+                        <div class="form-group row">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="true" name="show_admin">
+                                </label>
+                            </div>
+                            <span style="margin-right: 15px; margin-top: 13px">عرض مشرف</span>
+                        </div>
+                        <div class="form-group row">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="true" name="delete_admin">
+                                </label>
+                            </div>
+                            <span style="margin-right: 15px; margin-top: 13px">حذف مشرف</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <div class="form-check"  >
+
+                                <label class="form-check-label"   >
+                                    <input type="checkbox" class="form-check-input " value="true" name="add_realestate_type">
+                                </label>
+                            </div>
+                            <span style="margin-right: 15px; margin-top: 13px">اضافة نوع عقار </span>
+                        </div>
+                        <div class="form-group row">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="true" name="update_realestate_type">
+                                </label>
+                            </div>
+                            <span style="margin-right: 15px; margin-top: 13px">تعديل نوع عقار</span>
+                        </div>
+                        <div class="form-group row">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="true" name="show_realestate_type">
+                                </label>
+                            </div>
+                            <span style="margin-right: 15px; margin-top: 13px">عرض نوع عقار</span>
+                        </div>
+                        <div class="form-group row">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="true" name="delete_realestate_type">
+                                </label>
+                            </div>
+                            <span style="margin-right: 15px; margin-top: 13px">حذف نوع عقار</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="true" name="show_company">
+                                </label>
+                            </div>
+                            <span style="margin-right: 15px; margin-top: 13px">عرض شركة</span>
+                        </div>
+                        <div class="form-group row">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="true" name="delete_company">
+                                </label>
+                            </div>
+                            <span style="margin-right: 15px; margin-top: 13px">حذف شركة</span>
+                        </div>
+                        <div class="form-group row">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="true" name="show_realestate">
+                                </label>
+                            </div>
+                            <span style="margin-right: 15px; margin-top: 13px">عرض عقار</span>
+                        </div>
+                        <div class="form-group row">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="true" name="delete_realestate">
+                                </label>
+                            </div>
+                            <span style="margin-right: 15px; margin-top: 13px">حذف عقار</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="true" name="show_user">
+                                </label>
+                            </div>
+                            <span style="margin-right: 15px; margin-top: 13px">عرض مستخدم</span>
+                        </div>
+                        <div class="form-group row">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="true" name="delete_user">
+                                </label>
+                            </div>
+                            <span style="margin-right: 15px; margin-top: 13px">حذف مستخدم</span>
+                        </div>
+                    </div>
+
+
+                </div>
 
               <div class="row">
                     <div class="col-md-6">

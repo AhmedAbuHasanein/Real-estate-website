@@ -14,9 +14,8 @@ Route::post('/register_account','Auth\RegisterController@store')->name('register
 Route::middleware('auth')->group(function () {
     //Routes Admin
     Route::prefix('Admin')->middleware("IsAdmin")->group(function () {
-        Route::get('/index', function () {
-            return view('admin.index');
-        })->name('admin_index');
+        Route::get('/', 'Admin\AdminController@profile')->name('admin_index');
+        Route::get('/myProfile', 'Admin\AdminController@profile')->name('admin_myProfile');
         Route::get('/management_users', 'Admin\UserController@index')->name('admin_management_users');
         Route::get('/show_user/{id}/profile','Admin\UserController@show')->middleware("IsShowUser")->name('admin_show_user');
         Route::get('/delete_user/{id}','Admin\UserController@delete')->middleware("IsDeleteUser")->name('admin_delete_user');
@@ -33,7 +32,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/add_admin','Admin\AdminController@store')->middleware('IsAddAdmin')->name('admin_add_admin');
         Route::post('/update_admin','Admin\AdminController@update')->middleware("IsUpdateAdmin")->name('admin_update_admin');
         Route::get('/show_admin/{id}/profile','Admin\AdminController@show')->middleware("IsShowAdmin")->name('admin_show_admin');
-        Route::get('ؤ{id}','Admin\AdminController@delete')->middleware("IsDeleteAdmin")->name('admin_delete_admin');
+        Route::get('/delete_admin','Admin\AdminController@delete')->middleware("IsDeleteAdmin")->name('admin_delete_admin');
 
         Route::get('/management_realestate_type', 'Admin\RealestateTypeController@index')->name('admin_management_realestate_types');
         Route::get('/add_realestate_type',function (){

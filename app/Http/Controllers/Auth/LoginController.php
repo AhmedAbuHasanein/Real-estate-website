@@ -64,7 +64,7 @@ class LoginController extends Controller
     public  function  logout(){
         if (Auth::check()){
             $user = Auth::user();
-            $user->status = "غير تشط";
+            $user->status = "غير نشط";
             $user->save();
             Auth::logout();
         }

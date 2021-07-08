@@ -28,6 +28,7 @@
                                             <thead>
                                             <tr>
                                                 <th  style="text-align: center">#</th>
+                                                <th  style="text-align: center"></th>
                                                 <th  style="text-align: center">الإسم بالكامل</th>
                                                 <th  style="text-align: center">البريد الإلكتروني</th>
                                                 <th  style="text-align: center">اسم المستخدم</th>
@@ -42,14 +43,12 @@
                                             @foreach($users as $user)
                                                 <tr>
                                                     <td>{{$count++}}</td>
-                                                    <td>
-                                                        <img src="{{asset($user->account->profile->profile_image)}}" alt="Product1" class="img-circle img-size-32 mr-2">
-                                                        {{$user->account->profile->first_name.' '.$user->account->profile->last_name}}
-                                                    </td>
+                                                    <td><img src="{{asset($user->account->profile->profile_image)}}" alt="Product1" class="img-circle img-size-32 mr-2"></td>
+                                                     <td style="text-align: center">{{$user->account->profile->first_name.' '.$user->account->profile->last_name}}</td>
                                                     <td style="text-align: center"> <a href="mailto:{{$user->account->email}}"> {{$user->account->email}}</a></td>
                                                     <td style="text-align: center">{{$user->account->user_name}}</td>
                                                     <td style="text-align: center">
-                                                        @if($user->account->status =='غير تشط')
+                                                        @if($user->account->status =='غير نشط')
                                                             <span class="float-right badge badge-danger " >{{$user->account->status}}</span>
                                                         @else
                                                             <span class="float-right badge badge-success ">{{$user->account->status}}</span>
@@ -58,9 +57,35 @@
                                                     <td>
                                                         <div class="btn-group">
                                                             <a class="btn" href="{{route('admin_show_user',['id'=>$user->id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
-                                                            <a class="btn" href="{{route('admin_delete_user',['id'=>$user->id])}}"> <i class="nav-item mdi mdi-account-remove"></i></a>
+                                                            <a class="btn" data-toggle="modal" data-target="#myModal{{$count}}" > <i class="nav-item mdi mdi-account-remove"></i></a>
                                                         </div>
                                                     </td>
+                                                    <div class="modal" id="myModal{{$count}}" style="direction :rtl">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+
+                                                                <!-- Modal Header -->
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title">حذف حساب </h4>
+                                                                    <button type="button" class="close" style="margin-right:70%" data-dismiss="modal">&times;</button>
+                                                                </div>
+
+                                                                <!-- Modal body -->
+                                                                <div class="modal-body" style="margin-left:60%">
+                                                                    هل تريد حذف حساب مستخدم؟
+                                                                </div>
+
+                                                                <!-- Modal footer -->
+                                                                <div class="modal-footer">
+                                                                    <a href="{{route('admin_delete_user',['id'=>$user->id])}}"><button type="button" class="btn btn-primary"  >نعم</button></a>
+
+                                                                    <button type="button" class="btn btn-danger" style="margin-left:55%" data-dismiss="modal">لا</button>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </tr>
                                             @endforeach
                                             @if($users->isEmpty())

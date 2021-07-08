@@ -29,6 +29,7 @@
                                 <thead>
                                 <tr>
                                     <th  style="text-align: center">#</th>
+                                    <th  style="text-align: center"></th>
                                     <th  style="text-align: center">اسم الشركة </th>
                                     <th  style="text-align: center">الرقم الوطني</th>
                                     <th  style="text-align: center">التقييم</th>
@@ -45,16 +46,14 @@
                                 @foreach($companies as $company)
                                     <tr>
                                         <td>{{$count++}}</td>
-                                        <td>
-                                            <img src="{{asset($company->logo_image)}}" alt="Product1" class="img-circle img-size-32 mr-2">
-                                            {{$company->company_name}}
-                                        </td>
+                                        <td><img src="{{asset($company->logo_image)}}" alt="Product1" class="img-circle img-size-32 mr-2"></td>
+                                        <td style="text-align: center">{{$company->company_name}}</td>
                                         <td style="text-align: center">{{$company->ssid}}</td>
                                         <td style="text-align: center">{{$company->score}}</td>
                                         <td style="text-align: center"> <a href="mailto:{{$company->account->email}}"> {{$company->account->email}}</a></td>
                                         <td style="text-align: center">{{$company->account->user_name}}</td>
                                         <td style="text-align: center">
-                                            @if($company->account->status =='غير تشط')
+                                            @if($company->account->status =='غير نشط')
                                                 <span class="float-right badge badge-danger " >{{$company->account->status}}</span>
                                             @else
                                                 <span class="float-right badge badge-success ">{{$company->account->status}}</span>
@@ -63,9 +62,34 @@
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn" href="{{route('admin_show_company',['id'=>$company->id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
-                                                <a class="btn" href="{{route('admin_delete_company',['id'=>$company->id])}}"> <i class="nav-item mdi mdi-account-remove"></i></a>
+                                                <a class="btn" data-toggle="modal" data-target="#myModal{{$count}}"> <i class="nav-item mdi mdi-account-remove"></i></a>
                                             </div>
                                         </td>
+                                        <div class="modal" id="myModal{{$count}}" style="direction :rtl">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">حذف حساب </h4>
+                                                        <button type="button" class="close" style="margin-right:70%" data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body" style="margin-left:60%">
+                                                        هل تريد حذف حساب الشركة؟
+                                                    </div>
+
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <a href="{{route('admin_delete_company',['id'=>$company->id])}}"><button type="button" class="btn btn-primary"  >نعم</button></a>
+
+                                                        <button type="button" class="btn btn-danger" style="margin-left:55%" data-dismiss="modal">لا</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </tr>
                                 @endforeach
                                 @if($companies->isEmpty())

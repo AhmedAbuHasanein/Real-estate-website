@@ -28,9 +28,11 @@
                                 <thead>
                                 <tr>
                                     <th  style="text-align: center">#</th>
+                                    <th  style="text-align: center"></th>
                                     <th  style="text-align: center">الإسم بالكامل</th>
                                     <th  style="text-align: center">البريد الإلكتروني</th>
                                     <th  style="text-align: center">اسم المستخدم</th>
+                                    <th  style="text-align: center">الدرجة</th>
                                     <th  style="text-align: center">الحالة	</th>
                                     <th  style="text-align: center" >المزيد</th>
                                 </tr>
@@ -42,14 +44,13 @@
                                 @foreach($admins as $admin)
                                     <tr>
                                         <td>{{$count++}}</td>
-                                        <td>
-                                            <img src="{{asset($admin->account->profile->profile_image)}}" alt="Product1" class="img-circle img-size-32 mr-2">
-                                            {{$admin->account->profile->first_name.' '.$admin->account->profile->last_name}}
-                                        </td>
+                                        <td><img src="{{asset($admin->account->profile->profile_image)}}" alt="Product1" class="img-circle img-size-32 mr-2"></td>
+                                        <td style="text-align: center">{{$admin->account->profile->first_name.' '.$admin->account->profile->last_name}}</td>
                                         <td style="text-align: center"> <a href="mailto:{{$admin->account->email}}"> {{$admin->account->email}}</a></td>
                                         <td style="text-align: center">{{$admin->account->user_name}}</td>
+                                        <td style="text-align: center">{{$admin->grade}}</td>
                                         <td style="text-align: center">
-                                            @if($admin->account->status =='غير تشط')
+                                            @if($admin->account->status =='غير نشط')
                                                 <span class="float-right badge badge-danger " >{{$admin->account->status}}</span>
                                             @else
                                                 <span class="float-right badge badge-success ">{{$admin->account->status}}</span>
@@ -58,9 +59,37 @@
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn" href="{{route('admin_show_admin',['id'=>$admin->id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
-                                                <a class="btn" href="{{route('admin_delete_admin',['id'=>$admin->id])}}"> <i class="nav-item mdi mdi-account-remove"></i></a>
+                                                <a class="btn" data-toggle="modal" data-target="#myModal{{$count}}"> <i class="nav-item mdi mdi-account-remove"></i></a>
                                             </div>
                                         </td>
+                                        <!-- The Modal -->
+                                        <div class="modal" id="myModal{{$count}}" style="direction :rtl">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">حذف حساب </h4>
+                                                        <button type="button" class="close" style="margin-right:70%" data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body" style="margin-left:60%">
+                                                        هل تريد حذف حساب المشرف؟
+                                                    </div>
+
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                       <a href="{{route('admin_delete_admin',['id'=>$admin->id])}}"><button type="button" class="btn btn-primary"  >نعم</button></a>
+
+                                                        <button type="button" class="btn btn-danger" style="margin-left:55%" data-dismiss="modal">لا</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                     </tr>
                                 @endforeach
                                 @if($admins->isEmpty())

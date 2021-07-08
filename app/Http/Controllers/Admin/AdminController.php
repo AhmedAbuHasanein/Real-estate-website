@@ -9,6 +9,7 @@ use App\Models\Company;
 use App\Models\profile;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +17,7 @@ class adminController extends Controller
 {
     public function  index(){
         $grade =auth()->user()->admin->grade;
-        $admins = Admin::all()->where('grade','>',$grade);
+        $admins = Admin::all()->where('grade','>',$grade)->sortby('grade');
         return view('admin.management_admins',compact('admins'));
     }
     /**
@@ -32,10 +33,12 @@ class adminController extends Controller
      * @return
      */
     public function store(Request $request){
+        $grade = Auth::user()->admin->grade;
         $rules =[
             'email' => 'required|email|unique:accounts|max:255',
             'user_name' => 'required|string|unique:accounts|max:150',
             'password' => 'required|string|max:150',
+            'grade'=> 'required:number:max:'.$grade,
             'first_name' => 'required|string|max:150',
             'last_name' => 'required|string|max:150',
             'gender' => 'required',
@@ -76,6 +79,51 @@ class adminController extends Controller
 
             $admin = new Admin();
             $admin->account_id = $account->id;
+            $admin->grade = $request->grade;
+            if($request->add_admin != null && $request->add_admin == "true"){
+                $admin->add_admin = true;
+            }
+            if($request->update_admin != null && $request->update_admin == "true"){
+                $admin->update_admin = true;
+            }
+            if($request->show_admin != null && $request->show_admin == "true"){
+                $admin->show_admin = true;
+            }
+            if($request->delete_admin != null && $request->delete_admin == "true"){
+                $admin->delete_admin = true;
+            }
+            if($request->add_realestate_type != null && $request->add_realestate_type == "true"){
+                $admin->add_realestate_type = true;
+            }
+        if($request->update_realestate_type != null && $request->update_realestate_type == "true"){
+            $admin->update_realestate_type = true;
+        }
+        if($request->show_realestate_type != null && $request->show_realestate_type == "true"){
+            $admin->show_realestate_type = true;
+        }
+        if($request->delete_realestate_type != null && $request->delete_realestate_type == "true"){
+            $admin->delete_realestate_type = true;
+        }
+        if($request->show_realestate != null && $request->show_realestate == "true"){
+            $admin->show_realestate = true;
+        }
+        if($request->delete_realestate != null && $request->delete_realestate == "true"){
+            $admin->delete_realestate = true;
+        }
+        if($request->show_user != null && $request->show_user == "true"){
+            $admin->show_user = true;
+        }
+        if($request->delete_user != null && $request->delete_user == "true"){
+            $admin->delete_user = true;
+        }
+        if($request->show_company != null && $request->show_company == "true"){
+            $admin->show_company = true;
+        }
+        if($request->delete_company != null && $request->delete_company == "true"){
+            $admin->delete_company = true;
+        }
+
+
             $admin->save();
        return redirect()->back()->with(['success'=>'تمت عملية إضافة المشرف بنجاح !']);
     }
@@ -85,6 +133,10 @@ class adminController extends Controller
      */
     public function update(Request $request){
         return true;
+    }
+    public  function profile(){
+            $admin = Auth::user();
+            return redirect()->route('admin_management_admins');
     }
     /**
      * @param $id
