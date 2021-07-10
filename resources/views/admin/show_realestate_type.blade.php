@@ -36,8 +36,8 @@
                                             </div>
                                             <div class="col-md-6">
 
-                                                <div class="row" >
-                                                    <img class="img-circle " style="margin-right: 30%" src="{{asset($realestate_type->emoji)}}" width="200px" height="150px">
+                                                <div class="row"  style="display: flex; justify-content: center">
+                                                    <img class="img-circle " style="border-radius: 4px" src="{{asset($realestate_type->emoji)}}" width="200px" height="150px">
                                                 </div>
 
                                                 <br/>

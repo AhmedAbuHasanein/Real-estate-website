@@ -132,7 +132,82 @@ class adminController extends Controller
      * @return
      */
     public function update(Request $request){
-        return true;
+        $admin = Admin::all()->find($request->id);
+        $admin->grade = $request->grade;
+        if($request->add_admin != null && $request->add_admin == "true"){
+            $admin->add_admin = true;
+        }else{
+            $admin->add_admin = false;
+        }
+        if($request->update_admin != null && $request->update_admin == "true"){
+            $admin->update_admin = true;
+        }else{
+            $admin->update_admin = false;
+        }
+        if($request->show_admin != null && $request->show_admin == "true"){
+            $admin->show_admin = true;
+        }else{
+            $admin->show_admin = false;
+        }
+        if($request->delete_admin != null && $request->delete_admin == "true"){
+            $admin->delete_admin = true;
+        }else{
+            $admin->delete_admin = false;
+        }
+        if($request->add_realestate_type != null && $request->add_realestate_type == "true"){
+            $admin->add_realestate_type = true;
+        }else{
+            $admin->add_realestate_type = false;
+        }
+        if($request->update_realestate_type != null && $request->update_realestate_type == "true"){
+            $admin->update_realestate_type = true;
+        }else{
+            $admin->update_realestate_type = false;
+        }
+        if($request->show_realestate_type != null && $request->show_realestate_type == "true"){
+            $admin->show_realestate_type = true;
+        }else{
+            $admin->show_realestate_type = false;
+        }
+        if($request->delete_realestate_type != null && $request->delete_realestate_type == "true"){
+            $admin->delete_realestate_type = true;
+        }else{
+            $admin->delete_realestate_type = false;
+        }
+        if($request->show_realestate != null && $request->show_realestate == "true"){
+            $admin->show_realestate = true;
+        }else{
+            $admin->show_realestate = false;
+        }
+        if($request->delete_realestate != null && $request->delete_realestate == "true"){
+            $admin->delete_realestate = true;
+        }else{
+            $admin->delete_realestate = false;
+        }
+        if($request->show_user != null && $request->show_user == "true"){
+            $admin->show_user = true;
+        }else{
+            $admin->show_user = false;
+        }
+        if($request->delete_user != null && $request->delete_user == "true"){
+            $admin->delete_user = true;
+        }else{
+            $admin->delete_user = false;
+        }
+        if($request->show_company != null && $request->show_company == "true"){
+            $admin->show_company = true;
+        }else{
+            $admin->show_company = false;
+        }
+        if($request->delete_company != null && $request->delete_company == "true"){
+            $admin->delete_company = true;
+        }else{
+            $admin->delete_company = false;
+        }
+
+
+        $admin->save();
+        return redirect()->back()->with(['success'=>'تمت عملية تعديل المشرف بنجاح !']);
     }
     public  function profile(){
             $admin = Auth::user();
@@ -143,11 +218,7 @@ class adminController extends Controller
      * @return
      */
     public function delete($id){
-        $grade = auth()->user()->admin->grade;
-       if(Admin::find($id)->where('grade','>', $grade)){
-           Admin::find($id)->delete();
-           return redirect()->back()->with(['success'=>'تمت عملية حذف المشرف بنجاح !']);
-       }
-        return redirect()->back()->with(['error'=>'لا تمتلك صلاحية لحذف هذا مشرف  !']);
+        Admin::find($id)->delete();
+        return redirect()->back()->with(['success' => 'تمت عملية حذف المشرف بنجاح !']);
     }
 }

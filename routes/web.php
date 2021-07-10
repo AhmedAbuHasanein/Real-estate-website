@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/add_admin','Admin\AdminController@store')->middleware('IsAddAdmin')->name('admin_add_admin');
         Route::post('/update_admin','Admin\AdminController@update')->middleware("IsUpdateAdmin")->name('admin_update_admin');
         Route::get('/show_admin/{id}/profile','Admin\AdminController@show')->middleware("IsShowAdmin")->name('admin_show_admin');
-        Route::get('/delete_admin','Admin\AdminController@delete')->middleware("IsDeleteAdmin")->name('admin_delete_admin');
+        Route::get('/delete_admin/{id}','Admin\AdminController@delete')->middleware("IsDeleteAdmin")->name('admin_delete_admin');
 
         Route::get('/management_realestate_type', 'Admin\RealestateTypeController@index')->name('admin_management_realestate_types');
         Route::get('/add_realestate_type',function (){
