@@ -209,10 +209,7 @@ class adminController extends Controller
         $admin->save();
         return redirect()->back()->with(['success'=>'تمت عملية تعديل المشرف بنجاح !']);
     }
-    public  function profile(){
-            $admin = Auth::user();
-            return redirect()->route('admin_management_admins');
-    }
+
     /**
      * @param $id
      * @return

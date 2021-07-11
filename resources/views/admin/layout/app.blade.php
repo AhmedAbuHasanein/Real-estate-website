@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" style="direction: rtl">
 @include('admin.layout.head')
-<body>
+<body @yield('body')>
 <div class="container-scroller">
     @include('admin.layout.navbar')
     <!-- partial -->

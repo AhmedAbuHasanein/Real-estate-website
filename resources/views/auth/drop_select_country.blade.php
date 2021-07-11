@@ -1,5 +1,5 @@
 
-            <select name="country"  required  class="form-control @error('country') is-invalid @enderror" >
+            <select name="country" id="country"  required  class="form-control @error('country') is-invalid @enderror" >
                 <option value="" disabled selected>إختر</option>
                 <option value="أفغانستان">أفغانستان</option>
                 <option value="ألبانيا">ألبانيا</option>

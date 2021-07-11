@@ -16,16 +16,21 @@ class ProfileSeeder extends Seeder
     public function run(Faker $faker){
         $array_id = Account::all()->pluck('id')->toArray();
         $gender_select = $faker->randomElement(['male', 'female']);
-        $gender = $faker->randomElement(['ذكر', 'أنثى']);
+        if( $gender_select == 'male'){
+            $gender = 'ذكر';
+        }else{
+            $gender = 'أنثى';
+        }
+
         $country = $faker->randomElement(['فلسطين','مصر','سوريا','الأردن','الكويت','السعودية','لبنان']);
         foreach($array_id as $id){
              $profile = new profile();
              $profile->first_name = $faker->firstName($gender_select) ;
             $profile->last_name = $faker->lastName ;
             $profile->country = $country ;
+
             $profile->gender = $gender ;
-            $profile->dob = $faker->dateTimeBetween('1980-01-01', '2006-12-31')
-                ;
+            $profile->dob = $faker->dateTimeBetween('1980-01-01', '2006-12-31');
             $profile->phone_number = $faker->phoneNumber ;
             $profile->address_1 = $faker->address;
             $profile->address_2 = $faker->secondaryAddress ;
