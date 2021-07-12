@@ -22,7 +22,7 @@
                         <form id="forms" class="form-sample" enctype="multipart/form-data" method="post" action="{{route('admin_update_profile')}}">
                             @csrf
                             <div class="nav-profile-image  " style="justify-content: center; display: flex" >
-                                <img src="{{asset($admin->account->profile->profile_image)}}"  style="border-radius: 50%;" alt="profile">
+                                <img src="{{asset($admin->account->profile->profile_image)}}" width="250px" height="250px"  style="border-radius: 50%;"  alt="profile">
 
                             </div>
                             <br/>
@@ -431,15 +431,13 @@
             for (x in document.getElementById("country")) {
                 text = document.getElementById('country')[x].value;
 
-                if (text ===  "فلسطين" ) {
+                if (text ===  value ) {
                     country[x].selected = "true";
+                    country[x].disabled = false;
 
                 }
             }
-                if(document.getElementById("country")[x].value === value){
-                    document.getElementById("country")[x].selected = true;
-                    document.getElementById("country")[x].disabled = false;
-                }
+
         }
         function abled_submit() {
             var password = document.forms['forms']['old_password'].value;

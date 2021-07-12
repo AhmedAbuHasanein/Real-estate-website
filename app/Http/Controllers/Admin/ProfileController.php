@@ -41,19 +41,20 @@ class ProfileController extends Controller
         if($validator->fails()){
             return redirect()->back()->withInput()->withErrors($validator->errors());
         }
-        if(Hash::make($request->old_password) != Auth::user()->password){
-            dd(Hash::make($request->old_password).'/////'. Auth::user()->password);
+        if(!(Hash::check($request->old_password,Auth::user()->password))){
             return redirect()->back()->with(['error'=>'كلمة المرور خطأ.']);
         }
         $account = Auth::user();
-        if(Account::all()->where('email','=',$request->email) == null){
+
+        if(Account::all()->where('email','=',$request->email)->isEmpty()){
             $account->email = $request->email;
-        }elseif (Account::all()->where('email','=',$request->email)->id != $account->id){
+        }elseif (Account::all()->where('email','=',$request->email)->first()->id != $account->id){
             return redirect()->back()->with(['error'=>'البريد الإلكتروني مستخدم مسبقا!.']);
         }
-        if(Account::all()->where('user_name','=',$request->user_name) == null){
+
+        if(Account::all()->where('user_name','=',$request->user_name)->isEmpty()){
             $account->user_name = $request->user_name;
-        }elseif (Account::all()->where('user_name','=',$request->user_name)->id != $account->id){
+        }elseif (Account::all()->where('user_name','=',$request->user_name)->first()->id != $account->id){
             return redirect()->back()->with(['error'=>'اسم المستخدم مستخدم مسبقا!']);
         }
 

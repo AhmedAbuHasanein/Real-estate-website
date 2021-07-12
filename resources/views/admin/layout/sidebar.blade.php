@@ -5,11 +5,11 @@
         <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                    <img src="{{asset($account->profile->profile_image)}}" alt="profile">
+                    <img src="{{asset($account->profile->profile_image)}}" alt="profile" >
                     <span class="login-status online"></span>
                     <!--change to offline or busy as needed-->
                 </div>
-                <div class="nav-profile-text d-flex flex-column">
+                <div class="nav-profile-text d-flex flex-column" style="margin: 10px">
                     <span class="font-weight-bold mb-2">{{$account->profile->first_name.' '.$account->profile->last_name }}</span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
