@@ -36,7 +36,7 @@ class RegisterController extends Controller
            'phone_number' => 'required|unique:profiles',
        ];
        if($request->exists('company_name')&& $request->exists('ssid')){
-           $rules['company_name']= 'required|string|max:255';
+           $rules['company_name']= 'required|string|max:255|unique:companies';
            $rules['ssid']=  'required|unique:companyController';
        }
        $masseges =[];

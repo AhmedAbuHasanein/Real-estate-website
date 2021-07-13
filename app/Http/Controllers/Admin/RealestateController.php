@@ -10,7 +10,7 @@ class RealestateController extends Controller
 {
     public function  index(){
         $realestates = Realestate::all();
-        return view('admin.management_realestate_types',compact('realestates'));
+        return view('admin.management_realestates',compact('realestates'));
     }
     /**
      * @param $id
@@ -18,16 +18,10 @@ class RealestateController extends Controller
      */
     public function show($id){
         $realestate= Realestate::find($id);
-        return view('admin.show_ realestate_type',compact('realestate'));
+        return view('admin.show_realestate',compact('realestate'));
     }
 
-    /**
-     * @param   $request
-     * @return
-     */
-    public function update(Request $request){
-        return true;
-    }
+
 
     /**
      * @param $id
@@ -35,6 +29,6 @@ class RealestateController extends Controller
      */
     public function delete($id){
         Realestate::find($id)->delete();
-        return redirect()->back()->with(['success'=>'تمت عملية حذف نوع العقار بنجاح !']);
+        return redirect()->back()->with(['success'=>'تمت عملية حذف  العقار بنجاح !']);
     }
 }

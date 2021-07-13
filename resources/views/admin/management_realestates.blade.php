@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 @section('title')
-    <title>إدارة الزبائن </title>
+    <title>إدارة العقارات </title>
 @stop
 @section('page padding')
     <div class="content-wrapper" style="direction: rtl">
@@ -8,7 +8,7 @@
             <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2" style="margin-left: 10px">
                   <i class="mdi mdi-table-large"></i>
-                </span> إدارة الزبائن
+                </span> إدارة العقارات
             </h3>
         </div>
         <div class="row">
@@ -17,7 +17,7 @@
 
                     <div class="card-body">
 
-                        <h4 class="card-title" style="text-align:right">إدارة الزبائن</h4>
+                        <h4 class="card-title" style="text-align:right">إدارة العقارات</h4>
                         <div class="card-header border-0 " >
 
                             <input class="form-control mb-4 col-lg-3 col-md-5 col-sm-6 "  id="tableSearch" type="text" placeholder="بحث">
@@ -28,10 +28,12 @@
                                 <thead>
                                 <tr>
                                     <th  style="text-align: center">#</th>
-                                    <th  style="text-align: center">الإسم بالكامل</th>
-                                    <th  style="text-align: center">البريد الإلكتروني</th>
-                                    <th  style="text-align: center">اسم المستخدم</th>
-                                    <th  style="text-align: center">الحالة	</th>
+                                    <th  style="text-align: center"></th>
+                                    <th  style="text-align: center"> اسم الشركة</th>
+                                    <th  style="text-align: center">وصف العقار</th>
+                                    <th  style="text-align: center">السعر</th>
+                                    <th  style="text-align: center">المساحة</th>
+                                    <th  style="text-align: center">الحالة</th>
                                     <th  style="text-align: center" >المزيد</th>
                                 </tr>
                                 </thead>
@@ -39,25 +41,27 @@
                                 <?php
                                 $count =1;
                                 ?>
-                                @foreach($users as $user)
+                                @foreach($realestates as $realestate)
                                     <tr>
                                         <td>{{$count++}}</td>
                                         <td>
-                                            <img src="{{asset($user->account->profile->profile_image)}}" alt="Product1" class="img-circle img-size-32 mr-2">
-                                            {{$user->account->profile->first_name.' '.$user->account->profile->last_name}}
+                                            <img src="{{asset($realestate->main_image)}}" alt="Product1" class="img-circle img-size-32 mr-2">
                                         </td>
-                                        <td style="text-align: center"> <a href="mailto:{{$user->account->email}}"> {{$user->account->email}}</a></td>
-                                        <td style="text-align: center">{{$user->account->user_name}}</td>
+                                        <td style="text-align: center"> {{$realestate->company->company_name}}</td>
+                                        <td style="text-align: center">{{$realestate->description}}</td>
+                                        <td style="text-align: center">${{$realestate->price}}</td>
+                                        <td style="text-align: center">{{$realestate->space}}</td>
                                         <td style="text-align: center">
-                                            @if($user->account->status =='غير تشط')
-                                                <span class="float-right badge badge-danger " >{{$user->account->status}}</span>
+                                            @if($realestate->status =='غير متاح')
+                                                <span class="float-right badge badge-danger " >{{$realestate->status}}</span>
                                             @else
-                                                <span class="float-right badge badge-success ">{{$user->account->status}}</span>
+                                                <span class="float-right badge badge-success ">{{$realestate->status}}</span>
                                             @endif
                                         </td>
                                         <td>
                                             <div class="btn-group">
-                                                <a class="btn" href="{{route('admin_show_user',['id'=>$user->id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
+                                                <a class="btn" href="{{route('admin_show_company',['id'=>$realestate->company->id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
+                                                <a class="btn" href="{{route('admin_show_realestate',['id'=>$realestate->id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
                                                 <a class="btn" data-toggle="modal" data-target="#myModal{{$count}}" > <i class="nav-item mdi mdi-account-remove"></i></a>
                                             </div>
                                         </td>
@@ -78,7 +82,7 @@
 
                                                     <!-- Modal footer -->
                                                     <div class="modal-footer">
-                                                        <a href="{{route('admin_delete_user',['id'=>$user->id])}}"><button type="button" class="btn btn-primary"  >نعم</button></a>
+                                                        <a href="{{route('admin_delete_realestate',['id'=>$realestate->id])}}"><button type="button" class="btn btn-primary"  >نعم</button></a>
 
                                                         <button type="button" class="btn btn-danger" style="margin-left:55%" data-dismiss="modal">لا</button>
                                                     </div>
@@ -89,9 +93,9 @@
 
                                     </tr>
                                 @endforeach
-                                @if($users->isEmpty())
+                                @if($realestates->isEmpty())
                                     <tr>
-                                        <td colspan="6">
+                                        <td colspan="8">
                                             <div class="p-3">
                                                 <p  style="text-align: center"> <b>الجدول لا يحتوي على بيانات</b></p>
                                             </div>

@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Company;
 use App\Models\Realestate;
+use App\Models\Realestate_type;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RealestateFactory extends Factory
@@ -21,8 +23,20 @@ class RealestateFactory extends Factory
      */
     public function definition()
     {
+        $status = ['متاح','غير متاح'];
+        $companies_id = Company::all()->pluck('id') ;
+        $realestate_type_id = Realestate_type::all()->pluck('id');
         return [
-            //
+            'description' => $this->faker->text(200),
+            'space' => $this->faker->numberBetween(100,1000),
+            'price' => $this->faker->numberBetween(100,1000),
+            'location' => $this->faker->address,
+            'address' => $this->faker->address,
+            'status' => $this->faker->randomElement($status),
+            'company_id' => $this->faker->randomElement($companies_id),
+            'realestate_type_id' => $this->faker->randomElement($realestate_type_id),
+            'main_image' => $this->faker->imageUrl('300','200','real'),
+
         ];
     }
 }
