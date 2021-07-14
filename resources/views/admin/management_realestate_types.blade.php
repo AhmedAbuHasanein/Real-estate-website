@@ -96,6 +96,10 @@
                                 @endif
                                 </tbody>
                             </table>
+                            <br/>
+                            <div class="row justify-content-center"  >   {{$realestate_types->links()}} </div>
+
+                            <br/>
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,7 @@ use Illuminate\Routing\Route;
 class UserController extends Controller
 {
     public function  index(){
-        $users = User::all();
+        $users = User::paginate(10);
         return view('admin.management_users',compact('users'));
     }
 

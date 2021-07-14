@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class RealestateController extends Controller
 {
     public function  index(){
-        $realestates = Realestate::all();
+        $realestates = Realestate::paginate(10);
         return view('admin.management_realestates',compact('realestates'));
     }
     /**

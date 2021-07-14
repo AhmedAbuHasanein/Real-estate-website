@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class RealestateTypeController extends Controller
 {
     public function  index(){
-        $realestate_types = Realestate_type::all();
+        $realestate_types = Realestate_type::paginate(10);
         return view('admin.management_realestate_types',compact('realestate_types'));
     }
     /**

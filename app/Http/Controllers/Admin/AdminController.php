@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Account;
 use App\Models\Admin;
-use App\Models\Company;
 use App\Models\profile;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +15,7 @@ class adminController extends Controller
 {
     public function  index(){
         $grade =auth()->user()->admin->grade;
-        $admins = Admin::all()->where('grade','>',$grade)->sortby('grade');
+        $admins = Admin::where('grade','>',$grade)->paginate(10);
         return view('admin.management_admins',compact('admins'));
     }
     /**

@@ -103,6 +103,10 @@
                                 @endif
                                 </tbody>
                             </table>
+                            <br/>
+                            <div class="row justify-content-center"  >   {{$admins->links()}} </div>
+
+                            <br/>
                         </div>
                     </div>
                 </div>

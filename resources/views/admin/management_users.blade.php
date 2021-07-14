@@ -99,6 +99,10 @@
                                             @endif
                                             </tbody>
                                         </table>
+                                    <br/>
+                                    <div class="row justify-content-center"  >   {{$users->links()}} </div>
+
+                                    <br/>
                                     </div>
                             </div>
                         </div>

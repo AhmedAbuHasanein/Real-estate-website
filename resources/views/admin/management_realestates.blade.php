@@ -104,6 +104,10 @@
                                 @endif
                                 </tbody>
                             </table>
+                            <br/>
+                            <div class="row justify-content-center"  >   {{$realestates->links()}} </div>
+
+                            <br/>
                         </div>
                     </div>
                 </div>
