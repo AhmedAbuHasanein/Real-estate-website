@@ -15,6 +15,14 @@
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
             </a>
         </li>
+
+        <li class="nav-item" style="direction: rtl">
+            <a class="nav-link" href="{{route('admin_myProfile')}}">
+                <i class="mdi mdi-account menu-icon" style="margin-left:25px "></i>
+                <span class="menu-title ">الصفحة الشخصية</span>
+
+            </a>
+        </li>
         <li class="nav-item" style="direction: rtl">
             <a class="nav-link" href="{{route('admin_management_users')}}">
                 <i class="mdi mdi-table-large menu-icon" style="margin-left:25px "></i>

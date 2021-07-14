@@ -24,7 +24,7 @@
 
                         </div>
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-striped" style="direction: rtl">
+                            <table class="table table-striped">
                                 <thead>
                                 <tr>
                                     <th  style="text-align: center">#</th>
@@ -47,11 +47,11 @@
                                         <td>
                                             <img src="{{asset($realestate->main_image)}}" alt="Product1" class="img-circle img-size-32 mr-2">
                                         </td>
-                                        <td style="text-align: center"> {{$realestate->company->company_name}}</td>
-                                        <td style="text-align: center">{{$realestate->description}}</td>
-                                        <td style="text-align: center">${{$realestate->price}}</td>
-                                        <td style="text-align: center">{{$realestate->space}}</td>
-                                        <td style="text-align: center">
+                                        <td style="text-align: right"> {{$realestate->company->company_name}}</td>
+                                        <td style="text-align: right">{{$realestate->description}}</td>
+                                        <td style="text-align: right">${{$realestate->price}}</td>
+                                        <td style="text-align: right">{{$realestate->space}}</td>
+                                        <td style="text-align: right">
                                             @if($realestate->status =='غير متاح')
                                                 <span class="float-right badge badge-danger " >{{$realestate->status}}</span>
                                             @else
@@ -60,9 +60,9 @@
                                         </td>
                                         <td>
                                             <div class="btn-group">
-                                                <a class="btn" href="{{route('admin_show_company',['id'=>$realestate->company->id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
-                                                <a class="btn" href="{{route('admin_show_realestate',['id'=>$realestate->id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
-                                                <a class="btn" data-toggle="modal" data-target="#myModal{{$count}}" > <i class="nav-item mdi mdi-account-remove"></i></a>
+                                                <a class="btn" href="{{route('admin_show_company',['id'=>$realestate->company->id])}}"> <i class="nav-item mdi mdi-bank"></i></a>
+                                                <a class="btn" href="{{route('admin_show_realestate',['id'=>$realestate->id])}}"> <i class="nav-item mdi mdi-home"></i></a>
+                                                <a class="btn" data-toggle="modal" data-target="#myModal{{$count}}" > <i class="nav-item mdi mdi-close"></i></a>
                                             </div>
                                         </td>
                                         <div class="modal" id="myModal{{$count}}" style="direction :rtl">
@@ -104,11 +104,12 @@
                                 @endif
                                 </tbody>
                             </table>
-                            <br/>
-                            <div class="row justify-content-center"  >   {{$realestates->links()}} </div>
 
-                            <br/>
                         </div>
+                        <br/>
+                        <div class="row justify-content-center"  >   {{$realestates->links()}} </div>
+
+                        <br/>
                     </div>
                 </div>
             </div>

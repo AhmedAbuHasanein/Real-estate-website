@@ -61,8 +61,8 @@
                                         </td>
                                         <td>
                                             <div class="btn-group">
-                                                <a class="btn" href="{{route('admin_show_company',['id'=>$company->id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
-                                                <a class="btn" data-toggle="modal" data-target="#myModal{{$count}}"> <i class="nav-item mdi mdi-account-remove"></i></a>
+                                                <a class="btn" href="{{route('admin_show_company',['id'=>$company->id])}}"> <i class="nav-item mdi mdi-bank"></i></a>
+                                                <a class="btn" data-toggle="modal" data-target="#myModal{{$count}}"> <i class="nav-item mdi mdi-close"></i></a>
                                             </div>
                                         </td>
                                         <div class="modal" id="myModal{{$count}}" style="direction :rtl">
@@ -103,11 +103,12 @@
                                 @endif
                                 </tbody>
                             </table>
-                            <br/>
-                            <div class="row justify-content-center"  >   {{$companies->links()}} </div>
 
-                            <br/>
                         </div>
+                        <br/>
+                        <div class="row justify-content-center"  >   {{$companies->links()}} </div>
+
+                        <br/>
                     </div>
                 </div>
             </div>

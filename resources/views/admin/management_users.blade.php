@@ -56,7 +56,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group">
-                                                            <a class="btn" href="{{route('admin_show_user',['id'=>$user->id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
+                                                            <a class="btn" href="{{route('admin_show_user',['id'=>$user->id])}}"> <i class="nav-item mdi mdi-account"></i></a>
                                                             <a class="btn" data-toggle="modal" data-target="#myModal{{$count}}" > <i class="nav-item mdi mdi-account-remove"></i></a>
                                                         </div>
                                                     </td>
@@ -99,11 +99,12 @@
                                             @endif
                                             </tbody>
                                         </table>
-                                    <br/>
-                                    <div class="row justify-content-center"  >   {{$users->links()}} </div>
 
-                                    <br/>
                                     </div>
+                                <br/>
+                                <div class="row justify-content-center"  >   {{$users->links()}} </div>
+
+                                <br/>
                             </div>
                         </div>
                     </div>

@@ -10,7 +10,7 @@
         <div class="page-header">
             <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2" style="margin-left: 10px" >
-                  <i class="mdi mdi-table-large"></i>
+                  <i class="mdi mdi-account"></i>
                 </span> الملف الشخصي
             </h3>
         </div>

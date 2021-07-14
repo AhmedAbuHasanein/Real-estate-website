@@ -52,9 +52,9 @@
                                         <td style="text-align: center"> <a href="mailto:{{$realestate_type->admin->account->email}}"> {{$realestate_type->admin->account->email}}</a></td>
                                         <td>
                                             <div class="btn-group">
-                                                <a class="btn" href="{{route('admin_show_admin',['id'=>$realestate_type->admin_id])}}"> <i class="nav-item mdi mdi-account-circle"></i></a>
-                                                <a class="btn" href="{{route('admin_show_realestate_type',['id'=>$realestate_type->id])}}"> <i class="nav-item mdi-home-outline"></i></a>
-                                                <a class="btn" data-toggle="modal" data-target="#myModal{{$count}}" > <i class="nav-item mdi mdi-account-remove"></i></a>
+                                                <a class="btn" href="{{route('admin_show_admin',['id'=>$realestate_type->admin_id])}}"> <i class="nav-item mdi mdi-account"></i></a>
+                                                <a class="btn" href="{{route('admin_show_realestate_type',['id'=>$realestate_type->id])}}"> <i class="nav-item mdi mdi-eye"></i></a>
+                                                <a class="btn" data-toggle="modal" data-target="#myModal{{$count}}" > <i class="nav-item mdi mdi-close"></i></a>
                                             </div>
                                         </td>
                                         <div class="modal" id="myModal{{$count}}" style="direction :rtl">
@@ -96,11 +96,12 @@
                                 @endif
                                 </tbody>
                             </table>
-                            <br/>
-                            <div class="row justify-content-center"  >   {{$realestate_types->links()}} </div>
 
-                            <br/>
                         </div>
+                        <br/>
+                        <div class="row justify-content-center"  >   {{$realestate_types->links()}} </div>
+
+                        <br/>
                     </div>
                 </div>
             </div>
