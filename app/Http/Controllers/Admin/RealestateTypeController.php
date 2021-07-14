@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Account;
+use App\Models\Admin;
 use App\Models\Realestate_type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +23,27 @@ class RealestateTypeController extends Controller
     public function show($id){
         $realestate_type= Realestate_type::find($id);
         return view('admin.show_realestate_type',compact('realestate_type'));
+    }
+    /**
+     * @param $request
+     * @return
+     */
+    public function  search(Request $request){
+        if($request->search_admin == null || $request->value_search == null ){
+            return redirect()->back();
+        }
+
+        if($request->search_admin == 'type'){
+            $realestate_types = Realestate_type::where('type', '=', $request->value_search)->paginate(10);
+        }else if($request->search_admin == 'email'){
+            $accounts_id = Account::all()->where('email','=',$request->value_search)->pluck('id')->toArray();
+            $admins = Admin::whereIn('account_id', $accounts_id )->pluck('id')->toArray();
+            $realestate_types = Realestate_type::whereIn('admin_id', $admins)->paginate(10);
+        }else{
+            return redirect()->back();
+        }
+
+        return view('admin.management_realestate_types',compact('realestate_types'));
     }
     /**
      * @param   $request

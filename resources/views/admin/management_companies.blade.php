@@ -21,8 +21,20 @@
                         <h4 class="card-title" style="text-align:right"> إدارة الشركات</h4>
                         <div class="card-header border-0 " >
 
-                            <input class="form-control mb-4 col-lg-3 col-md-5 col-sm-6 "  id="tableSearch" type="text" placeholder="بحث">
-
+                            <form method="get" action="{{route('admin_search_company')}}">
+                                @csrf
+                                <div class=" row">
+                                    <input class="form-control mb-4 col-lg-3 col-md-4 col-sm-4 mr-3" name="value_search"  id="tableSearch" type="text" placeholder="بحث" required>
+                                    <select class="form-control mb-4 col-lg-3 col-md-4 col-sm-4 mr-4" name="search_admin" required>
+                                        <option  disabled selected>إختر</option>
+                                        <option value="user_name" >اسم المستخدم</option>
+                                        <option value="email">البريد الالكتروني</option>
+                                        <option value="ssid">الرقم الوطني</option>
+                                        <option value="company_name">اسم الشركة</option>
+                                    </select>
+                                    <button class="btn btn-primary  mr-4" style="height: 45px" type="submit">بحث</button>
+                                </div>
+                            </form>
                         </div>
                         <div class="card-body table-responsive p-0">
                             <table class="table table-striped" style="direction: rtl">
@@ -94,7 +106,7 @@
                                 @endforeach
                                 @if($companies->isEmpty())
                                     <tr>
-                                        <td colspan="6">
+                                        <td colspan="9">
                                             <div class="p-3">
                                                 <p  style="text-align: center"> <b>الجدول لا يحتوي على بيانات</b></p>
                                             </div>

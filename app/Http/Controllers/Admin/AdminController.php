@@ -18,6 +18,32 @@ class adminController extends Controller
         $admins = Admin::where('grade','>',$grade)->paginate(10);
         return view('admin.management_admins',compact('admins'));
     }
+
+    /**
+     * @param $request
+     * @return
+     */
+    public function  search(Request $request){
+        if($request->search_admin == null || $request->value_search == null ){
+            return redirect()->back();
+        }
+        $grade =auth()->user()->admin->grade;
+
+        if($request->search_admin == 'user_name'){
+            $accounts_id = Account::all()->where('user_name','=',$request->value_search)->pluck('id')->toArray();
+            $admins = Admin::where('grade','>',$grade)->whereIn('account_id', $accounts_id )->paginate(10);
+        }else if($request->search_admin == 'email'){
+            $accounts_id = Account::all()->where('email','=',$request->value_search)->pluck('id')->toArray();
+            $admins = Admin::where('grade','>',$grade)->whereIn('account_id', $accounts_id )->paginate(10);
+
+        }else if($request->search_admin == 'grade'){
+            $admins = Admin::where('grade','>',$grade)->where('grade','=',$request->value_search)->paginate(10);
+        }else{
+            return redirect()->back();
+        }
+
+            return view('admin.management_admins',compact('admins'));
+    }
     /**
      * @param $id
      * @return
