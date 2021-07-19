@@ -19,4 +19,7 @@ class Realestate extends Model
     public function image_realestates(){
         return $this->hasMany(Image_Realestate::class);
     }
+    public function proof_of_ownership_real_estates(){
+        return $this->belongsToMany(Proof_Of_Ownership_RealEstate::class);
+    }
 }

@@ -35,7 +35,7 @@ class RealestateFactory extends Factory
             'status' => $this->faker->randomElement($status),
             'company_id' => $this->faker->randomElement($companies_id),
             'realestate_type_id' => $this->faker->randomElement($realestate_type_id),
-            'main_image' => $this->faker->imageUrl('300','200','real'),
+            'main_image' => 'asset\visitor\img\francesca-tosolini-XcVm8mn7NUM-unsplash.jpg',
 
         ];
     }

@@ -1,6 +1,5 @@
 <!-- partial:partials/_navbar.html -->
-<?php $account = \Illuminate\Support\Facades\Auth::user(); ?>
-<nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+<nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row ">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="{{route('admin_index')}}"><h1><b>RESAR</b></h1></a>
         <a class="navbar-brand brand-logo-mini" href="{{route('admin_index')}}"><img src="{{asset('asset/admin/assets/images/logo-mini.svg')}}" alt="logo" /></a>

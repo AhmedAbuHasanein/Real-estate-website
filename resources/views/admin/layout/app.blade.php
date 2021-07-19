@@ -1,9 +1,10 @@
+<?php $account = \Illuminate\Support\Facades\Auth::user(); ?>
 <!DOCTYPE html>
-<html lang="en" style="direction: rtl">
-@include('admin.layout.head')
-<body @yield('body')>
-<div class="container-scroller">
-    @include('admin.layout.navbar')
+<html lang="ar" style="direction: rtl">
+@include('admin.layout.head',$account)
+<body  @yield('body')>
+<div class="container-scroller ">
+    @include('admin.layout.navbar',$account)
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
        @include('admin.layout.sidebar')

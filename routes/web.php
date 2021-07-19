@@ -70,6 +70,9 @@ Route::middleware('auth')->group(function () {
 });
 //Routes Visitor
 Route::prefix('Visitor')->group(function () {
+    Route::get('test',function (){
+       return view('visitor.index');
+    });
 });
 
 

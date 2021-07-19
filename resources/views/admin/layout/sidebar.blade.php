@@ -1,8 +1,8 @@
-<?php $account = \Illuminate\Support\Facades\Auth::user(); ?>
+
 <!-- partial:partials/_sidebar.html -->
 <nav class="sidebar sidebar-offcanvas" id="sidebar" >
-    <ul class="nav">
-        <li class="nav-item nav-profile">
+    <ul class="nav" >
+        <li class="nav-item nav-profile" >
             <a href="#" class="nav-link">
                 <div class="nav-profile-image">
                     <img src="{{asset($account->profile->profile_image)}}" alt="profile" >
@@ -16,39 +16,39 @@
             </a>
         </li>
 
-        <li class="nav-item" style="direction: rtl">
+        <li class="nav-item" >
             <a class="nav-link" href="{{route('admin_myProfile')}}">
                 <i class="mdi mdi-account menu-icon" style="margin-left:25px "></i>
                 <span class="menu-title ">الصفحة الشخصية</span>
 
             </a>
         </li>
-        <li class="nav-item" style="direction: rtl">
+        <li class="nav-item" >
             <a class="nav-link" href="{{route('admin_management_users')}}">
                 <i class="mdi mdi-table-large menu-icon" style="margin-left:25px "></i>
                 <span class="menu-title ">إدارة الزبائن</span>
 
             </a>
         </li>
-        <li class="nav-item" style="direction: rtl">
+        <li class="nav-item" >
             <a class="nav-link" href="{{route('admin_management_companies')}}">
                 <i class="mdi mdi-table-large menu-icon" style="margin-left:25px "></i>
                 <span class="menu-title">إدارة الشركات</span>
             </a>
         </li>
-        <li class="nav-item" style="direction: rtl">
+        <li class="nav-item" >
             <a class="nav-link" href="{{route('admin_management_admins')}}">
                 <i class="mdi mdi-table-large menu-icon" style="margin-left:25px "></i>
                 <span class="menu-title">إدارة المشرفين</span>
             </a>
         </li>
-        <li class="nav-item" style="direction: rtl">
+        <li class="nav-item" >
             <a class="nav-link" href="{{route('admin_management_realestate_types')}}">
                 <i class="mdi mdi-table-large menu-icon" style="margin-left:25px "></i>
                 <span class="menu-title">إدارة أنواع العقارات</span>
             </a>
         </li>
-        <li class="nav-item" style="direction: rtl">
+        <li class="nav-item" >
             <a class="nav-link" href="{{route('admin_management_realestates')}}">
                 <i class="mdi mdi-table-large menu-icon" style="margin-left:25px "></i>
                 <span class="menu-title">إدارة العقارات</span>
