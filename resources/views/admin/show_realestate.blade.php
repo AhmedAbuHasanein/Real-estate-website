@@ -72,17 +72,17 @@
 
                                 </div>
                                 <div id="document" class="tabcontent" style="text-align: right;" >
-{{--                                    <div class="row" style="padding-right: 10px; padding-left: 10px" >--}}
-{{--                                        @foreach($realestate->proof_of_ownership_real_estates as $document)--}}
-{{--                                            <div class="column">--}}
-{{--                                                <img class="card-img-top" src="{{asset($document->url)}}" alt="Card image" style="width:100%">--}}
-{{--                                            </div>--}}
-{{--                                        @endforeach--}}
-{{--                                        @if($realestate->proof_of_ownership_real_estates->isEmpty())--}}
-{{--                                            <p style="justify-content: center">لا يوجد مستندات</p>--}}
-{{--                                        @endif--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                    <div class="row" style="padding-right: 10px; padding-left: 10px" >
+                                        @foreach($realestate->real_estate_documents as $document)
+                                            <div class="column">
+                                                <img class="card-img-top" src="{{asset($document->url)}}" alt="Card image" style="width:100%">
+                                            </div>
+                                        @endforeach
+                                        @if($realestate->real_estate_documents->isEmpty())
+                                            <p style="justify-content: center">لا يوجد مستندات</p>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

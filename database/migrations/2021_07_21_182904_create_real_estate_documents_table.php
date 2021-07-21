@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProofOfOwnershipRealEstatesTable extends Migration
+class CreateRealEstateDocumentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProofOfOwnershipRealEstatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('proof__of__ownership__real_estates', function (Blueprint $table) {
+        Schema::create('real_estate_documents', function (Blueprint $table) {
             $table->id();
             $table->string('type');
             $table->string('Url');
@@ -31,6 +31,6 @@ class CreateProofOfOwnershipRealEstatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proof__of__ownership__real_estates');
+        Schema::dropIfExists('real_estate_documents');
     }
 }

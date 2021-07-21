@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Proof_Of_Ownership_RealEstate extends Model
+class RealEstateDocuments extends Model
 {
     use HasFactory;
     use SoftDeletes;

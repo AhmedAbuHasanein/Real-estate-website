@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Proof_Of_Ownership_RealEstate;
+use App\Models\RealEstateDocuments;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ProofOfOwnershipRealEstateFactory extends Factory
+class RealEstateDocumentsFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Proof_Of_Ownership_RealEstate::class;
+    protected $model = RealEstateDocuments::class;
 
     /**
      * Define the model's default state.
