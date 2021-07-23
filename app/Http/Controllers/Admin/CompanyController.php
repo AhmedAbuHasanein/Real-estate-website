@@ -19,7 +19,7 @@ class companyController extends Controller
      */
     public function show($id){
         $company =Company::find($id);
-        return view('admin.show_user',compact('company'));
+        return view('admin.show_company',compact('company'));
     }
     /**
      * @param $request

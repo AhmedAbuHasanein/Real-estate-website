@@ -35,7 +35,7 @@
                                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
                                     </div>
                                     <div class="card-body" style="text-align: right">
-                                        <h4 class="card-title">اسم الشركة : {{$realestate->company->company_name}}  </h4>
+                                        <h4 class="card-title">اسم الشركة : <a href="{{route('admin_show_company',['id' => $realestate->company->id])}}">{{$realestate->company->company_name}}</a>  </h4>
                                         <h4 class="card-title">نوع العقار : {{$realestate->realestate_type->type}}  </h4>
                                         <h4 class="card-title">الوصف : {{$realestate->description}} </h4>
                                         <h4 class="card-title"> السعر :{{$realestate->price}} $</h4>
