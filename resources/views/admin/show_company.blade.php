@@ -169,7 +169,13 @@
                                             <div class="card col-lg-6 col-md-12 col-sm-12" >
                                                 <img class="card-img-top" src="{{asset($realestate->main_image)}}" alt="Card image" style="width:100%">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">John Doe</h4>
+                                                    <h4 class="card-title">
+                                                        @if($realestate->status =='غير متاح')
+                                                            <span class=" badge badge-danger " >{{$realestate->status}}</span>
+                                                        @else
+                                                            <span class="badge badge-success ">{{$realestate->status}}</span>
+                                                        @endif
+                                                    </h4>
                                                     <p class="card-text">{{$realestate->description}}</p>
                                                     <a href="{{route('admin_show_realestate',['id'=>$realestate->id])}}" class="btn btn-primary stretched-link">المزيد</a>
                                                 </div>

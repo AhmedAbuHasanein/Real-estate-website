@@ -55,8 +55,8 @@
                             </div>
                             <div >
                                 <div class="tab "  style="direction: rtl">
-                                    <button class="tablinks" onclick="openTab(event, 'image_Gallery')"  id="defaultOpen" >Gallery</button>
-                                    <button class="tablinks" onclick="openTab(event, 'document')"  >Document</button>
+                                    <button class="tablinks" onclick="openTab(event, 'image_Gallery')"  id="defaultOpen" >معرض الصور</button>
+                                    <button class="tablinks" onclick="openTab(event, 'document')"  >مستندات الملكية</button>
                                 </div>
                                 <div id="image_Gallery" class="tabcontent" style="text-align: right;">
                                     <div class="row" style="padding-right: 10px; padding-left: 10px" >
@@ -66,7 +66,7 @@
                                        </div>
                                        @endforeach
                                         @if($realestate->image_realestates->isEmpty())
-                                            <p style="justify-content: center">لا يوجد صور </p>
+                                            <p style="margin: auto">لا يوجد صور </p>
                                         @endif
                                     </div>
 
@@ -79,7 +79,7 @@
                                             </div>
                                         @endforeach
                                         @if($realestate->real_estate_documents->isEmpty())
-                                            <p style="justify-content: center">لا يوجد مستندات</p>
+                                            <p style="margin: auto">لا يوجد مستندات</p>
                                         @endif
                                     </div>
                                 </div>

@@ -41,9 +41,8 @@
                                     <th  style="text-align: center">#</th>
                                     <th  style="text-align: center"></th>
                                     <th  style="text-align: center"> اسم الشركة</th>
-                                    <th  style="text-align: center">وصف العقار</th>
-                                    <th  style="text-align: center">السعر</th>
-                                    <th  style="text-align: center">المساحة</th>
+                                    <th  style="text-align: center">تاريخ الانشاء </th>
+                                    <th  style="text-align: center">تاريخ اخر نعديل</th>
                                     <th  style="text-align: center">الحالة</th>
                                     <th  style="text-align: center" >المزيد</th>
                                 </tr>
@@ -59,9 +58,8 @@
                                             <img src="{{asset($realestate->main_image)}}" alt="Product1" class="img-circle img-size-32 mr-2">
                                         </td>
                                         <td style="text-align: right"> {{$realestate->company->company_name}}</td>
-                                        <td style="text-align: right">{{$realestate->description}}</td>
-                                        <td style="text-align: right">${{$realestate->price}}</td>
-                                        <td style="text-align: right">{{$realestate->space}}</td>
+                                        <td style="text-align: right">{{$realestate->created_at}}</td>
+                                        <td style="text-align: right">${{$realestate->updated_at}}</td>
                                         <td style="text-align: right">
                                             @if($realestate->status =='غير متاح')
                                                 <span class="float-right badge badge-danger " >{{$realestate->status}}</span>
