@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +49,7 @@
                             </div>
 
                             <div class="form-check form-check-inline">
-                                <input  type="checkbox" class="form-check-input" id="remember-me">
+                                <input  type="checkbox" class="form-check-input" id="remember-me" name="remember_me" >
                                 <label class="form-check-label" for="remember-me">تذكرني</label>
                             </div>
                             <div >

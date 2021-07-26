@@ -16,6 +16,9 @@ class Company extends Model
     public function realestates(){
         return $this->hasMany(Realestate::class);
     }
+    public function company_documents(){
+        return $this->hasMany(Company_Documents::class);
+    }
     public function subsecriperes(){
         return $this->hasMany(Subscripe::class);
     }

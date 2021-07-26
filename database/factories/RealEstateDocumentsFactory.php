@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Realestate;
 use App\Models\RealEstateDocuments;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -21,8 +22,11 @@ class RealEstateDocumentsFactory extends Factory
      */
     public function definition()
     {
+        $realestates_id = Realestate::all()->pluck('id')->toArray();
         return [
-            //
+            'realestate_id' => $this->faker->randomElement($realestates_id),
+            'type' =>'ملكية السكن',
+            'url' => 'asset/realestate_documents/document.jpeg',
         ];
     }
 }

@@ -163,6 +163,22 @@
                                         </div>
                                     </div>
 
+                                    <p class="card-description"> الوثائق الرسمية  </p>
+                                    <div class="row">
+                                        @foreach($company->company_documents as $company_document)
+                                            <div class="card col-lg-6 col-md-12 col-sm-12" >
+                                                <img class="card-img-top" src="{{asset($company_document->url)}}" alt="Card image" style="width:100%">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+
+                                                        <span class="badge badge-success " >{{$company_document->type}}</span>
+
+                                                    </h4>
+                                                   </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
                                     <p class="card-description"> العقارات </p>
                                     <div class="row">
                                        @foreach($company->realestates as $realestate)
@@ -175,6 +191,8 @@
                                                         @else
                                                             <span class="badge badge-success ">{{$realestate->status}}</span>
                                                         @endif
+                                                            <span class="badge badge-success " >{{$realestate->type}}</span>
+
                                                     </h4>
                                                     <p class="card-text">{{$realestate->description}}</p>
                                                     <a href="{{route('admin_show_realestate',['id'=>$realestate->id])}}" class="btn btn-primary stretched-link">المزيد</a>

@@ -41,6 +41,8 @@
                                     <th  style="text-align: center"> نوع العقار</th>
                                     <th  style="text-align: center">المشرف</th>
                                     <th  style="text-align: center">البريد الالكتروني</th>
+                                    <th  style="text-align: center">تاريخ الانشاء </th>
+                                    <th  style="text-align: center">تاريخ اخر نعديل</th>
                                     <th  style="text-align: center" >المزيد</th>
                                 </tr>
                                 </thead>
@@ -59,6 +61,8 @@
                                         </td>
                                         <td style="text-align:right">{{$realestate_type->admin->account->profile->first_name.''.$realestate_type->admin->account->profile->last_name}}</td>
                                         <td style="text-align: center"> <a href="mailto:{{$realestate_type->admin->account->email}}"> {{$realestate_type->admin->account->email}}</a></td>
+                                        <td style="text-align: center">{{$realestate_type->created_at}}</td>
+                                        <td style="text-align: center">{{$realestate_type->updated_at}}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn" href="{{route('admin_show_admin',['id'=>$realestate_type->admin_id])}}"> <i class="nav-item mdi mdi-account"></i></a>

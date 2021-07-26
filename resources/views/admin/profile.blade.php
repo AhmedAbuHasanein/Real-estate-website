@@ -183,9 +183,9 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-sm-3 col-form-label"> كلمة السر</label>
+                                                    <label class="col-sm-3 col-form-label"> كلمة المرور الجديدة</label>
                                                     <div class="col-sm-9">
-                                                        <input type="password" onkeyup="verify()" class="form-control @error('password') is-invalid @enderror" name="password" value="{{old('password')}}"  />
+                                                        <input type="password" onkeyup="verify()" class="form-control @error('password') is-invalid @enderror" name="password"   />
                                                         @error('password')
                                                         <div class="badge badge-danger">{{ $message }}</div>
                                                         @enderror
@@ -195,9 +195,9 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-sm-3 col-form-label">تأكيد كلمة المرور</label>
+                                                    <label class="col-sm-3 col-form-label"> تأكيد كلمة المرور الجديدة</label>
                                                     <div class="col-sm-9">
-                                                        <input type="password" onkeyup="verify()" class="form-control @error('verify_password') is-invalid @enderror" name="verify_password" value="{{old('verify_password')}}"  id="inlineFormInputGroupUsername2">
+                                                        <input type="password" onkeyup="verify()" class="form-control @error('verify_password') is-invalid @enderror" name="verify_password"  id="inlineFormInputGroupUsername2">
 
                                                     </div>
                                                     <label id="verify" style="color:red"></label>

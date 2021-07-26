@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompanyIdentificationDocumentsTable extends Migration
+class CreateCompanyDocumentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateCompanyIdentificationDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('company__identification__documents', function (Blueprint $table) {
+        Schema::create('company__documents', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->string('Url');
-            $table->unsignedBigInteger('company_id')->unique();
+            $table->string('url');
+            $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
             $table->softDeletes();
             $table->timestamps();
@@ -31,6 +31,6 @@ class CreateCompanyIdentificationDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company__identification__documents');
+        Schema::dropIfExists('company__documents');
     }
 }

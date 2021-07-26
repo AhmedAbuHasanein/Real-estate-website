@@ -12,6 +12,7 @@ Route::post('/authenticate','Auth\LoginController@authenticate')->name('authenti
 Route::get('/logout','Auth\LoginController@logout')->name('logout');
 Route::get('/register','Auth\RegisterController@index')->name('register');
 Route::post('/register_account','Auth\RegisterController@store')->name('register_account');
+Route::get('/login/remember_token','Auth\LoginController@login_remember_token')->name('login_remember_token');
 
 Route::middleware('auth')->group(function () {
     //Routes Admin

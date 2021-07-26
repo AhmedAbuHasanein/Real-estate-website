@@ -47,7 +47,10 @@
                                             @else
 
                                                 <span class="badge badge-success ">{{$realestate->status}}</span>
-                                            @endif</h4>
+                                            @endif
+                                                <span class="badge badge-success " >{{$realestate->type}}</span>
+
+                                        </h4>
                                     </div>
 
                                 </div>
@@ -59,7 +62,11 @@
                                     <button class="tablinks" onclick="openTab(event, 'document')"  >مستندات الملكية</button>
                                 </div>
                                 <div id="image_Gallery" class="tabcontent" style="text-align: right;">
+
                                     <div class="row" style="padding-right: 10px; padding-left: 10px" >
+                                        <div class="column">
+                                            <img class="card-img-top" src="{{asset($realestate->main_image)}}" alt="Card image" style="width:100%">
+                                        </div>
                                         @foreach($realestate->image_realestates as $image)
                                        <div class="column">
                                            <img class="card-img-top" src="{{asset($image->url)}}" alt="Card image" style="width:100%">

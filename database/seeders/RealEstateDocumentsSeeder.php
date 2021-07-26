@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\RealEstateDocuments;
 use Illuminate\Database\Seeder;
 
 class RealEstateDocumentsSeeder extends Seeder
@@ -13,6 +14,6 @@ class RealEstateDocumentsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        RealEstateDocuments::factory()->count(30)->create();
     }
 }

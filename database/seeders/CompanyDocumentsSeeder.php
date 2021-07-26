@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Company_Identification_Documents;
+use App\Models\Company_Documents;
 use Illuminate\Database\Seeder;
 
-class CompanyIdentificationDocumentsSeeder extends Seeder
+class CompanyDocumentsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class CompanyIdentificationDocumentsSeeder extends Seeder
      */
     public function run()
     {
-        Company_Identification_Documents::factory()->count(50)->create();
+        Company_Documents::factory()->count(30)->create();
     }
 }

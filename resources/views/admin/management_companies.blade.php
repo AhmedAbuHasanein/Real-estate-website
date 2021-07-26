@@ -48,6 +48,8 @@
                                     <th  style="text-align: center">البريد الإلكتروني</th>
                                     <th  style="text-align: center">اسم المستخدم</th>
                                     <th  style="text-align: center">الحالة	</th>
+                                    <th  style="text-align: center">تاريخ الانشاء </th>
+                                    <th  style="text-align: center">تاريخ اخر نعديل</th>
                                     <th  style="text-align: center" >المزيد</th>
                                 </tr>
                                 </thead>
@@ -71,6 +73,8 @@
                                                 <span class="float-right badge badge-success ">{{$company->account->status}}</span>
                                             @endif
                                         </td>
+                                        <td style="text-align: center">{{$company->created_at}}</td>
+                                        <td style="text-align: center">{{$company->updated_at}}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn" href="{{route('admin_show_company',['id'=>$company->id])}}"> <i class="nav-item mdi mdi-bank"></i></a>

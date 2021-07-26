@@ -20,7 +20,7 @@ class CreateAccountsTable extends Migration
             $table->string("password");
             $table->string("status")->default("غير نشط");
             $table->softDeletes();
-            $table->rememberToken();
+            $table->rememberToken()->unique();
             $table->timestamps();
         });
     }

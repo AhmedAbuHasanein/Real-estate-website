@@ -47,6 +47,8 @@
                                     <th  style="text-align: center">اسم المستخدم</th>
                                     <th  style="text-align: center">الدرجة</th>
                                     <th  style="text-align: center">الحالة	</th>
+                                    <th  style="text-align: center">تاريخ الانشاء </th>
+                                    <th  style="text-align: center">تاريخ اخر نعديل</th>
                                     <th  style="text-align: center" >المزيد</th>
                                 </tr>
                                 </thead>
@@ -69,6 +71,8 @@
                                                 <span class="float-right badge badge-success ">{{$admin->account->status}}</span>
                                             @endif
                                         </td>
+                                        <td style="text-align: center">{{$admin->created_at}}</td>
+                                        <td style="text-align: center">{{$admin->updated_at}}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn" href="{{route('admin_show_admin',['id'=>$admin->id])}}"> <i class="nav-item mdi mdi-account"></i></a>
