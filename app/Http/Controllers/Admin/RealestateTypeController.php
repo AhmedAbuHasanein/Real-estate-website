@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class RealestateTypeController extends Controller
 {
+    //show management realestate type
     public function  index(){
         $realestate_types = Realestate_type::paginate(10);
         return view('admin.management_realestate_types',compact('realestate_types'));
@@ -20,6 +21,7 @@ class RealestateTypeController extends Controller
      * @param $id
      * @return
      */
+    //show  realestate type
     public function show($id){
         $realestate_type= Realestate_type::find($id);
         return view('admin.show_realestate_type',compact('realestate_type'));
@@ -28,6 +30,7 @@ class RealestateTypeController extends Controller
      * @param $request
      * @return
      */
+    //search in management realestate type
     public function  search(Request $request){
         if($request->search_admin == null || $request->value_search == null ){
             return redirect()->back();
@@ -49,6 +52,7 @@ class RealestateTypeController extends Controller
      * @param   $request
      * @return
      */
+    //store  realestate type
     public function store(Request $request){
         $rules =[
             'type' => 'required|string|unique:realestate_types',
@@ -77,6 +81,7 @@ class RealestateTypeController extends Controller
      * @param   $request
      * @return
      */
+    //update realestate type
     public function update(Request $request){
         $rules =[
             'type' => 'required|string',
@@ -112,6 +117,7 @@ class RealestateTypeController extends Controller
      * @param $id
      * @return
      */
+    //delete realestate type
     public function delete($id){
         Realestate_type::find($id)->delete();
         return redirect()->back()->with(['success'=>'تمت عملية حذف نوع العقار بنجاح !']);

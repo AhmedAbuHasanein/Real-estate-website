@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Company;
+use App\Models\Subscripe;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 //login
@@ -70,11 +73,8 @@ Route::middleware('auth')->group(function () {
 });
 //Routes Visitor
 Route::prefix('Visitor')->group(function () {
-    Route::get('test',function (){
-       return view('visitor.index');
-    });
-});
 
+});
 
 
 

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Validator;
 
 class adminController extends Controller
 {
+    //show management admins
     public function  index(){
         $grade =auth()->user()->admin->grade;
         $admins = Admin::where('grade','>',$grade)->paginate(10);
@@ -23,6 +24,7 @@ class adminController extends Controller
      * @param $request
      * @return
      */
+    //search in management admins
     public function  search(Request $request){
         if($request->search_admin == null || $request->value_search == null ){
             return redirect()->back();
@@ -48,6 +50,7 @@ class adminController extends Controller
      * @param $id
      * @return
      */
+    //show  admin
     public function show($id){
         $admin =Admin::find($id);
         return view('admin.show_admin',compact('admin'));
@@ -56,6 +59,7 @@ class adminController extends Controller
      * @param   $request
      * @return
      */
+    //store admin
     public function store(Request $request){
         $grade = Auth::user()->admin->grade;
         $rules =[
@@ -155,6 +159,7 @@ class adminController extends Controller
      * @param   $request
      * @return
      */
+    //update admin
     public function update(Request $request){
         $admin = Admin::all()->find($request->id);
         $admin->grade = $request->grade;
@@ -238,6 +243,7 @@ class adminController extends Controller
      * @param $id
      * @return
      */
+    //delete admin
     public function delete($id){
         Admin::find($id)->delete();
         return redirect()->back()->with(['success' => 'تمت عملية حذف المشرف بنجاح !']);

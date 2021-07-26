@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    // show management users
     public function  index(){
         $users = User::paginate(10);
         return view('admin.management_users',compact('users'));
@@ -19,6 +20,7 @@ class UserController extends Controller
      * @param $id
      * @return
      */
+    // show user
     public function show($id){
         $user =user::find($id);
         return view('admin.show_user',compact('user'));
@@ -27,6 +29,7 @@ class UserController extends Controller
      * @param $request
      * @return
      */
+    // search in management users
     public function  search(Request $request){
         if($request->search_admin == null || $request->value_search == null ){
             return redirect()->back();
@@ -49,6 +52,7 @@ class UserController extends Controller
      * @param $id
      * @return
      */
+    // delete user
     public function delete($id){
         user::find($id)->delete();
         return redirect()->back()->with(['success'=>'تمت عملية حذف الزبون بنجاح']);

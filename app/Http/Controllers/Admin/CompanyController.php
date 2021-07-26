@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class companyController extends Controller
 {
+    //show management companies
     public function  index(){
         $companies = Company::paginate(10);
         return view('admin.management_companies',compact('companies'));
@@ -17,6 +18,7 @@ class companyController extends Controller
      * @param $id
      * @return
      */
+    //show  companies
     public function show($id){
         $company =Company::find($id);
         return view('admin.show_company',compact('company'));
@@ -25,6 +27,7 @@ class companyController extends Controller
      * @param $request
      * @return
      */
+    //search in  management companies
     public function  search(Request $request){
         if($request->search_admin == null || $request->value_search == null ){
             return redirect()->back();
@@ -51,6 +54,7 @@ class companyController extends Controller
      * @param $id
      * @return
      */
+    //delete companies
     public function delete($id){
         Company::find($id)->delete();
         return redirect()->back()->with(['success'=>'تمت عملية حذف الشركة بنجاح !']);

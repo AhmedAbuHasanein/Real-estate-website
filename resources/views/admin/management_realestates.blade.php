@@ -27,6 +27,7 @@
                                         <option  disabled selected>إختر</option>
                                         <option value="space" >المساحة</option>
                                         <option value="price" >السعر</option>
+                                        <option value="company_name" >اسم الشركة</option>
                                         <option value="email">البريد الالكتروني</option>
                                     </select>
                                     <button class="btn btn-primary  mr-4" style="height: 45px" type="submit">بحث</button>
@@ -41,9 +42,10 @@
                                     <th  style="text-align: center">#</th>
                                     <th  style="text-align: center"></th>
                                     <th  style="text-align: center"> اسم الشركة</th>
+                                    <th  style="text-align: center"></th>
+                                    <th  style="text-align: center">الحالة</th>
                                     <th  style="text-align: center">تاريخ الانشاء </th>
                                     <th  style="text-align: center">تاريخ اخر نعديل</th>
-                                    <th  style="text-align: center">الحالة</th>
                                     <th  style="text-align: center" >المزيد</th>
                                 </tr>
                                 </thead>
@@ -58,8 +60,9 @@
                                             <img src="{{asset($realestate->main_image)}}" alt="Product1" class="img-circle img-size-32 mr-2">
                                         </td>
                                         <td style="text-align: right"> {{$realestate->company->company_name}}</td>
-                                        <td style="text-align: right">{{$realestate->created_at}}</td>
-                                        <td style="text-align: right">${{$realestate->updated_at}}</td>
+                                        <td style="text-align: right">
+                                            <span class="float-right badge badge-success ">{{$realestate->type}}</span>
+                                        </td>
                                         <td style="text-align: right">
                                             @if($realestate->status =='غير متاح')
                                                 <span class="float-right badge badge-danger " >{{$realestate->status}}</span>
@@ -67,6 +70,8 @@
                                                 <span class="float-right badge badge-success ">{{$realestate->status}}</span>
                                             @endif
                                         </td>
+                                        <td style="text-align: right">{{$realestate->created_at}}</td>
+                                        <td style="text-align: right">${{$realestate->updated_at}}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn" href="{{route('admin_show_company',['id'=>$realestate->company->id])}}"> <i class="nav-item mdi mdi-bank"></i></a>

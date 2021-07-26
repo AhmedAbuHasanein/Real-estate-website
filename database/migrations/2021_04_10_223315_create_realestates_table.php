@@ -19,8 +19,8 @@ class CreateRealestatesTable extends Migration
             $table->string("price");
             $table->string("space");
             $table->string("main_image");
-            $table->string("location");
             $table->string('address');
+            $table->string('type');
             $table->string("status")->default('effective');
             $table->softDeletes();
             $table->timestamps();

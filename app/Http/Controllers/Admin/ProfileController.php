@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
+    //show profile admin
     public  function index(){
         $account = Auth::user();
         $admin = $account->admin;
@@ -21,6 +22,7 @@ class ProfileController extends Controller
      * @param   $request
      * @return
      */
+    // update admin
     public function update(Request $request){
         $rules =[
             'email' => 'required|email',

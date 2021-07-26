@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RealestateTypeSeeder::class);
         $this->call(RealestateSeeder::class);
         $this->call(ImageRealestateSeeder::class);
-//        $this->call(SubscripeSeeder::class);
+        $this->call(SubscripeSeeder::class);
 //        $this->call(CompanyIdentificationDocumentsSeeder::class);
 //        $this->call(ProofOfOwnershipRealEstateSeeder::class);
         }
