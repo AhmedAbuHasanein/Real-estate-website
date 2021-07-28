@@ -23,7 +23,7 @@ class AccountSeeder extends Seeder
         $account1->user_name = "adminadmin";
         $account1->email = "admin@admin.com";
         $account1->password = Hash::make("adminadmin");
-        $account1->remember_token = Str::random(10);
+        $account1->remember_token = Str::random(50);
         $account1->save();
         $admin = new Admin();
         $admin->account_id = $account1->id;
@@ -48,7 +48,7 @@ class AccountSeeder extends Seeder
         $account2->user_name = "companycompany";
         $account2->email = "company@company.com";
         $account2->password = Hash::make("companycompany");
-        $account2->remember_token = Str::random(10);
+        $account2->remember_token = Str::random(50);
         $account2->save();
         $company = new Company();
         $company->account_id = $account2->id;
@@ -62,7 +62,7 @@ class AccountSeeder extends Seeder
         $account3->user_name = "useruser";
         $account3->email = "user@user.com";
         $account3->password = Hash::make("useruser");
-        $account3->remember_token = Str::random(10);
+        $account3->remember_token = Str::random(50);
         $account3->save();
         $user = new User();
         $user->account_id = $account3->id;

@@ -4,14 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Subscripe extends Model
+class Follower extends Model
 {
     use HasFactory;
-    public function usersubsecripe(){
+    use SoftDeletes;
+    public function userFollower(){
         return $this->belongsTo(User::class);
     }
-    public function companysubsecripe(){
+    public function companyFollower(){
         return $this->belongsTo(Company::class);
     }
 }

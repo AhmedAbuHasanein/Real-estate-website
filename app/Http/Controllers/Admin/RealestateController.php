@@ -61,7 +61,12 @@ class RealestateController extends Controller
      */
     //delete realestate
     public function delete($id){
-        Realestate::find($id)->delete();
+        $realestate = Realestate::find($id);
+        if($realestate == null){
+
+            return redirect()->back();
+        }
+        $realestate->delete();
         return redirect()->back()->with(['success'=>'تمت عملية حذف  العقار بنجاح !']);
     }
 }

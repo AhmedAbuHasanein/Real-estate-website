@@ -19,7 +19,7 @@ class Company extends Model
     public function company_documents(){
         return $this->hasMany(Company_Documents::class);
     }
-    public function subsecriperes(){
-        return $this->hasMany(Subscripe::class);
+    public function followers(){
+        return $this->hasMany(Follower::class);
     }
 }

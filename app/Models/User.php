@@ -13,7 +13,7 @@ class User extends Model
     public function account(){
         return $this->belongsTo(Account::class);
     }
-    public function subsecriperes(){
-        return $this->hasMany(Subscripe::class);
+    public function followers(){
+        return $this->hasMany(Follower::class);
     }
 }

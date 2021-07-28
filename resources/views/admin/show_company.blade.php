@@ -20,6 +20,28 @@
                             <img src="{{asset($company->logo_image)}}"  style="border-radius: 50%;" alt="profile">
 
                         </div>
+
+                        <div class="row" style="margin-top: 40px; justify-content: center">
+                            <div class="col-lg-4 col-sm-4 col-12 main-box-layout">
+                                <div class="instagram-box rounded">
+                                    <i class="mdi mdi-home" aria-hidden="true"></i>
+                                </div>
+                                <div class="box-layout-text text-right" style="padding-right: 10px">
+                                    <h1>{{count($company->realestates)}}</h1>
+                                    <h3>عقارات</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-12 main-box-layout">
+                                <div class="pinterest-box rounded">
+                                    <i class="mdi mdi-pinterest " aria-hidden="true"></i>
+                                </div>
+                                <div class="box-layout-text text-right" style="padding-right: 10px">
+                                    <h1>{{count($company->followers)}}</h1>
+                                    <h3>متابعون</h3>
+                                </div>
+                            </div>
+
+                        </div>
                         <div class="card-body ">
                             <div class="card" style="text-align: right">
                                 <div class="card-body " style="text-align: right">
@@ -162,7 +184,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <p class="card-description"> الوثائق الرسمية  </p>
                                     <div class="row">
                                         @foreach($company->company_documents as $company_document)
@@ -178,7 +199,6 @@
                                             </div>
                                         @endforeach
                                     </div>
-
                                     <p class="card-description"> العقارات </p>
                                     <div class="row">
                                        @foreach($company->realestates as $realestate)
@@ -211,3 +231,39 @@
 
 @stop
 
+@section('css')
+    <style>
+        .main-box-layout{
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .instagram-box,.pinterest-box{
+            color:#4E69A2;
+            background-color: #3B5998;
+            font-size:95px;
+            height:100px;
+            overflow: hidden;
+            padding-left:3px;
+        }
+        .instagram-box{
+            background-color: #B7378B;
+            color:#BE4A96;
+        }
+        .pinterest-box{
+            background-color: #BC081C;
+            color:#C32032;
+        }
+        .box-layout-text{
+            position: absolute;
+            top:15px;
+            color:#fff;
+            right:25px;
+            height: 100px;
+            overflow: hidden;
+        }
+        .box-layout-text h1{
+            font-size:30px;
+            margin: 0px;
+        }
+    </style>
+    @stop

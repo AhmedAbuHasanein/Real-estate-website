@@ -3,11 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Company;
-use App\Models\Subscripe;
+use App\Models\Follower;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class SubscripeSeeder extends Seeder
+class FollowerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -21,10 +21,10 @@ class SubscripeSeeder extends Seeder
 
        foreach ($users_id as $user_id){
            foreach ($companies_id as $company_id) {
-               $subscripe = new Subscripe();
-               $subscripe->user_id = $user_id;
-               $subscripe->company_id = $company_id;
-               $subscripe->save();
+               $follower = new Follower();
+               $follower->user_id = $user_id;
+               $follower->company_id = $company_id;
+               $follower->save();
            }
        }
 
