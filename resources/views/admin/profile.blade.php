@@ -422,7 +422,7 @@
                 } else {
                     document.getElementById("verify").innerHTML = '<b style="color:green; ">' + 'كلمة المرور متطابقة' + '</b>';
                     document.getElementById("submit").disabled = false;
-                    document.getElementById("submit").style = 'background:#4CAF50';
+                    document.getElementById("submit").style = 'background:#1bcfb4';
                 }
             }
         }
@@ -443,6 +443,7 @@
             var password = document.forms['forms']['old_password'].value;
             if(password.length >= 8){
                 document.getElementById("submit").disabled = false;
+                document.getElementById("submit").style = 'background:#1bcfb4';
             }
         }
 

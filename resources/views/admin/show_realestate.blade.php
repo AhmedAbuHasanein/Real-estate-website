@@ -3,7 +3,7 @@
     <title>عقار</title>
 @stop
 @section('body')
-    onload="openTab(event, 'image_Gallery')"
+     onload="intiMap({{$realestate->location}}),openTab(event, 'image_Gallery')"
     @stop
 @section('page padding')
     <div class="content-wrapper" style="direction: rtl">
@@ -34,23 +34,30 @@
                                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
                                     </div>
-                                    <div class="card-body" style="text-align: right">
-                                        <h4 class="card-title">اسم الشركة : <a href="{{route('admin_show_company',['id' => $realestate->company->id])}}">{{$realestate->company->company_name}}</a>  </h4>
-                                        <h4 class="card-title">نوع العقار : {{$realestate->realestate_type->type}}  </h4>
-                                        <h4 class="card-title">الوصف : {{$realestate->description}} </h4>
-                                        <h4 class="card-title"> السعر :{{$realestate->price}} $</h4>
-                                        <h4 class="card-title">المساحة :{{$realestate->space}}م<sup>2</sup></h4>
-                                        <h4 class="card-title">العنوان :{{$realestate->address}}</h4>
-                                        <h4 class="card-title"> الحالة :
-                                            @if($realestate->status =='غير متاح')
-                                                <span class=" badge badge-danger " >{{$realestate->status}}</span>
-                                            @else
+                                    <div class="row card-body" style="text-align: right">
 
-                                                <span class="badge badge-success ">{{$realestate->status}}</span>
-                                            @endif
+                                        <div class="col-lg-5">
+                                            <h4 class="card-title">اسم الشركة : <a href="{{route('admin_show_company',['id' => $realestate->company->id])}}">{{$realestate->company->company_name}}</a>  </h4>
+                                            <h4 class="card-title">نوع العقار : {{$realestate->realestate_type->type}}  </h4>
+                                            <h4 class="card-title">الوصف : {{$realestate->description}} </h4>
+                                            <h4 class="card-title"> السعر :{{$realestate->price}} $</h4>
+                                            <h4 class="card-title">المساحة :{{$realestate->space}}م<sup>2</sup></h4>
+                                            <h4 class="card-title">العنوان :{{$realestate->address}}</h4>
+                                            <h4 class="card-title"> الحالة :
+                                                @if($realestate->status =='غير متاح')
+                                                    <span class=" badge badge-danger " >{{$realestate->status}}</span>
+                                                @else
+
+                                                    <span class="badge badge-success ">{{$realestate->status}}</span>
+                                                @endif
                                                 <span class="badge badge-success " >{{$realestate->type}}</span>
 
-                                        </h4>
+                                            </h4>
+                                        </div>
+                                        <div class="col-lg-7 ">
+                                            <div id="Map"  style="width: 100%; height: 400px">
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -248,5 +255,32 @@
             slides[slideIndex-1].style.display = "block";
             slides[slideIndex-1].hidden= false;
         }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=&v=weekly"></script>
+    <script type="text/javascript">
+
+        function intiMap (lat ,lng) {
+            //Determine the location where the user has clicked.
+            const location = { lat: lat, lng: lng };
+
+            var mapOptions = {
+                center: location,
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+
+            };
+            var map = new google.maps.Map(document.getElementById("Map"), mapOptions);
+
+
+            //Create a marker and placed it on the map.
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+
+
+
+        }
+
     </script>
 @stop

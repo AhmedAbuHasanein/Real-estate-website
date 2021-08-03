@@ -30,12 +30,14 @@ class RealestateFactory extends Factory
             'description' => $this->faker->text(200),
             'space' => $this->faker->numberBetween(100,1000),
             'price' => $this->faker->numberBetween(100,1000),
+            'location' => $this->faker->numberBetween(10,110).','.$this->faker->numberBetween(10,110),
             'address' => $this->faker->address,
             'status' => $this->faker->randomElement($status),
             'company_id' => $this->faker->randomElement($companies_id),
             'realestate_type_id' => $this->faker->randomElement($realestate_type_id),
             'main_image' => 'asset\visitor\img\francesca-tosolini-XcVm8mn7NUM-unsplash.jpg',
             'type' => $this->faker->randomElement(['بيع','إيجار']),
+
 
         ];
     }

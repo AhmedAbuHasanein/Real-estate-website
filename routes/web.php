@@ -1,8 +1,5 @@
 <?php
 
-use App\Models\Company;
-use App\Models\Subscripe;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 //login
@@ -75,6 +72,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/show_realestate/{id}','Company\RealestateController@show')->name('company_show_realestate');
         Route::get('/update_realestate','Company\RealestateController@update')->name('company_update_realestate');
         Route::get('/delete_realestate/{id}','Company\RealestateController@delete')->name('company_delete_realestate');
+        Route::get('/delete_document_company/{id}','Company\DocumentCompanyController@delete')->name('company_delete_document_company');
 
     });
     //Routes User
@@ -88,7 +86,6 @@ Route::middleware('auth')->group(function () {
 Route::prefix('Visitor')->group(function () {
 
 });
-
 
 
 
