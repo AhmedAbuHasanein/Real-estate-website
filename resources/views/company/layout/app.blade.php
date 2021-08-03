@@ -9,7 +9,7 @@
     <div class="container-fluid page-body-wrapper">
 
     <!-- partial -->
-        <div >
+        <div style="width: 100%">
         @include('massege')
         @yield('page padding')
         <!-- content-wrapper ends -->
