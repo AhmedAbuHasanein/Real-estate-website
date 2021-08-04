@@ -18,7 +18,14 @@
             <div class="col-12 grid-margin">
                 <div class="card " >
                     <div class="card-body">
-                        <h4 class="card-title" style="text-align:right">  عقار </h4>
+                        <div class="row">
+                            <div class="col-lg-10 col-md-10 col-sm-9">
+                                <h4 class="card-title" style="text-align:right">  عقار </h4>
+                            </div>
+                           <div class="col-lg-2 col-md-2 col-sm-2">
+                               <button class="btn btn-success" data-toggle="modal" data-target="#myModal"> تحديث</button>
+                           </div>
+                        </div>
                         <div class="card-body " >
                             <div class="row" >
                                 <div class="card col-lg-12" style="width:400px">
@@ -101,6 +108,180 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="myModal" style="direction :rtl">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title" style="width:82%; text-align: right">تحديث عقار </h4>
+                    <button type="button" class="close"  style="width:18%; text-align: left" data-dismiss="modal">&times;</button>
+                </div>
+                <form id="forms" method="get" action="{{route('company_update_realestate',['id'=>$realestate->id])}}">
+                    @csrf
+                    <!-- Modal body -->
+                    <div class="modal-body row" >
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">الحالة  </label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control @error('status') is-invalid @enderror "   name="status" required>
+                                                <option @if($realestate->status== 'متاح') selected @endif value="متاح">متاح</option>
+                                                <option @if($realestate->status== 'غير متاح') selected @endif value="غير متاح">غير متاح</option>
+                                            </select>
+                                            @error('status')
+                                            <div class="badge badge-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">نوع العقار</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control @error('realestate_type') is-invalid @enderror"   name="realestate_type" required>
+                                                @foreach($realestate_types as $realestate_type)
+                                                    <option @if($realestate->realestate_type_id == $realestate_type->id) selected @endif value="{{$realestate_type->type}}">{{$realestate_type->type}}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('realestate_type')
+                                            <div class="badge badge-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">عرض العقار ك   </label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control @error('type') is-invalid @enderror "   name="type" required>
+                                                <option @if($realestate->type== 'بيع') selected @endif value="بيع">بيع</option>
+                                                <option @if($realestate->type== 'إيجار') selected @endif value="إيجار">إيجار</option>
+                                            </select>
+                                            @error('type')
+                                            <div class="badge badge-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label"> السعر</label>
+                                        <div class="col-sm-9" style="direction: ltr">
+                                            <div class="input-group mb-2 mr-sm-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">$</div>
+                                                </div>
+                                                <input class="form-control @error('price') is-invalid @enderror" type="number"  name="price" value="{{$realestate->price}}" required>
+                                            </div>
+                                            @error('price')
+                                            <div class="badge badge-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">المساحة  </label>
+                                        <div class="col-sm-9" style="direction: ltr">
+                                            <div class="input-group mb-2 mr-sm-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">م<sup>2</sup></div>
+                                                </div>
+                                                <input class="form-control @error('space') is-invalid @enderror" type="number"  name="space" value="{{$realestate->space}}" required>
+                                            </div>
+                                            @error('space')
+                                                <div class="badge badge-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">عنوان العقار</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control @error('address') is-invalid @enderror"   name="address" value="${{$realestate->address}}" required>
+                                            @error('address')
+                                            <div class="badge badge-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">الوصف </label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control @error('description') is-invalid @enderror "  style="text-align: right" cols="20" rows="10" name="description" required>{{$realestate->description}}</textarea>
+                                            @error('description')
+                                            <div class="badge badge-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="row">
+                                <div class="nav-profile-image  " style="justify-content: center; display: flex; margin: auto" >
+                                    <img src="{{asset($realestate->main_image)}}" width="250px" height="250px"  style="border-radius: 2%; "  alt="profile">
+
+                                </div>
+                                <br/>
+                                <br/>
+                                <div class="form-group row" style="justify-content: center; display: flex">
+                                    <div class="col-sm-4" style="direction: ltr">
+                                        <input type="file" class="file-upload-default @error('main_image') is-invalid @enderror" name="main_image"   />
+                                        <div class="input-group col-xs-12">
+                                            <input type="text" class="form-control file-upload-info" disabled="">
+                                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-gradient-primary" type="button"><b>تحميل</b></button>
+                              </span>
+                                        </div>
+                                        @error('main_image')
+                                        <div class="badge badge-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 20px">
+                                <div id="modalMap" style="width: 500px; height: 500px">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <div style="width: 20%; margin-left: 80%">
+                            <button type="submit" class="btn btn-primary" > تحديث</button>
+
+                            <button type="button" class="btn btn-danger"   data-dismiss="modal">لا</button>
+                        </div>
+
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -271,7 +452,6 @@
             };
             var map = new google.maps.Map(document.getElementById("Map"), mapOptions);
 
-
             //Create a marker and placed it on the map.
             var marker = new google.maps.Marker({
                 position: location,
@@ -284,3 +464,4 @@
 
     </script>
 @stop
+<!-- The Modal -->
