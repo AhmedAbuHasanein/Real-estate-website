@@ -86,9 +86,6 @@ Route::middleware('auth')->group(function () {
 Route::prefix('Visitor')->group(function () {
 
 });
-Route::get('test',function (){
-    return view('test');
-});
 
 
 
