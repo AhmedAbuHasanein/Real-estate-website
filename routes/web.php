@@ -70,7 +70,8 @@ Route::middleware('auth')->group(function () {
         })->name('company_add_realestate_form');
         Route::post('/add_realestate', 'Company\RealestateController@store')->name('company_add_realestate');
         Route::get('/show_realestate/{id}','Company\RealestateController@show')->name('company_show_realestate');
-        Route::get('/update_realestate','Company\RealestateController@update')->name('company_update_realestate');
+        Route::get('show_realestate/update_realestate/{id}','Company\RealestateController@update_form')->name('company_update_realestate_form');
+        Route::get('/update_realestate/{id}','Company\RealestateController@update')->name('company_update_realestate');
         Route::get('/delete_realestate/{id}','Company\RealestateController@delete')->name('company_delete_realestate');
         Route::get('/delete_document_company/{id}','Company\DocumentCompanyController@delete')->name('company_delete_document_company');
 
@@ -86,7 +87,9 @@ Route::middleware('auth')->group(function () {
 Route::prefix('Visitor')->group(function () {
 
 });
-
+Route::get('test' ,function (){
+    return view('test');
+});
 
 
 

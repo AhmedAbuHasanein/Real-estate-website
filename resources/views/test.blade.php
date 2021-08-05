@@ -17,7 +17,7 @@
                 map: map,
             });
             markers.push(marker);
-
+            document.getElementById('location').value= latLng['lat']+','+latLng['lng'];
             //Attach click event handler to the map.
             google.maps.event.addListener(map, 'click', function (e) {
 
