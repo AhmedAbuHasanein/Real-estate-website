@@ -35,6 +35,7 @@ class ProfileController extends Controller
             'address_1' => 'required|string|max:255',
             'phone_number' => 'required',
             'old_password' => 'required',
+            'profile_image' => 'mimes:jpeg,jpg,png,gif|max:10000'
         ];
         $masseges =[];
         $validator = Validator::make($request->all(),$rules, $masseges);

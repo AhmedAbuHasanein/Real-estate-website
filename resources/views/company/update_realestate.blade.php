@@ -19,10 +19,9 @@
                             <div class="col-lg-10 col-md-10 col-sm-9">
                                 <h4 class="card-title" style="text-align:right"> تحديث عقار </h4>
                             </div>
-
                         </div>
                         <div class="card-body " >
-                            <form id="forms" method="get" enctype="multipart/form-data" action="{{route('company_update_realestate',['id'=>$realestate->id])}}">
+                            <form id="forms" enctype="multipart/form-data" method="post"  action="{{route('company_update_realestate',['id'=>$realestate->id])}}">
                             @csrf
                                 <div class="row" >
                                     <div class="col-lg-8">
@@ -116,7 +115,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label"  style="text-align: right">عنوان العقار</label>
                                                     <div class="col-sm-9">
-                                                        <input class="form-control @error('address') is-invalid @enderror"   name="address" value="${{$realestate->address}}" required>
+                                                        <input class="form-control @error('address') is-invalid @enderror"   name="address" value="{{$realestate->address}}" required>
                                                         @error('address')
                                                         <div class="badge badge-danger">{{ $message }}</div>
                                                         @enderror
@@ -176,7 +175,7 @@
                                     <div id="map" style="width: 90%; height: 400px">
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row" style="margin-top: 20px" >
                                     <button type="submit" class="btn btn-primary" > حفظ</button>
                                 </div>
                             </form>
@@ -186,6 +185,7 @@
             </div>
         </div>
     </div>
+
 
 
 @stop

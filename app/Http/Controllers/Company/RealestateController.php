@@ -50,7 +50,54 @@ class RealestateController extends Controller
      */
     //store  realestate
     public function store(Request $request){
+        $rules =[
+            'description' => 'required',
+            'status' => 'required',
+            'type' => 'required',
+            'space' => 'required|int',
+            'price' => 'required|int',
+            'location' => 'required',
+            'address' => 'required',
+            'realestate_type' => 'required',
+            'main_image' => 'required|mimes:jpeg,jpg,png,gif|max:10000'
+
+        ];
+        $masseges =[];
+        $validator = Validator::make($request->all(),$rules, $masseges);
+        if($validator->fails()){
+            return redirect()->back()->withInput()->withErrors($validator->errors());
+        }
+        $realestate = new Realestate();
+        $realestate->description= $request->description;
+        $realestate->space = $request->space;
+        $realestate->price = $request->price;
+        if($request->status == "متاح"){
+            $realestate->status = "متاح";
+        }else{
+            $realestate->status = "غير متاح";
+        }
+        if( $request->type == "بيع"){
+            $realestate->type  = "بيع";
+        }else{
+            $realestate->type  = "إيجار";
+        }
+        $realestate->location = $request->location;
+        $realestate->address = $request->address;
+        $realestate_type = Realestate_type::all()->where('type','=',$request->realestate_type)->first();
+        if( $realestate_type != null){
+            $realestate->realestate_type_id = $realestate_type->id;
+        }
+        if($request->file('main_image')!=null){
+            $file =$request->file('main_image');
+            $filename = $file->getClientOriginalName().time(). '.' . $file->extension();
+            $request->file('main_image')->move('asset/realestate_images', $filename);
+            $realestate->main_image = 'asset/realestate_images/'. $filename;
+            }
+            $realestate->company_id = Auth::user()->company->id;
+            $realestate->save();
+            return redirect()->route('company_show_realestate',['id'=>$realestate->id])->with(['success'=>'تمت عملية إضافة العقار بنجاح !']);
     }
+
 
     /**
      * @param   $request
@@ -67,6 +114,7 @@ class RealestateController extends Controller
             'location' => 'required',
             'address' => 'required',
             'realestate_type' => 'required',
+            'main_image' => 'mimes:jpeg,jpg,png,gif|max:10000'
 
         ];
         $masseges =[];
