@@ -17,4 +17,9 @@
     @yield('js')
     @yield('css')
     @yield('title')
+    <style>
+        label, span{
+            font-weight:bold;
+        }
+    </style>
 </head>

@@ -162,6 +162,36 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                            <div class="form-group row " style="justify-content: center; display: flex; margin-top: 20px;">
+                                                <div class="col-sm-4 col-lg-10 col-md-12" style="direction: ltr; text-align: right">
+                                                    <label>إضافة صور للعقار</label>
+                                                    <input type="file" class="file-upload-default @error('realestate_images') is-invalid @enderror" multiple  name="realestate_images[]"   />
+                                                    <div class="input-group col-xs-12">
+                                                        <input type="text" class="form-control file-upload-info" disabled="">
+                                                        <span class="input-group-append">
+                                                            <button class="file-upload-browse btn btn-gradient-primary" type="button"><b>تحميل</b></button>
+                                                        </span>
+                                                    </div>
+                                                    @error('realestate_images')
+                                                    <div class="badge badge-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group row " style="justify-content: center; display: flex; margin-top: 20px;">
+                                                <div class="col-sm-4 col-lg-10 col-md-12" style="direction: ltr; text-align: right">
+                                                    <label>إضافة مستندات إثبات ملكية للعقار</label>
+                                                    <input type="file" class="file-upload-default @error('realestate_documents') is-invalid @enderror" multiple  name="realestate_documents[]" />
+                                                    <div class="input-group col-xs-12">
+                                                        <input type="text" class="form-control file-upload-info" disabled="">
+                                                        <span class="input-group-append">
+                                                            <button class="file-upload-browse btn btn-gradient-primary" type="button"><b>تحميل</b></button>
+                                                        </span>
+                                                    </div>
+                                                    @error('realestate_documents')
+                                                    <div class="badge badge-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <input class="@error('location') is-invalid @enderror" type="text" hidden  id="location" name="location" required>

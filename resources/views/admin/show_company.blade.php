@@ -189,13 +189,6 @@
                                         @foreach($company->company_documents as $company_document)
                                             <div class="card col-lg-6 col-md-12 col-sm-12" >
                                                 <img class="card-img-top" src="{{asset($company_document->url)}}" alt="Card image" style="width:100%">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">
-
-                                                        <span class="badge badge-success " >{{$company_document->type}}</span>
-
-                                                    </h4>
-                                                   </div>
                                             </div>
                                         @endforeach
                                     </div>

@@ -272,7 +272,6 @@
                                                 <div class="card-body">
                                                     <h4 class="card-title">
 
-                                                        <span class="badge badge-success " >{{$company_document->type}}</span>
                                                        <a href="{{route('company_delete_document_company',['id'=>$company_document->id])}}"> <span class="badge badge-danger " >حذف</span></a>
 
 

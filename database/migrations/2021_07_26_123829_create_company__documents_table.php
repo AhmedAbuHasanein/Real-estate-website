@@ -15,7 +15,6 @@ class CreateCompanyDocumentsTable extends Migration
     {
         Schema::create('company__documents', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
             $table->string('url');
             $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
 use App\Models\Account;
+use App\Models\Image_Realestate;
 use App\Models\Realestate;
 use App\Models\Realestate_type;
+use App\Models\RealEstateDocuments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -59,7 +61,9 @@ class RealestateController extends Controller
             'location' => 'required',
             'address' => 'required',
             'realestate_type' => 'required',
-            'main_image' => 'required|mimes:jpeg,jpg,png,gif|max:10000'
+            'main_image' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
+            'realestate_image.*' => 'mimes:jpeg,jpg,png,gif|max:10000',
+            'realestate_documents.*' => 'mimes:jpeg,jpg,png,gif|max:10000',
 
         ];
         $masseges =[];
@@ -95,7 +99,30 @@ class RealestateController extends Controller
             }
             $realestate->company_id = Auth::user()->company->id;
             $realestate->save();
-            return redirect()->route('company_show_realestate',['id'=>$realestate->id])->with(['success'=>'تمت عملية إضافة العقار بنجاح !']);
+
+        if ($request->realestate_images != null) {
+            foreach ($request->file('realestate_images') as $file){
+                $filename = $file->getClientOriginalName().time(). '.' . $file->extension();
+                $file->move('asset/realestate_images', $filename);
+                $realestate_image =new Image_Realestate();
+                $realestate_image->url = "asset/realestate_images/" . $filename;
+
+                $realestate_image->realestate_id =  $realestate->id;
+                $realestate_image->save();
+            }
+        }
+        if ($request->realestate_documents != null) {
+            foreach ($request->file('realestate_documents') as $file){
+                $filename = $file->getClientOriginalName().time(). '.' . $file->extension();
+                $file->move('asset/realestate_documents', $filename);
+                $realestate_document =new RealEstateDocuments();
+                $realestate_document->url = "asset/realestate_documents/" . $filename;
+                $realestate_document->realestate_id =  $realestate->id;
+                $realestate_document->save();
+            }
+        }
+
+        return redirect()->route('company_show_realestate',['id'=>$realestate->id])->with(['success'=>'تمت عملية إضافة العقار بنجاح !']);
     }
 
 
@@ -114,7 +141,9 @@ class RealestateController extends Controller
             'location' => 'required',
             'address' => 'required',
             'realestate_type' => 'required',
-            'main_image' => 'mimes:jpeg,jpg,png,gif|max:10000'
+            'main_image' => 'mimes:jpeg,jpg,png,gif|max:10000',
+            'realestate_image.*' => 'mimes:jpeg,jpg,png,gif|max:10000',
+            'realestate_documents.*' => 'mimes:jpeg,jpg,png,gif|max:10000',
 
         ];
         $masseges =[];
@@ -155,7 +184,29 @@ class RealestateController extends Controller
             }
 
             $realestate->save();
-            return redirect()->back()->with(['success'=>'تمت عملية تحديث العقار بنجاح !']);
+            if ($request->realestate_images != null) {
+                foreach ($request->file('realestate_images') as $file){
+                    $filename = $file->getClientOriginalName().time(). '.' . $file->extension();
+                    $file->move('asset/realestate_images', $filename);
+                    $realestate_image =new Image_Realestate();
+                    $realestate_image->url = "asset/realestate_images/" . $filename;
+
+                    $realestate_image->realestate_id =  $realestate->id;
+                    $realestate_image->save();
+                }
+            }
+            if ($request->realestate_documents != null) {
+                foreach ($request->file('realestate_documents') as $file){
+                    $filename = $file->getClientOriginalName().time(). '.' . $file->extension();
+                    $file->move('asset/realestate_documents', $filename);
+                    $realestate_document =new RealEstateDocuments();
+                    $realestate_document->url = "asset/realestate_documents/" . $filename;
+                    $realestate_document->realestate_id =  $realestate->id;
+                    $realestate_document->save();
+                }
+            }
+
+            return redirect()->route('company_show_realestate',['id'=>$realestate->id])->with(['success'=>'تمت عملية تحديث العقار بنجاح !']);
         }
 
 

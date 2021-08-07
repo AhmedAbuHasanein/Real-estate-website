@@ -25,7 +25,6 @@ class Company_DocumentsFactory extends Factory
         $companies_id = Company::all()->pluck('id')->toArray();
         return [
             'company_id' => $this->faker->randomElement($companies_id),
-            'type' =>'ملكية الشركة',
             'url' => 'asset/company_documents/document.jpg',
         ];
     }

@@ -15,7 +15,6 @@ class CreateRealEstateDocumentsTable extends Migration
     {
         Schema::create('real_estate_documents', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
             $table->string('url');
             $table->unsignedBigInteger('realestate_id');
             $table->foreign('realestate_id')->references('id')->on('realestates');

@@ -28,7 +28,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-sm-3 col-form-label"  style="text-align: right">الحالة  </label>
+                                                    <label class="col-sm-3 col-form-label"  style="text-align: right"><b>الحالة</b></label>
                                                     <div class="col-sm-9">
                                                         <select class="form-control @error('status') is-invalid @enderror "   name="status" required>
                                                             <option @if(old('status')== null) selected @endif disabled="">إختر</option>
@@ -143,14 +143,10 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="row">
-                                            <div class="nav-profile-image row " style="justify-content: center; display: flex; margin: auto" >
-                                                <img src="" width="250px" height="250px"  style="border-radius: 2%; "  alt="profile">
-
-                                            </div>
-
                                             <div class="form-group row " style="justify-content: center; display: flex; margin-top: 20px;">
-                                                <div class="col-sm-4 col-lg-10 col-md-12" style="direction: ltr">
-                                                    <input type="file" class="file-upload-default @error('main_image') is-invalid @enderror" name="main_image"   />
+                                                <div class="col-sm-4 col-lg-10 col-md-12" style="direction: ltr; text-align: right">
+                                                    <label>تحميل الصورة الرئيسة للعقار</label>
+                                                    <input type="file" class="file-upload-default @error('main_image') is-invalid @enderror" name="main_image"  required  />
                                                     <div class="input-group col-xs-12">
                                                         <input type="text" class="form-control file-upload-info" disabled="">
                                                         <span class="input-group-append">
@@ -158,6 +154,36 @@
                                                         </span>
                                                     </div>
                                                     @error('main_image')
+                                                    <div class="badge badge-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group row " style="justify-content: center; display: flex; margin-top: 20px;">
+                                                <div class="col-sm-4 col-lg-10 col-md-12" style="direction: ltr; text-align: right">
+                                                    <label>تحميل صور العقار</label>
+                                                    <input type="file" class="file-upload-default @error('realestate_images') is-invalid @enderror" multiple  name="realestate_images[]"   />
+                                                    <div class="input-group col-xs-12">
+                                                        <input type="text" class="form-control file-upload-info" disabled="">
+                                                        <span class="input-group-append">
+                                                            <button class="file-upload-browse btn btn-gradient-primary" type="button"><b>تحميل</b></button>
+                                                        </span>
+                                                    </div>
+                                                    @error('realestate_images')
+                                                    <div class="badge badge-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group row " style="justify-content: center; display: flex; margin-top: 20px;">
+                                                <div class="col-sm-4 col-lg-10 col-md-12" style="direction: ltr; text-align: right">
+                                                    <label>تحميل مستندات إثبات ملكية العقار</label>
+                                                    <input type="file" class="file-upload-default @error('realestate_documents') is-invalid @enderror" multiple  name="realestate_documents[]" />
+                                                    <div class="input-group col-xs-12">
+                                                        <input type="text" class="form-control file-upload-info" disabled="">
+                                                        <span class="input-group-append">
+                                                            <button class="file-upload-browse btn btn-gradient-primary" type="button"><b>تحميل</b></button>
+                                                        </span>
+                                                    </div>
+                                                    @error('realestate_documents')
                                                     <div class="badge badge-danger">{{ $message }}</div>
                                                     @enderror
                                                 </div>
@@ -172,6 +198,7 @@
                                     </div>
                                 </div>
                                 <div class="row" style="margin-top: 20px">
+                                    <label>أضف موقع العقار على الخريطة :</label>
                                     <div id="map" style="width: 90%; height: 400px">
                                     </div>
                                 </div>

@@ -25,7 +25,6 @@ class RealEstateDocumentsFactory extends Factory
         $realestates_id = Realestate::all()->pluck('id')->toArray();
         return [
             'realestate_id' => $this->faker->randomElement($realestates_id),
-            'type' =>'ملكية السكن',
             'url' => 'asset/realestate_documents/document.jpeg',
         ];
     }
