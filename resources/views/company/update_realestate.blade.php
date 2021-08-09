@@ -8,7 +8,7 @@
             <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2" style="margin-left: 10px" >
                   <i class="mdi mdi-home"></i>
-                </span>  عقار
+                </span> <a href="{{route('company_index')}}">الصفحة الرئيسية</a>  &#10095; <a href="{{route('company_show_realestate',['id'=>$realestate->id])}}"> عقار </a>  &#10095; تحديث عقار
             </h3>
         </div>
         <div class="row "  >

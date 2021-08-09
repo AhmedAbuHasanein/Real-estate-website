@@ -80,6 +80,36 @@
                                             <div style="margin-right: 100px; margin-bottom: 20px">
                                                 <img class="img card-img" height="200"  src="{{asset($company->account->profile->profile_image)}}" alt="profile">
                                             </div>
+                                            <div class="form-group row " style="justify-content: center; display: flex; margin-top: 20px;">
+                                                <div class="col-sm-4 col-lg-10 col-md-12" style="direction: ltr; text-align: right">
+                                                    <label>تحميل الصورة الشخصية </label>
+                                                    <input type="file" class="file-upload-default @error('profile_image') is-invalid @enderror" multiple  name="profile_image"   />
+                                                    <div class="input-group col-xs-12">
+                                                        <input type="text" class="form-control file-upload-info" disabled="">
+                                                        <span class="input-group-append">
+                                                            <button class="file-upload-browse btn btn-gradient-primary" type="button"><b>تحميل</b></button>
+                                                        </span>
+                                                    </div>
+                                                    @error('profile_image')
+                                                    <div class="badge badge-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group row " style="justify-content: center; display: flex; margin-top: 20px;">
+                                                <div class="col-sm-4 col-lg-10 col-md-12" style="direction: ltr; text-align: right">
+                                                    <label>تحميل صورة الشعار</label>
+                                                    <input type="file" class="file-upload-default @error('logo_image') is-invalid @enderror" multiple  name="logo_image"   />
+                                                    <div class="input-group col-xs-12">
+                                                        <input type="text" class="form-control file-upload-info" disabled="">
+                                                        <span class="input-group-append">
+                                                            <button class="file-upload-browse btn btn-gradient-primary" type="button"><b>تحميل</b></button>
+                                                        </span>
+                                                    </div>
+                                                    @error('logo_image')
+                                                    <div class="badge badge-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <p class="card-description"> معلومات شخصية </p>
@@ -266,23 +296,49 @@
                                     </div>
                                     <p class="card-description"> الوثائق الرسمية  </p>
                                     <div class="row">
+                                        <?php $count = 1;?>
                                         @foreach($company->company_documents as $company_document)
+                                                <?php $count++;?>
                                             <div class="card col-lg-6 col-md-12 col-sm-12" >
                                                 <img class="card-img-top" src="{{asset($company_document->url)}}" alt="Card image" style="width:100%">
                                                 <div class="card-body">
                                                     <h4 class="card-title">
-
-                                                       <a href="{{route('company_delete_document_company',['id'=>$company_document->id])}}"> <span class="badge badge-danger " >حذف</span></a>
-
-
+                                                        <a  data-toggle="modal" data-target="#myModaldocument{{$count}}" class="btn btn-danger ">حذف</a>
                                                     </h4>
+                                                    <div class="modal" id="myModaldocument{{$count}}" style="direction :rtl">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+
+                                                                <!-- Modal Header -->
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title">حذف مستند </h4>
+                                                                    <button type="button" class="close" style="margin-right:70%" data-dismiss="modal">&times;</button>
+                                                                </div>
+
+                                                                <!-- Modal body -->
+                                                                <div class="modal-body" style="margin-left:60%">
+                                                                    هل تريد حذف المستند؟
+                                                                </div>
+
+                                                                <!-- Modal footer -->
+                                                                <div class="modal-footer">
+                                                                    <a href="{{route('company_delete_document_company',['id'=>$company_document->id])}}"><button type="button" class="btn btn-primary"  >نعم</button></a>
+
+                                                                    <button type="button" class="btn btn-danger" style="margin-left:55%" data-dismiss="modal">لا</button>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         @endforeach
                                     </div>
                                     <p class="card-description"> العقارات </p>
                                     <div class="row">
+                                        <?php $count =1; ?>
                                         @foreach($company->realestates as $realestate)
+                                                <?php $count++; ?>
                                             <div class="card col-lg-6 col-md-12 col-sm-12" >
                                                 <img class="card-img-top" src="{{asset($realestate->main_image)}}" alt="Card image" style="width:100%">
                                                 <div class="card-body">
@@ -296,10 +352,33 @@
 
                                                     </h4>
                                                     <p class="card-text">{{$realestate->description}}</p>
-                                                    <a href="{{route('company_show_realestate',['id'=>$realestate->id])}}" class="btn btn-primary stretched-link">المزيد</a>
+                                                    <a href="{{route('company_show_realestate',['id'=>$realestate->id])}}" class="btn btn-primary ">المزيد</a>
+                                                    <a  data-toggle="modal" data-target="#myModal{{$count}}" class="btn btn-danger ">حذف</a>
+                                                    <div class="modal" id="myModal{{$count}}" style="direction :rtl">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
 
-                                                    <a href="{{route('company_delete_realestate',['id'=>$realestate->id])}}" class="btn btn-danger ">حذف</a>
+                                                                <!-- Modal Header -->
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title">حذف عقار </h4>
+                                                                    <button type="button" class="close" style="margin-right:70%" data-dismiss="modal">&times;</button>
+                                                                </div>
 
+                                                                <!-- Modal body -->
+                                                                <div class="modal-body" style="margin-left:60%">
+                                                                    هل تريد حذف العقار؟
+                                                                </div>
+
+                                                                <!-- Modal footer -->
+                                                                <div class="modal-footer">
+                                                                    <a href="{{route('company_delete_realestate',['id'=>$realestate->id])}}"><button type="button" class="btn btn-primary"  >نعم</button></a>
+
+                                                                    <button type="button" class="btn btn-danger" style="margin-left:55%" data-dismiss="modal">لا</button>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         @endforeach

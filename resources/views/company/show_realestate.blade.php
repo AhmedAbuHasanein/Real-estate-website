@@ -11,7 +11,7 @@
             <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2" style="margin-left: 10px" >
                   <i class="mdi mdi-home"></i>
-                </span>  عقار
+                </span> <a href="{{route('company_index')}}">الصفحة الرئيسية</a>  &#10095; عقار
             </h3>
         </div>
         <div class="row "  >
@@ -42,7 +42,6 @@
                                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
                                     </div>
                                     <div class="row card-body" style="text-align: right">
-
                                         <div class="col-lg-5">
                                             <h4 class="card-title">اسم الشركة : <a href="{{route('admin_show_company',['id' => $realestate->company->id])}}">{{$realestate->company->company_name}}</a>  </h4>
                                             <h4 class="card-title">نوع العقار : {{$realestate->realestate_type->type}}  </h4>
@@ -66,9 +65,7 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-
                             </div>
                             <div >
                                 <div class="tab "  style="direction: rtl">
@@ -82,6 +79,7 @@
                                             <img class="card-img-top" src="{{asset($realestate->main_image)}}" alt="Card image" style="width:100%">
                                         </div>
                                         @foreach($realestate->image_realestates as $image)
+
                                             <div class="column">
                                                 <img class="card-img-top" src="{{asset($image->url)}}" alt="Card image" style="width:100%">
                                             </div>

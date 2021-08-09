@@ -37,6 +37,8 @@ class ProfileController extends Controller
             'address_1' => 'required|string|max:255',
             'phone_number' => 'required',
             'old_password' => 'required',
+            'profile_image' => 'mimes:jpeg,jpg,png,gif|max:10000',
+            'logo_image' => 'mimes:jpeg,jpg,png,gif|max:10000',
         ];
         $masseges =[];
         $validator = Validator::make($request->all(),$rules, $masseges);
@@ -94,6 +96,12 @@ class ProfileController extends Controller
             $company->ssid = $request->ssid;
         }elseif (Company::all()->where('ssid','=',$request->ssid)->first()->id != $company->id){
             return redirect()->back()->with(['error'=>'الرقم الوطني مستخدم مسبقا!']);
+        }
+        if($request->file('logo_image')!=null){
+            $file =$request->file('logo_image');
+            $filename = $file->getClientOriginalName().time(). '.' . $file->extension();
+            $request->file('logo_image')->move('asset/logo_images', $filename);
+            $company->logo_image = 'asset/logo_images/'. $filename;
         }
             $company->save();
         return redirect()->back()->with(['success'=>'تمت عملية تحديث الصفحة الشخصية بنجاح !']);
