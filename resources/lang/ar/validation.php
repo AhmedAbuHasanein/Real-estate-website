@@ -82,8 +82,8 @@ return [
         'string' => 'يجب ألا تزيد عدد الحروف عن :max .',
         'array' => 'The :attribute must not have more than :max items.',
     ],
-    'mimes' => 'The :attribute must be a file of type: :values.',
-    'mimetypes' => 'The :attribute must be a file of type: :values.',
+    'mimes' => 'تأكد من نوع الملفات المرفوعة.',
+    'mimetypes' => 'تأكد من نوع الملفات المرفوعة.',
     'min' => [
         'numeric' => 'يجب ألا تقل القيمة عن  :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',

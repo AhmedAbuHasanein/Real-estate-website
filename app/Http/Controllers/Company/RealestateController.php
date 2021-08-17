@@ -62,6 +62,7 @@ class RealestateController extends Controller
             'address' => 'required',
             'realestate_type' => 'required',
             'main_image' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
+            'video_url' => 'required|mimes:mp4',
             'realestate_image.*' => 'mimes:jpeg,jpg,png,gif|max:10000',
             'realestate_documents.*' => 'mimes:jpeg,jpg,png,gif|max:10000',
 
@@ -97,7 +98,14 @@ class RealestateController extends Controller
             $request->file('main_image')->move('asset/realestate_images', $filename);
             $realestate->main_image = 'asset/realestate_images/'. $filename;
             }
-            $realestate->company_id = Auth::user()->company->id;
+        if($request->file('video_url')!=null){
+            $file =$request->file('video_url');
+            $filename = $file->getClientOriginalName().time(). '.' . $file->extension();
+            $request->file('video_url')->move('asset/video_realstates', $filename);
+            $realestate->video_url = 'asset/video_realstates/'. $filename;
+        }
+
+        $realestate->company_id = Auth::user()->company->id;
             $realestate->save();
 
         if ($request->realestate_images != null) {
@@ -142,6 +150,7 @@ class RealestateController extends Controller
             'address' => 'required',
             'realestate_type' => 'required',
             'main_image' => 'mimes:jpeg,jpg,png,gif|max:10000',
+            'video_url' => 'mimes:mp4',
             'realestate_image.*' => 'mimes:jpeg,jpg,png,gif|max:10000',
             'realestate_documents.*' => 'mimes:jpeg,jpg,png,gif|max:10000',
 
@@ -181,6 +190,13 @@ class RealestateController extends Controller
                 $filename = $file->getClientOriginalName().time(). '.' . $file->extension();
                 $request->file('main_image')->move('asset/realestate_images', $filename);
                 $realestate->main_image = 'asset/realestate_images/'. $filename;
+            }
+            if($request->file('video_url')!=null){
+
+                $file =$request->file('video_url');
+                $filename = $file->getClientOriginalName().time(). '.' . $file->extension();
+                $request->file('video_url')->move('asset/video_realstates', $filename);
+                $realestate->video_url = 'asset/video_realstates/'. $filename;
             }
 
             $realestate->save();

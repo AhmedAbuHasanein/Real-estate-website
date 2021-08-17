@@ -16,9 +16,10 @@ class CreateRealestatesTable extends Migration
         Schema::create('realestates', function (Blueprint $table) {
             $table->id();
             $table->string("description");
-            $table->string("price");
-            $table->string("space");
+            $table->double("price");
+            $table->double("space");
             $table->string("main_image");
+            $table->string("video_url");
             $table->string('location');
             $table->string('address');
             $table->string('type');

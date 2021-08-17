@@ -22,14 +22,15 @@
                         </div>
 
                         <div class="row" style="margin-top: 40px; justify-content: center">
-                            <div class="col-lg-4 col-sm-4 col-12 main-box-layout">
+                            <div class="col-lg-4 col-sm-4 col-12 main-box-layout" >
                                 <div class="instagram-box rounded">
                                     <i class="mdi mdi-home" aria-hidden="true"></i>
                                 </div>
-                                <div class="box-layout-text text-right" style="padding-right: 10px">
+                                <div class="box-layout-text text-right" style="padding-right: 10px" >
                                     <h1>{{count($company->realestates)}}</h1>
                                     <h3>عقارات</h3>
                                 </div>
+
                             </div>
                             <div class="col-lg-4 col-sm-4 col-12 main-box-layout">
                                 <div class="pinterest-box rounded">
@@ -213,6 +214,7 @@
                                             </div>
                                        @endforeach
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -221,7 +223,6 @@
             </div>
         </div>
     </div>
-
 @stop
 
 @section('css')
@@ -260,3 +261,4 @@
         }
     </style>
     @stop
+

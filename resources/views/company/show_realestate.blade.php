@@ -30,7 +30,13 @@
                             <div class="row" >
                                 <div class="card col-lg-12" style="width:400px">
                                     <div class="slideshow-container">
-                                        <div class="mySlides">
+                                        <div class="mySlides" >
+                                            <video class="card-img-top" controls autoplay>
+                                                <source  src="{{asset($realestate->video_url)}}" type="video/mp4">
+
+                                            </video>
+                                        </div>
+                                        <div class="mySlides" hidden>
                                             <img class="card-img-top" src="{{asset($realestate->main_image)}}" alt="Card image" style="width:100%">
                                         </div>
                                         @foreach($realestate->image_realestates as $image)

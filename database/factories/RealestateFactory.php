@@ -36,6 +36,7 @@ class RealestateFactory extends Factory
             'company_id' => $this->faker->randomElement($companies_id),
             'realestate_type_id' => $this->faker->randomElement($realestate_type_id),
             'main_image' => 'asset\visitor\img\francesca-tosolini-XcVm8mn7NUM-unsplash.jpg',
+            'video_url' => 'asset\video_realestates\video.mp4',
             'type' => $this->faker->randomElement(['بيع','إيجار']),
 
 
