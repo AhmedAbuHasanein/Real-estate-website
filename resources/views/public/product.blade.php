@@ -61,41 +61,18 @@
         </div>
     </div>
     <div class="clearfix"></div>
-    <h5 class="watch-ved" id="ad">الاعلان</h5>
+    <h5 class="watch-ved" id="ad">فيديو من داخل العقار</h5>
     <div class="clearfix"></div>
     <div class="container About-property">
         <div class="clearfix"></div>
         <div class="embed-responsive embed-responsive-16by9 videoall ">
-            <iframe  class="video" src="https://www.youtube.com/embed/LIaRF3wsm2s?list=PLDoPjvoNmBAw24EjNUp_88S1VeaNK8Cts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <video class="card-img-top" controls autoplay>
+                <source  src="{{asset($realestate['video_url'])}}" type="video/mp4">
 
+            </video>
         </div>
     </div>
-@if(($account->id) == null)
-    <div class="comment" id="comment">
-        <h5 class="comment-ved">التعليقات</h5>
-        <div class="clearfix"></div>
-        <p class="comment-ved">.لكي تتمكن من التعليق<a href="{{route('login')}}" class="text-white "> تسجيل الدخول</a> يجب عليك</p>
-    </div>
 
-    @else
-        <div class="comment" id="comment">
-            <h5 class="comment-ved">التعليقات</h5>
-            <div class="row">
-                <div>
-                    name
-                </div>
-                <div>
-                    jkjkoafjsopaojg
-                </div>
-
-            </div>
-
-            <form class="form-group" action="" method="GET">
-                <input type="text" class="form-control" name="comment" placeholder="اضف تعليقاً">
-                <input type="submit" class="btn btn-primary col-4 mg-r-0" value="ارسل" name="submit">
-
-            </form>
-            @endif
 
         </div>
 
