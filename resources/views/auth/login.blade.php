@@ -27,7 +27,7 @@
 <body>
 
 <div class="container " style="text-align: right;">
-    <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" style="position: absolute; width: 100%; margin-left: 0px">
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" style="position: absolute; width: 100%;  margin-right: 50px">
         <div class="container" >
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start slider" style="margin-left: 80%">
 
