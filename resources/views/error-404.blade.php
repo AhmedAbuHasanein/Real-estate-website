@@ -9,10 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('asset/images/favicon.png')}}">
     <title>403</title>
     <!-- Custom CSS -->
-    <link href="../../dist/css/style.min.css" rel="stylesheet">
+    <link href="{{asset('asset/dist/css/style.min.css" rel="stylesheet')}}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -43,7 +43,7 @@
                 <h1 class="error-title text-danger">404</h1>
                 <h3 class="text-uppercase error-subtitle">Page Not Found!</h3>
                 <p class="text-muted m-t-30 m-b-30">YOU SEEM TO BE TRYING TO FIND HIS WAY HOME</p>
-                <a href="{{route('my_profile')}}" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back to home</a> </div>
+                <a href="{{route('home')}}" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back to home</a> </div>
         </div>
         <!-- ============================================================== -->
         <!-- Login box.scss -->
@@ -64,10 +64,10 @@
     <!-- ============================================================== -->
     <!-- All Required js -->
     <!-- ============================================================== -->
-    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="{{asset('asset/libs/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{asset('asset/libs/popper.js/dist/umd/popper.min.js')}}'"></script>
+    <script src="{{asset('asset/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <!-- ============================================================== -->
     <!-- This page plugin js -->
     <!-- ============================================================== -->

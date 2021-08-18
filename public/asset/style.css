@@ -1,0 +1,735 @@
+body{
+
+background-color: black;
+
+
+}
+.home-body{
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, 0.9)), url("img/home-bg_1_.jpg");
+
+}
+.input-group>.form-control, .input-group>.form-select{
+    background:#1e1e21 ;
+    width: 450px;
+    text-align: right;
+    direction: rtl;
+    color: white;
+
+}
+.p-3{
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.slider .bg-dark{
+    background:#27272c ;
+}
+
+.logo{
+    margin-top: 10px;
+}
+
+/*.department_logo {*/
+/*padding-left: 405px;*/
+
+/*}*/
+
+.input-group-text{
+    color:#73747d;
+    background-color: #1e1e21;
+    border: none;
+}
+.input-group .form-control{
+    border: none;
+}
+.fa-bars{
+    padding-top: 13px;
+}
+.fa-search {
+    color:#73747d;
+}
+.fa-bars{
+    color: white;
+}
+.fa-plus-circle{
+    color: white;
+    padding: 0;
+}
+
+.add{
+    display: flex;
+    padding: 0 20px;
+}
+.ss:hover{
+    color: #f3951e !important;
+}
+.fa-user{
+    font-size: 25px;
+}
+.menu{
+    float: right;
+    margin-right: -80px;
+    margin-top: 75px;
+
+
+}
+.btn-warning {
+    color: white;
+}
+
+.fa-home{
+    padding-right: 50px;
+}
+.btn-button{
+    display: block;
+    margin: 10px 0;
+    width: 200px;
+    border-radius: 20px;
+    height: 45px;
+    text-align: right;
+
+}
+.btn-loading{
+    background-color: #26baee;
+}
+.newly-added{
+    float: left;
+    display: flex;
+}
+.fa-youtube-1{
+    float: left;
+    font-size: 25px;
+    color: #212529;
+}
+.home-menu{
+    padding-right: 90px;
+}
+.fa-youtube-2{
+    float: left;
+    font-size: 25px;
+    color: #ffffff;
+}
+.fa-arrow-circle-down{
+
+    font-size: 25px;
+    color: #ffffff;
+}
+.btn-loading {
+    color: white;
+}
+.btn-watch{
+    color: white;
+}
+.movie-cover{
+    /*background-image: url("img/francesca-tosolini-XcVm8mn7NUM-unsplash.jpg");*/
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url("img/francesca-tosolini-XcVm8mn7NUM-unsplash.jpg");
+    /*filter: blur(3px);*/
+    background-size: cover;
+    margin-top: 13px;
+    height: 75vh;
+    overflow: hidden;
+}
+
+.button{
+    margin-top: 40px;
+    z-index: 10000 !important;
+}
+button i{
+    float: left;
+}
+/*.Share-button{*/
+/*opacity: 0.4;*/
+/*}*/
+.fa-share-alt{
+    color:#ffffff;
+    font-size: 20px;
+}
+.btn-circle{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+}
+.fa-thumbs-up,.fa-thumbs-down  {
+    margin-top: 0px;
+}
+.special-button{
+    margin: 70px 40px;
+}
+.pictures{
+    width: 220px;
+    padding-top: 35px;
+    float: right;
+}
+.owner-name{
+    color: white;
+    float: right;
+    padding-top: 30px;
+}
+.home-inform{
+    float: right;
+    padding-top: 25px;
+
+}
+
+.home-inform span{
+    padding-top: 10px;
+    display: block;
+    color: white;
+    direction: rtl;
+    font-size: 12px;
+}
+.home-inform button{
+    width: 50px;
+    height: 25px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+.home-btn{
+    padding-top: 15px;
+    float: right;
+}
+.home-inform{
+    direction: rtl;
+    color: white;
+
+}
+.home-inform p{
+    margin-top: 17px ;
+    color: #d6ff71;
+}
+.Describe{
+    display: grid;
+    margin-top: 80px;
+}
+.Describe h5,.Describe p{
+    color: white;
+    float: right;
+    direction: rtl;
+
+}
+.house-photos{
+    text-align: right;
+    margin-top: 20px;
+}
+
+.house-photos img{
+    margin-left: 12px
+}
+button img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: -80px;
+    margin-top: -7px;
+}
+
+.Describe button{
+    float: right;
+    border-radius: 40px;
+    height: 60px;
+    background-color: #1f1f24;
+    border: none;
+    color: white;
+    width: 220px;
+    margin-left: 20px;
+}
+.Describe button:hover{
+    background-color: #0e0e17;
+    color: white;
+}
+
+.Describe button:hover img {
+    -webkit-transform: scale(1.1,1.1)  rotate(360deg);
+    -o-transform: scale(1.1,1.1) rotate(360deg);
+    -moz-transform: scale(1.1,1.1) rotate(360deg);
+    transform: scale(1.1,1.1) rotate(360deg);
+}
+.About-property{
+    background-color: #1f1f24;
+    height:600px;
+    border-radius: 10px;
+}
+.watch-ved{
+    padding-top: 85px;
+    float: right;
+    color: white;
+}
+.btn-watch-2{
+    float: right;
+    margin: 30px 25px 10px 0px;
+}
+.video{
+    /*aspect-ratio: 9/16;*/
+    height: 500px;
+    width: 80%;
+}
+
+.videoall{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.comment{
+    margin-top: 60px;
+}
+.comment-ved{
+    float: right;
+    color: white;
+}
+.comment-ved a{
+    text-decoration: none;
+    color: #f3951e !important;
+}
+
+.comment:hover a{
+    color:#bf7f2e !important;
+}
+.bg-dark,.p-3 {
+    background-color: #19191b !important;
+}
+.pb-0{
+    height: 300px;
+}
+.mb-4{
+    margin-top: 185px;
+}
+footer a{
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+}
+
+@media screen and (max-width: 575px) {
+    .house-photos img{
+        width: 150px;
+    }
+    .house-photos{
+        display: flex;
+    }
+    .Describe button{
+        height: 50px;
+        width: 200px;
+    }
+
+
+    .container-x {
+        max-width: 1500px;
+    }
+    .department_logo {
+
+    }
+    span{
+        font-size: 10px;
+    }
+    li a{
+        font-size: 12px;
+    }
+    h5{
+        font-size: 10px;
+    }
+    button{
+        font-size: 10px;
+    }
+    .pictures{
+        width: 135px;
+        padding-top: 0px;
+    }
+    .home-inform{
+        margin-right: 60px;
+        padding-top: 15px;
+    }
+    .btn-button{
+        width: 120px;
+        height: 34px;
+        font-size: 10px;
+    }
+    .button{
+        margin-top: 20px;
+    }
+    .owner-name{
+        padding-top: 55px;
+        font-size: 18px;
+    }
+    h3{
+        font-size: 25px;
+    }
+    .search-form{
+        display: none !important;
+    }
+    .logo{
+        width: 60px;
+    }
+    .fa-user{
+        font-size: 20px;
+    }
+    .col-12{
+        width: auto;
+    }
+    .home-inform p{
+        font-size: 8px;
+    }
+    .btn-circle{
+        display: inline-grid;
+        width: 40px;
+        height: 40px;
+
+
+    }
+    .special-button{
+        margin-top: 30px !important;
+    }
+    .menu{
+        margin-right: -110px;
+    }
+    .home-inform{
+        margin-right: 16px;
+        margin-top: -51px;
+    }
+    .movie-cover{
+        height: 60vh;
+    }
+}
+@media (min-width: 576px) and (max-width: 767.98px){
+    .container, .container-sm {
+        max-width: 700px;
+    }
+
+    .input-group>.form-control, .input-group>.form-select {
+        width: 210px;
+        font-size: 10px;
+
+    }
+    .home-inform{
+
+        margin-top: -62px;
+    }
+    .owner-name{
+        font-size: 18px;
+        padding-top: 65px;
+    }
+    .fa-bars{
+        font-size: 11px;
+
+
+    }
+    .sp{
+        font-size: 10px;
+    }
+    .newly-added{
+        margin-right: 142px;
+    }
+    .fa-user{
+        font-size: 15px;
+    }
+    .logo{
+        width: 65px;
+    }
+    .nav-link{
+        font-size: 11px;
+    }
+    .add{
+        margin-left: -2px;
+        padding: 0;
+    }
+    .Describe p,.Describe h5{
+        font-size: 13px;
+    }
+    .pictures{
+        width: 130px;
+        padding-top: 10px;
+    }
+    .department_logo{
+        margin-top: -16px;
+        margin-left: -126px;
+    }
+    .menu{
+        margin-right: -90px;
+        margin-top: 100px;
+    }
+    .btn-button{
+        height: 35px;
+        width: 175px;
+    }
+    .special-button{
+        margin: 24px 40px;
+    }
+    .btn-circle{
+        width: 40px;
+        height: 40px;
+    }
+    .fa-thumbs-up,.fa-thumbs-down{
+        font-size: 10px;
+    }
+    .Describe p{
+        font-size: 10px;
+    }
+    .house-photos{
+        display: flex;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .search-form{
+        margin-right: 290px;
+    }
+    .input-group{
+        flex-wrap: nowrap;
+        width: 70%;
+
+
+    }
+    .container, .container-md, .container-sm {
+        max-width: 1000px;
+    }
+    .department_logo{
+        margin-left: -382px
+    }
+    .movie-cover{
+        height: 50vh;
+    }
+    .form-control{
+        font-size: 11px;
+    }
+    .logo{
+        width: 60px;
+    }
+    .fa-bars{
+        font-size: 15px;
+        padding-top: 10px;
+    }
+    .nav-link{
+        font-size: 13px;
+    }
+    .fa-user{
+        font-size: 20px;
+    }
+    .col-12{    width: auto !important;
+    }
+    .input-group>.form-select {
+        width: 250px  ;
+    }
+    .home-inform{
+        padding-right: 0px;
+        padding-top: 0px;
+        font-size: 12px;
+    }
+    .btn-button{
+        width: 160px;
+        height: 35px;
+    }
+    .fa-thumbs-down{
+        font-size: 10px;
+    }
+    .fa-thumbs-up{
+        font-size: 10px;
+    }
+    .special-button span{
+        font-size: 11px;
+    }
+    .home-inform p{
+        font-size: 12px;
+    }
+    .special-button{
+        margin: 15px 40px;
+    }
+    .pictures{
+        width: 174px;
+        padding-top: 15px;
+    }
+    .owner-name{
+        font-size: 20px;
+    }
+    .home-inform span{
+        padding-top: 0;
+    }
+    .menu{
+        margin-right: -70px;
+    }
+    .movie-cover{
+        margin-top: 12px;
+    }
+    .btn-circle{
+        width: 40px;
+        height: 40px;
+    }
+    .Describe p{
+        font-size: 11px;
+
+    }
+
+
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .pictures {
+            width: 217px;
+            padding-top: 25px;
+        }
+
+        .home-inform {
+
+            margin-right: 60px;
+            margin-top: -63px;
+            font-size: 10px;
+        }
+
+        .owner-name {
+            font-size: 18px;
+            padding-top: 70px;
+
+        }
+        .Describe{
+            font-size: 15px;
+        }
+        .Describe h5{
+            font-size: 15px;
+        }
+        .btn-button{
+            width: 159px;
+            height: 35px;
+        }
+        .special-button{
+            margin: 30px 20px;
+        }
+        .button{
+            margin-top: 33px;
+        }
+        .btn-circle{
+            width: 40px;
+            height: 40px;
+            padding-top: 2px;
+        }
+        .fa-thumbs-down .fa-thumbs-up{
+            font-size: 10px;
+        }
+
+
+    }
+    @media (min-width: 1200px){
+        .home-inform{
+            padding-top: 0px;
+
+        }
+        .pictures{
+            width: 265px;
+            padding-top: 35px;
+        }
+        .home-inform span{
+            padding-top: 0;
+            font-size: 14px;
+        }
+        .movie-cover{
+            height: 60vh;
+        }
+        .special-button{
+            margin: 70px 40px;
+        }}}
+
+.emp-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #0062cc;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #0062cc;
+}
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}
+.p-body{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+}
+.ks-cover{
+    margin-top: -120px !important;
+
+}
+
+
+
+
+
+
+

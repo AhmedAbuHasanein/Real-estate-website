@@ -79,15 +79,24 @@ Route::middleware('auth')->group(function () {
     });
     //Routes User
     Route::prefix('User')->middleware("IsUser")->group(function () {
-        Route::get('/index', function () {
-            return "on sucsses user";
-        })->name('user_index');
+        Route::get('/{id}', 'User\ProfileController@index')->name('user_index');
+        Route::get('/edit/{id}','User\ProfileController@edit')->name('userEdit');
+
+
     });
 });
 //Routes Visitor
-Route::prefix('Visitor')->group(function () {
 
-});
+
+//    Route::get('/show_realestate/{id}','Visitor\VisitorController@show')->name('show_realestate');
+//
+    Route::get('/home','Visitor\VisitorController@home')->name('home');
+    Route::get('/realestate/{id}','Visitor\VisitorController@index')->name('product');
+
+    Route::get('/type/{id}','Visitor\VisitorController@show')->name('showByType');
+    Route::get('/search','Visitor\VisitorController@search')->name('search');
+
+
 
 
 
