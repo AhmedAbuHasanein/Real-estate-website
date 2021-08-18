@@ -15,6 +15,5 @@
             </div>
         </div>
     @endforeach
-
 </div>
 @stop
