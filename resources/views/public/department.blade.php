@@ -37,14 +37,14 @@
     </div>
 <div class="row d-flex mr-auto" style="direction: rtl">
     @foreach($type_id as $post)
-        <div class="card col-4 " style="width: 18rem;margin: 10px;padding: 10px">
+        <div class="card col-4 bg-dark text-white " style="width: 18rem;margin: 10px;padding: 10px">
             <img src="{{asset($post['main_image'])}}" class="card-img-top" alt="image">
             <div class="card-body">
                 <h5 class="card-title">{{$post['price']}}$</h5>
                 <h5 class="card-title">{{$post['space']}}م<sup>2</sup></h5>
                 <span class="card-title "><b>{{$post['type']}}</b></span>
                 <p class="card-text">{{$post['description']}}</p>
-                <a href="{{route('product',$post['id'])}}" class="btn btn-primary">مزيد من التفاصيل</a>
+                <a href="{{route('product',$post['id'])}}" class="btn btn-orange">مزيد من التفاصيل</a>
             </div>
         </div>
     @endforeach
@@ -56,6 +56,7 @@
             </div>>
         @endif
 </div>
+<br>
 <div class="d-flex justify-content-center "  style="margin-top: 20px" >   {{$type_id->links()}} </div>
-
+<br>
 @stop
