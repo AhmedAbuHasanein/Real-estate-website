@@ -37,11 +37,11 @@ class VisitorController extends Controller
     //end search
 //show realestate details
     public function index($id){
-
+        $types=Realestate_type::select()->get();
         $result = Realestate::join('companies','company_id','companies.id')->where('realestates.id',$id)->first();
         $type = Realestate_type::join('realestates','realestate_types.id','realestates.realestate_type_id')->where('realestates.id',$id)->first();
         if ($result != null) {
-            return view('public.product')->with('realestate', $result)->with('type', $type);
+            return view('public.product')->with('realestate', $result)->with(['type'=> $type, 'types'=>$types]);
         }else{
             return view('error-404');
         }
