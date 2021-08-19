@@ -56,5 +56,6 @@
             </div>>
         @endif
 </div>
+<div class="d-flex justify-content-center "  style="margin-top: 20px" >   {{$type_id->links()}} </div>
 
 @stop
