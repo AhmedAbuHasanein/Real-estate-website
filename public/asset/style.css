@@ -4,10 +4,7 @@ background-color: black;
 
 
 }
-.home-body{
-    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, 0.9)), url("img/home-bg_1_.jpg");
 
-}
 .input-group>.form-control, .input-group>.form-select{
     background:#1e1e21 ;
     width: 450px;

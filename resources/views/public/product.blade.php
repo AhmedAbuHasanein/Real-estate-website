@@ -1,7 +1,9 @@
 <?php $account = \Illuminate\Support\Facades\Auth::user(); ?>
 @extends('public.layout.app')
 @section('title',$realestate['company_name'])
-
+@section('onload')
+    onload="intiMap({{$realestate->location}})"
+@stop
 @section('body')
 
     <div class="widget-2 widget mb-4">
@@ -42,7 +44,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-4">
+            <div class="col-3">
                 <div class="button">
                     <a href="#ad" ><button type="button" class="btn btn-light btn-button"><i class="fab fa-youtube fa-youtube-1"></i>شاهد الفيديو</button></a>
                     <a href="#des"> <button type="button" class="btn  btn-button btn-primary">  <i class="fas fa-arrow-circle-down"></i>أقرأ صندوق الوصف   </button></a>
@@ -70,8 +72,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3"  >
-                 <img src="{{asset($realestate['main_image'])}}" class="pictures ">
+            <div class="col-4" style="margin-top: 10px"  >
+                <div id="Map"  style="width: 100%; height: 400px">
+                </div>
             </div>
         </div>
     </div>
@@ -103,13 +106,45 @@
 
 </div>
 
-
-
-
 <div class="clearfix"></div>
 
 @stop
+@section('css')
+    <style>
+        .home-body{
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, 0.9)), url("{{asset($realestate['main_image'])}}");
+
+        }
+    </style>
+@stop
+
+@section('js')
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=&v=weekly"></script>
+    <script type="text/javascript">
+
+        function intiMap (lat ,lng) {
+            //Determine the location where the user has clicked.
+            const location = { lat: lat, lng: lng };
+
+            var mapOptions = {
+                center: location,
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+
+            };
+            var map = new google.maps.Map(document.getElementById("Map"), mapOptions);
+
+            //Create a marker and placed it on the map.
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+            });
 
 
 
+        }
+
+    </script>
+
+@stop
 

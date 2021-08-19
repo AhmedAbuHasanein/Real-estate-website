@@ -11,9 +11,11 @@
     <link href="{{asset('asset/icon/css/solid.css')}}" rel="stylesheet">
     <link href="{{asset('asset/style.css')}}" rel="stylesheet">
     <link href="{{asset('asset/style_2.css')}}" rel="stylesheet">
+    @yield('css')
+    @yield('js')
 </head>
 
-<body>
+<body  @yield('onload')>
 @include('public.layout.nav')
 
 
