@@ -11,6 +11,7 @@
     <!-- Main Style Css -->
     <link rel="stylesheet" href="{{asset("asset/auth/register/css/style.css")}}"/>
     <link rel="stylesheet" href="{{asset("asset/auth/register/css/radio.css")}}"/>
+
     <style>
         body {
             background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url({{asset("asset/auth/image_site/realestate.jpg")}});
@@ -35,221 +36,244 @@
             color:red ;
 
         }
+
+
     </style>
 </head>
 <body >
-<div class="page-content" >
-    <div class="form-v1-content" >
-        <div class="wizard-form" >
-            <form id="forms"  class="form-register" method="post" action="{{route('register_account')}}">
-                @csrf
-                <div  id="form-total">
-                    <!-- SECTION 1 -->
-                    <h2>
-                        <p class="step-icon" style="margin-left: 15px"><span>01</span></p>
-                        <span class="step-text">بيانات الحساب</span>
-                    </h2>
-                    <section style="direction: rtl">
-                        <div class="inner">
-                            <div class="wizard-header">
-                                <h3 class="heading">معلومات الحساب</h3>
-                                <p>يرجى إدخال معلوماتك والانتقال إلى الخطوة التالية حتى نتمكن من إنشاء حساباتك. </p>
-                            </div>
-                            <div class="form-row">
-                            <div class="form-holder form-holder-2">
-                            <fieldset>
-                                <legend>نوع الحساب</legend>
-                                <div class="form-row">
 
-                                    <label class="container"  style="margin: 5px">زبون
-                                        <input type="radio" checked name="account_type" value="user" id="user" class=" @error('account_type') is-invalid @enderror"
-                                               @if(old('account_type')=='user') checked @endif onclick="check()">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container" style="margin: 5px">شركة
-                                        <input type="radio" name="account_type" value="company" id="company" class=" @error('account_type') is-invalid @enderror"
-                                               @if(old('account_type')=='company') checked @endif   onclick="check()" >
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </fieldset>
-                                @error('account_type')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            </div>
-                            <div class="form-row" id="append_company_name" >
+    <header class="navbar navbar-expand-lg bg-transparent  sticky-top " style="position: absolute; width: 100%;  top:20px">
+        <div class="container" >
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start slider" >
 
-                                 </div>
-                            <div class="form-row">
-                                <div class="form-holder form-holder-2">
-                                    <fieldset>
-                                        <legend>اسم المستخدم</legend>
-                                        <input type="text" class="form-control  @error('user_name') is-invalid @enderror" id="username" name="user_name" value="{{old('user_name')}}"  required>
-                                    </fieldset>
-                                  @error('user_name')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-holder form-holder-2">
-                                    <fieldset>
-                                        <legend>البريد الالكتروني</legend>
-                                        <input type="email" name="email" id="your_email" class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}" placeholder="example@email.com" required>
-                                    </fieldset>
-                                    @error('email')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-holder form-holder-2">
-                                    <fieldset>
-                                        <legend>كلمة المرور</legend>
-                                        <input type="password" class="form-control  @error('password') is-invalid @enderror" id="password" name="password" onkeyup="verify()"  required>
-                                    </fieldset>
-                                    @error('password')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-holder form-holder-2">
-                                    <fieldset>
-                                        <legend>تأكيد كلمة المرور</legend>
-                                        <input type="password" class="form-control  @error('verify_password') is-invalid @enderror" id="verify_password" name="verify_password" onkeyup="verify()" required>
-                                    </fieldset>
-                                    @error('verify_password')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <label id="verify" style="color:red"></label>
-                            </div>
+                <ul class="mb-2 mb-md-0 department_logo  " style="list-style-type: none;  display: inline;"  >
+                    <li>
 
-                        </div>
-                    </section>
-                    <!-- SECTION 2 -->
-                    <h2>
-                        <p class="step-icon" style="margin-left: 15px"><span>02</span></p>
-                        <span class="step-text">معلومات شخصية</span>
-                    </h2>
-                    <section style="direction: rtl">
-                        <div class="inner">
-                            <div class="wizard-header">
-                                <h3 class="heading">معلومات شخصية</h3>
-                                <p>يرجى إدخال معلوماتك والانتقال إلى الخطوة التالية حتى نتمكن من إنشاء حساباتك. </p>
-                            </div>
-                            <div class="form-row">
+                        <a href="{{route('login')}}" style="text-decoration: none; color: white; font-size: 25px;"> تسجيل الدخول</a>
+                        <a href="{{route('home')}}" style="float: right" >
+                            <img src="{{asset('asset/img/logo.png')}}" class="logo" width="120px">
+                        </a>
+                    </li>
 
-                                <div class="form-holder">
-                                        <fieldset>
-                                            <legend>الاسم الأول</legend>
-                                            <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first-name" name="first_name" value="{{old('first_name')}}"  required>
-                                        </fieldset>
-                                    @error('first_name')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="form-holder">
+                </ul>
 
-                                    <fieldset>
-                                        <legend>الاسم الأخير</legend>
-                                        <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last-name" name="last_name"  value="{{old('last_name')}}"  required>
-                                    </fieldset>
-                                    @error('last_name')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                            </div>
-                            <div class="form-row">
-                                <div class="form-holder form-holder-2">
-                                    <fieldset>
-                                        <legend>الجنس</legend>
-                                        <div class="form-row">
-                                <label class="container" style="margin: 5px">ذكر
-                                    <input type="radio" checked="checked" name="gender" value="ذكر" class="@error('gender') is-invalid @enderror"
-                                    @if(old('gender')=='ذكر') checked @endif>
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container" style="margin: 5px">أنثى
-                                    <input type="radio" name="gender" value="أنثى" class="@error('gender') is-invalid @enderror"
-                                           @if(old('gender')=='أنثى') checked @endif>
-                                    <span class="checkmark"></span>
-                                </label>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                                @error('gender')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                                </div>
-                            <div class="form-row">
-                                <div class="form-holder form-holder-2">
-                                    <fieldset>
-                                        <legend>تاريخ الميلاد</legend>
-                                        <input type="date" class="form-control @error('dob') is-invalid @enderror" id="dob" name="dob" value="{{old('dob')}}" required>
-                                    </fieldset>
-                                    @error('dob')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-holder form-holder-2">
-                                    <fieldset>
-                                        <legend>العنوان الأول</legend>
-                                        <input type="text" class="form-control @error('address_1') is-invalid @enderror" id="address_1" name="address_1" value="{{old('address_1')}}" required>
-                                    </fieldset>
-                                    @error('address_1')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-holder form-holder-2">
-                                    <fieldset>
-                                        <legend>العنوان الثاني (اختياري)</legend>
-                                        <input type="text" class="form-control @error('address_2') is-invalid @enderror" id="address_2" value="{{old('address_2')}}" name="address_2"  >
-                                    </fieldset>
-                                    @error('address_2')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-holder" style="margin-top: 8px">
-                                    @include('auth.drop_select_country')
-                                    @error('country')
-
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-
-                                </div>
-                                <div class="form-holder">
-                                    <fieldset>
-                                        <legend>رقم الهاتف</legend>
-                                        <input type="number" class="form-control @error('phone_number') is-invalid @enderror" id="phone" value="{{old('phone_number')}}"  name="phone_number" placeholder="+1 888-999-7777" required>
-                                    </fieldset>
-                                    @error('phone_number')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                    <input disabled type="submit" id="submit">
-                            </div>
-                        </div>
-                    </section>
-                </div>
-
-            </form>
+            </div>
         </div>
-    </div>
-</div>
+    </header>
+    <div class="page-content " >
+
+            <div class="form-v1-content" >
+                <div class="wizard-form" >
+                    <form id="forms"  class="form-register" method="post" action="{{route('register_account')}}">
+                        @csrf
+                        <div  id="form-total">
+                            <!-- SECTION 1 -->
+                            <h2>
+                                <p class="step-icon" style="margin-left: 15px"><span>01</span></p>
+                                <span class="step-text">بيانات الحساب</span>
+                            </h2>
+                            <section style="direction: rtl">
+                                <div class="inner">
+                                    <div class="wizard-header">
+                                        <h3 class="heading">معلومات الحساب</h3>
+                                        <p>يرجى إدخال معلوماتك والانتقال إلى الخطوة التالية حتى نتمكن من إنشاء حساباتك. </p>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-holder form-holder-2">
+                                            <fieldset>
+                                                <legend>نوع الحساب</legend>
+                                                <div class="form-row">
+
+                                                    <label class="container"  style="margin: 5px">زبون
+                                                        <input type="radio" checked name="account_type" value="user" id="user" class=" @error('account_type') is-invalid @enderror"
+                                                               @if(old('account_type')=='user') checked @endif onclick="check()">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                    <label class="container" style="margin: 5px">شركة
+                                                        <input type="radio" name="account_type" value="company" id="company" class=" @error('account_type') is-invalid @enderror"
+                                                               @if(old('account_type')=='company') checked @endif   onclick="check()" >
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </fieldset>
+                                            @error('account_type')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-row" id="append_company_name" >
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-holder form-holder-2">
+                                            <fieldset>
+                                                <legend>اسم المستخدم</legend>
+                                                <input type="text" class="form-control  @error('user_name') is-invalid @enderror" id="username" name="user_name" value="{{old('user_name')}}"  required>
+                                            </fieldset>
+                                            @error('user_name')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-holder form-holder-2">
+                                            <fieldset>
+                                                <legend>البريد الالكتروني</legend>
+                                                <input type="email" name="email" id="your_email" class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}" placeholder="example@email.com" required>
+                                            </fieldset>
+                                            @error('email')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-holder form-holder-2">
+                                            <fieldset>
+                                                <legend>كلمة المرور</legend>
+                                                <input type="password" class="form-control  @error('password') is-invalid @enderror" id="password" name="password" onkeyup="verify()"  required>
+                                            </fieldset>
+                                            @error('password')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-holder form-holder-2">
+                                            <fieldset>
+                                                <legend>تأكيد كلمة المرور</legend>
+                                                <input type="password" class="form-control  @error('verify_password') is-invalid @enderror" id="verify_password" name="verify_password" onkeyup="verify()" required>
+                                            </fieldset>
+                                            @error('verify_password')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <label id="verify" style="color:red"></label>
+                                    </div>
+
+                                </div>
+                            </section>
+                            <!-- SECTION 2 -->
+                            <h2>
+                                <p class="step-icon" style="margin-left: 15px"><span>02</span></p>
+                                <span class="step-text">معلومات شخصية</span>
+                            </h2>
+                            <section style="direction: rtl">
+                                <div class="inner">
+                                    <div class="wizard-header">
+                                        <h3 class="heading">معلومات شخصية</h3>
+                                        <p>يرجى إدخال معلوماتك والانتقال إلى الخطوة التالية حتى نتمكن من إنشاء حساباتك. </p>
+                                    </div>
+                                    <div class="form-row">
+
+                                        <div class="form-holder">
+                                            <fieldset>
+                                                <legend>الاسم الأول</legend>
+                                                <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first-name" name="first_name" value="{{old('first_name')}}"  required>
+                                            </fieldset>
+                                            @error('first_name')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-holder">
+
+                                            <fieldset>
+                                                <legend>الاسم الأخير</legend>
+                                                <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last-name" name="last_name"  value="{{old('last_name')}}"  required>
+                                            </fieldset>
+                                            @error('last_name')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-holder form-holder-2">
+                                            <fieldset>
+                                                <legend>الجنس</legend>
+                                                <div class="form-row">
+                                                    <label class="container" style="margin: 5px">ذكر
+                                                        <input type="radio" checked="checked" name="gender" value="ذكر" class="@error('gender') is-invalid @enderror"
+                                                               @if(old('gender')=='ذكر') checked @endif>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                    <label class="container" style="margin: 5px">أنثى
+                                                        <input type="radio" name="gender" value="أنثى" class="@error('gender') is-invalid @enderror"
+                                                               @if(old('gender')=='أنثى') checked @endif>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        @error('gender')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-holder form-holder-2">
+                                            <fieldset>
+                                                <legend>تاريخ الميلاد</legend>
+                                                <input type="date" class="form-control @error('dob') is-invalid @enderror" id="dob" name="dob" value="{{old('dob')}}" required>
+                                            </fieldset>
+                                            @error('dob')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-holder form-holder-2">
+                                            <fieldset>
+                                                <legend>العنوان الأول</legend>
+                                                <input type="text" class="form-control @error('address_1') is-invalid @enderror" id="address_1" name="address_1" value="{{old('address_1')}}" required>
+                                            </fieldset>
+                                            @error('address_1')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-holder form-holder-2">
+                                            <fieldset>
+                                                <legend>العنوان الثاني (اختياري)</legend>
+                                                <input type="text" class="form-control @error('address_2') is-invalid @enderror" id="address_2" value="{{old('address_2')}}" name="address_2"  >
+                                            </fieldset>
+                                            @error('address_2')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-holder" style="margin-top: 8px">
+                                            @include('auth.drop_select_country')
+                                            @error('country')
+
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+
+                                        </div>
+                                        <div class="form-holder">
+                                            <fieldset>
+                                                <legend>رقم الهاتف</legend>
+                                                <input type="number" class="form-control @error('phone_number') is-invalid @enderror" id="phone" value="{{old('phone_number')}}"  name="phone_number" placeholder="+1 888-999-7777" required>
+                                            </fieldset>
+                                            @error('phone_number')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <input disabled type="submit" id="submit">
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
 <script>
     var error_company_name ='@error("company_name")\n' +
         '                                <div class="alert alert-danger">{{ $message }}</div>\n' +

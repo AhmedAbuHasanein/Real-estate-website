@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 //login
-Route::get('/','Auth\LoginController@login');
+Route::get('/','Visitor\VisitorController@home');
 Route::get('/login','Auth\LoginController@login')->name('login');
 Route::post('/authenticate','Auth\LoginController@authenticate')->name('authenticate');
 Route::get('/logout','Auth\LoginController@logout')->name('logout');

@@ -27,11 +27,11 @@
 <body>
 
 <div class="container " style="text-align: right;">
-    <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" style="position: absolute; width: 100%;  margin-right: 50px">
+    <header class="navbar navbar-expand-lg bg-transparent  sticky-top" style="position: absolute; width: 100%;  margin-right: 50px">
         <div class="container" >
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start slider" style="margin-left: 80%">
 
-                <ul class="mb-2 mb-md-0 department_logo"  >
+                <ul class="mb-2 mb-md-0 department_logo " style="list-style-type: none; margin-top: 20px"  >
                     <li> <a href="{{route('home')}}"> <img src="{{asset('asset/img/logo.png')}}" class="logo" width="120px"> </a></li>
                 </ul>
 
