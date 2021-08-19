@@ -41,11 +41,20 @@
             <img src="{{asset($post['main_image'])}}" class="card-img-top" alt="image">
             <div class="card-body">
                 <h5 class="card-title">{{$post['price']}}$</h5>
+                <h5 class="card-title">{{$post['space']}}م<sup>2</sup></h5>
+                <span class="card-title "><b>{{$post['type']}}</b></span>
                 <p class="card-text">{{$post['description']}}</p>
                 <a href="{{route('product',$post['id'])}}" class="btn btn-primary">مزيد من التفاصيل</a>
             </div>
         </div>
     @endforeach
+        @if($type_id->isEmpty())
+            <div class="d-flex justify-content-center" >
+                <h1>
+                    لا يوجد نتائج
+                </h1>
+            </div>>
+        @endif
 </div>
 
 @stop

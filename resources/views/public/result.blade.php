@@ -36,13 +36,15 @@
     <div class="row gy-5 " style="direction: rtl">
         <div class="d-flex justify-content-center" style="color: white; font-size: 30px"><p>نتائج البحث عن {{$search}}</p></div>
         <div class="col-12 ">
-        @if($result != null)
+
                 <div class="row d-flex mr-auto">
                     @foreach($result as $post)
                         <div class="card col-4 " style="width: 18rem; margin: 10px;padding: 10px" >
                             <img src="{{asset($post['main_image'])}}" class="card-img-top" alt="image">
                             <div class="card-body">
                                 <h5 class="card-title">{{$post['price']}}$</h5>
+                                <h5 class="card-title">{{$post['space']}}م<sup>2</sup></h5>
+                                <span class="card-title"><b>{{$post['type']}}</b></span>
                                 <p class="card-text">{{$post['description']}}</p>
                                 <a href="{{route('product',$post['id'])}}" class="btn btn-primary">مزيد من التفاصيل</a>
                             </div>
@@ -50,8 +52,8 @@
                     @endforeach
 
                 </div>
-            @else
-                <div class="row">
+           @if($result->isEmpty())
+                <div class="d-flex justify-content-center" >
                         <h1>
                            لا يوجد نتائج
                         </h1>
