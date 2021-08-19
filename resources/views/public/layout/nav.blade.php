@@ -16,7 +16,7 @@
                 </div>
             </ul>
 
-            <ul class="mb-2 mb-md-0 department_logo">
+            <ul class="mb-2 mb-md-0 department_logo" style="list-style-type: none">
                 <li> <a href="{{route('home')}}"> <img src="{{asset('asset/img/logo.png')}}" class="logo" width="120px"> </a></li>
             </ul>
 
