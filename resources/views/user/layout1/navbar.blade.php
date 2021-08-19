@@ -32,15 +32,10 @@
                 </a>
             </li>
 
-
             <li class="nav-item nav-logout d-none d-lg-block">
                 <a class="nav-link" href="{{route('logout')}}">
                     <i class="mdi mdi-power"></i>
                 </a>
-            </li>
-            <li class="nav-item nav-logout d-none d-lg-block" style="float: left">
-                <a href="{{route('company_add_realestate_form')}}"> <button class="btn btn-success"  > إضافة عقار</button></a>
-
             </li>
 
         </ul>

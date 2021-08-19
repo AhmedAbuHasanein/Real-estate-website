@@ -79,8 +79,9 @@ Route::middleware('auth')->group(function () {
     });
     //Routes User
     Route::prefix('User')->middleware("IsUser")->group(function () {
-        Route::get('/{id}', 'User\ProfileController@index')->name('user_index');
-        Route::get('/edit/{id}','User\ProfileController@edit')->name('userEdit');
+        Route::get('/', 'User\ProfileController@index')->name('user_index');
+        Route::get('/edit/','User\ProfileController@edit')->name('userEdit');
+        Route::post('/edituser/','User\ProfileController@update')->name('user_update_profile');
 
 
     });

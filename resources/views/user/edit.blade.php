@@ -1,9 +1,9 @@
-@extends('company.layout.app')
+@extends('user.layout1.app')
 @section('title')
     <title>الصفحة الرئيسية</title>
 @stop
 @section('body')
-    onload="country_select('{{$user->account->profile->country}}')"
+    onload="country_select('{{$user->profile->country}}')"
 @stop
 @section('page padding')
     <div class="content-wrapper" style="direction: rtl">
@@ -19,87 +19,21 @@
                 <div class="card " >
                     <div class="card-body">
                         <h4 class="card-title" style="text-align:right"> الصفحة الرئيسية </h4>
-                        <form id="forms" class="form-sample" enctype="multipart/form-data" method="post" action="{{route('company_update_profile')}}">
+                        <form id="forms" class="form-sample" enctype="multipart/form-data" method="post" action="{{route('user_update_profile')}}">
                             @csrf
-                            <div class="nav-profile-image " style="justify-content: center; display: flex" >
-                                <img src="{{asset($user->logo_image)}}"  style="border-radius: 50%;" alt="profile">
-                            </div>
 
-
-                            </div>
                             <div class="card-body ">
                                 <div class="card" style="text-align: right">
-                                    <div class="card-body " style="text-align: right">
-                                        <p class="card-description"> معلومات الشركة </p>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-sm-3 col-form-label">اسم الشركة</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="text" class="form-control @error('company_name') is-invalid @enderror" name="company_name" value="{{$user->company_name}}" required />
-                                                        @error('company_name')
-                                                        <div class="badge badge-danger">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
+                                    <div class="card-body row " style="text-align: right">
 
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-3 col-form-label">الرقم الوطني</label>
-                                                    <div class="col-sm-9">
-
-                                                        <input type="number" class="form-control @error('ssid') is-invalid @enderror "  name="ssid" value="{{$user->ssid}}" required/>
-                                                        @error('ssid')
-                                                        <div class="badge badge-danger">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
-
-
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div style="margin-right: 100px; margin-bottom: 20px">
-                                                    <img class="img card-img" height="200"  src="{{asset($user->account->profile->profile_image)}}" alt="profile">
-                                                </div>
-                                                <div class="form-group row " style="justify-content: center; display: flex; margin-top: 20px;">
-                                                    <div class="col-sm-4 col-lg-10 col-md-12" style="direction: ltr; text-align: right">
-                                                        <label>تحميل الصورة الشخصية </label>
-                                                        <input type="file" class="file-upload-default @error('profile_image') is-invalid @enderror" multiple  name="profile_image"   />
-                                                        <div class="input-group col-xs-12">
-                                                            <input type="text" class="form-control file-upload-info" disabled="">
-                                                            <span class="input-group-append">
-                                                            <button class="file-upload-browse btn btn-gradient-primary" type="button"><b>تحميل</b></button>
-                                                        </span>
-                                                        </div>
-                                                        @error('profile_image')
-                                                        <div class="badge badge-danger">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row " style="justify-content: center; display: flex; margin-top: 20px;">
-                                                    <div class="col-sm-4 col-lg-10 col-md-12" style="direction: ltr; text-align: right">
-                                                        <label>تحميل صورة الشعار</label>
-                                                        <input type="file" class="file-upload-default @error('logo_image') is-invalid @enderror" multiple  name="logo_image"   />
-                                                        <div class="input-group col-xs-12">
-                                                            <input type="text" class="form-control file-upload-info" disabled="">
-                                                            <span class="input-group-append">
-                                                            <button class="file-upload-browse btn btn-gradient-primary" type="button"><b>تحميل</b></button>
-                                                        </span>
-                                                        </div>
-                                                        @error('logo_image')
-                                                        <div class="badge badge-danger">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <div class="col-lg-9">
                                         <p class="card-description"> معلومات شخصية </p>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">الاسم الأول</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{$user->account->profile->first_name}}" required />
+                                                        <input type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{$user->profile->first_name}}" required />
                                                         @error('first_name')
                                                         <div class="badge badge-danger">{{ $message }}</div>
                                                         @enderror
@@ -111,7 +45,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">الاسم الأخير</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control @error('last_name') is-invalid @enderror " name="last_name" value="{{$user->account->profile->last_name}}" required  />
+                                                        <input type="text" class="form-control @error('last_name') is-invalid @enderror " name="last_name" value="{{$user->profile->last_name}}" required  />
                                                         @error('last_name')
                                                         <div class="badge badge-danger">{{ $message }}</div>
                                                         @enderror
@@ -125,8 +59,8 @@
                                                     <label class="col-sm-3 col-form-label">الجنس</label>
                                                     <div class="col-sm-9">
                                                         <select class="form-control @error('gender') is-invalid @enderror" name="gender" required >
-                                                            <option @if($user->account->profile->gender=='ذكر') selected    @endif  value="ذكر">ذكر</option>
-                                                            <option @if($user->account->profile->gender=='أنثى') selected  @endif  value="أنثى">أنثى</option>
+                                                            <option @if($user->profile->gender=='ذكر') selected    @endif  value="ذكر">ذكر</option>
+                                                            <option @if($user->profile->gender=='أنثى') selected  @endif  value="أنثى">أنثى</option>
                                                         </select>
                                                         @error('gender')
                                                         <div class="badge badge-danger">{{ $message }}</div>
@@ -138,7 +72,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">تاريخ الميلاد</label>
                                                     <div class="col-sm-9">
-                                                        <input class="form-control @error('dob') is-invalid @enderror" type="date"  value="{{$user->account->profile->dob}}" name="dob" required/>
+                                                        <input class="form-control @error('dob') is-invalid @enderror" type="date"  value="{{$user->profile->dob}}" name="dob" required/>
                                                         @error('dob')
                                                         <div class="badge badge-danger">{{ $message }}</div>
                                                         @enderror
@@ -152,7 +86,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">العنوان الأول</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control @error('address_1') is-invalid @enderror" name="address_1" value="{{$user->account->profile->address_1}}" required  />
+                                                        <input type="text" class="form-control @error('address_1') is-invalid @enderror" name="address_1" value="{{$user->profile->address_1}}" required  />
                                                         @error('address_1')
                                                         <div class="badge badge-danger">{{ $message }}</div>
                                                         @enderror
@@ -163,7 +97,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">العنوان الثاني (إختياري)</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control @error('address_2') is-invalid @enderror" name="address_2" value="{{$user->account->profile->address_2}}" />
+                                                        <input type="text" class="form-control @error('address_2') is-invalid @enderror" name="address_2" value="{{$user->profile->address_2}}" />
                                                         @error('address_2')
                                                         <div class="badge badge-danger">{{ $message }}</div>
                                                         @enderror
@@ -188,7 +122,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">رقم الهاتف</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control @error('phone_number') is-invalid @enderror "   name="phone_number"   value="{{$user->account->profile->phone_number}}" required/>
+                                                        <input type="text" class="form-control @error('phone_number') is-invalid @enderror "   name="phone_number"   value="{{$user->profile->phone_number}}" required/>
                                                         @error('phone_number')
                                                         <div class="badge badge-danger">{{ $message }}</div>
                                                         @enderror
@@ -202,7 +136,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">البريد الإلكتروني</label>
                                                     <div class="col-sm-9">
-                                                        <input type="email" class="form-control @error('email') is-invalid @enderror "  name="email" value="{{$user->account->email}}" required/>
+                                                        <input type="email" class="form-control @error('email') is-invalid @enderror "  name="email" value="{{$user->email}}" required/>
                                                         @error('email')
                                                         <div class="badge badge-danger">{{ $message }}</div>
                                                         @enderror
@@ -218,7 +152,7 @@
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">@</div>
                                                             </div>
-                                                            <input type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name"  value="{{$user->account->user_name}}"  id="inlineFormInputGroupUsername2" required>
+                                                            <input type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name"  value="{{$user->user_name}}"  id="inlineFormInputGroupUsername2" required>
                                                             @error('user_name')
                                                             <div class="badge badge-danger">{{ $message }}</div>
                                                             @enderror
@@ -275,94 +209,28 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <p class="card-description"> الوثائق الرسمية  </p>
-                                        <div class="row">
-                                            <?php $count = 1;?>
-                                            @foreach($user->company_documents as $user_document)
-                                                <?php $count++;?>
-                                                <div class="card col-lg-6 col-md-12 col-sm-12" >
-                                                    <img class="card-img-top" src="{{asset($user_document->url)}}" alt="Card image" style="width:100%">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">
-                                                            <a  data-toggle="modal" data-target="#myModaldocument{{$count}}" class="btn btn-danger ">حذف</a>
-                                                        </h4>
-                                                        <div class="modal" id="myModaldocument{{$count}}" style="direction :rtl">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-
-                                                                    <!-- Modal Header -->
-                                                                    <div class="modal-header">
-                                                                        <h4 class="modal-title">حذف مستند </h4>
-                                                                        <button type="button" class="close" style="margin-right:70%" data-dismiss="modal">&times;</button>
-                                                                    </div>
-
-                                                                    <!-- Modal body -->
-                                                                    <div class="modal-body" style="margin-left:60%">
-                                                                        هل تريد حذف المستند؟
-                                                                    </div>
-
-                                                                    <!-- Modal footer -->
-                                                                    <div class="modal-footer">
-                                                                        <a href="{{route('company_delete_document_company',['id'=>$user_document->id])}}"><button type="button" class="btn btn-primary"  >نعم</button></a>
-
-                                                                        <button type="button" class="btn btn-danger" style="margin-left:55%" data-dismiss="modal">لا</button>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
                                         </div>
-                                        <p class="card-description"> العقارات </p>
-                                        <div class="row">
-                                            <?php $count =1; ?>
-                                            @foreach($user->realestates as $realestate)
-                                                <?php $count++; ?>
-                                                <div class="card col-lg-6 col-md-12 col-sm-12" >
-                                                    <img class="card-img-top" src="{{asset($realestate->main_image)}}" alt="Card image" style="width:100%">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">
-                                                            @if($realestate->status =='غير متاح')
-                                                                <span class=" badge badge-danger " >{{$realestate->status}}</span>
-                                                            @else
-                                                                <span class="badge badge-success ">{{$realestate->status}}</span>
-                                                            @endif
-                                                            <span class="badge badge-success " >{{$realestate->type}}</span>
-
-                                                        </h4>
-                                                        <p class="card-text">{{$realestate->description}}</p>
-                                                        <a href="{{route('company_show_realestate',['id'=>$realestate->id])}}" class="btn btn-primary ">المزيد</a>
-                                                        <a  data-toggle="modal" data-target="#myModal{{$count}}" class="btn btn-danger ">حذف</a>
-                                                        <div class="modal" id="myModal{{$count}}" style="direction :rtl">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-
-                                                                    <!-- Modal Header -->
-                                                                    <div class="modal-header">
-                                                                        <h4 class="modal-title">حذف عقار </h4>
-                                                                        <button type="button" class="close" style="margin-right:70%" data-dismiss="modal">&times;</button>
-                                                                    </div>
-
-                                                                    <!-- Modal body -->
-                                                                    <div class="modal-body" style="margin-left:60%">
-                                                                        هل تريد حذف العقار؟
-                                                                    </div>
-
-                                                                    <!-- Modal footer -->
-                                                                    <div class="modal-footer">
-                                                                        <a href="{{route('company_delete_realestate',['id'=>$realestate->id])}}"><button type="button" class="btn btn-primary"  >نعم</button></a>
-
-                                                                        <button type="button" class="btn btn-danger" style="margin-left:55%" data-dismiss="modal">لا</button>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
+                                        <div class="col-lg-3">
+                                            <div class="row">
+                                                <div style="margin-right: 100px; margin-bottom: 20px">
+                                                    <img class="img card-img" height="200"  src="{{asset($user->profile->profile_image)}}" alt="profile">
+                                                </div>
+                                                <div class="form-group row " style="justify-content: center; display: flex; margin-top: 20px;">
+                                                    <div class="col-sm-4 col-lg-10 col-md-12" style="direction: ltr; text-align: right">
+                                                        <label>تحميل الصورة الشخصية </label>
+                                                        <input type="file" class="file-upload-default @error('profile_image') is-invalid @enderror" multiple  name="profile_image"   />
+                                                        <div class="input-group col-xs-12">
+                                                            <input type="text" class="form-control file-upload-info" disabled="">
+                                                            <span class="input-group-append">
+                                                            <button class="file-upload-browse btn btn-gradient-primary" type="button"><b>تحميل</b></button>
+                                                        </span>
                                                         </div>
+                                                        @error('profile_image')
+                                                        <div class="badge badge-danger">{{ $message }}</div>
+                                                        @enderror
                                                     </div>
                                                 </div>
-                                            @endforeach
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -416,13 +284,8 @@
 
             }
         }
-
-
-
-
     </script>
 @stop
-
 @section('css')
     <style>
         .main-box-layout{

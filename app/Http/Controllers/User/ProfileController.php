@@ -6,22 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Models\Account;
 use App\Models\profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
-   public function index($id){
-       $profile = profile::where('account_id',$id)->first();
+   public function index(){
+       $profile = Auth::user()->profile;
        return view('user/profile')->with('profile',$profile);
    }
-   public function edit($id){
-      $update = profile::where('account_id', $id)->first();
+   public function edit(){
+      $update = Auth::user();
       return view('user.edit')->with('user' , $update);
 
    }
     public function update(Request $request){
         $rules =[
-            'company_name' => 'required',
-            'ssid' => 'required',
             'email' => 'required|email',
             'user_name' => 'required|string',
             'first_name' => 'required|string|max:150',
@@ -33,7 +34,6 @@ class ProfileController extends Controller
             'phone_number' => 'required',
             'old_password' => 'required',
             'profile_image' => 'mimes:jpeg,jpg,png,gif|max:10000',
-            'logo_image' => 'mimes:jpeg,jpg,png,gif|max:10000',
         ];
         $masseges =[];
         $validator = Validator::make($request->all(),$rules, $masseges);
@@ -81,24 +81,7 @@ class ProfileController extends Controller
         }
 
         $profile->save();
-        $company = $account->company;
-        if(Company::all()->where('company_name','=',$request->company_name)->isEmpty()){
-            $company->company_name = $request->company_name;
-        }elseif (Company::all()->where('company_name','=',$request->company_name)->first()->id != $company->id){
-            return redirect()->back()->with(['error'=>'اسم الشركة مستخدم مسبقا!']);
-        }
-        if(Company::all()->where('ssid','=',$request->ssid)->isEmpty()){
-            $company->ssid = $request->ssid;
-        }elseif (Company::all()->where('ssid','=',$request->ssid)->first()->id != $company->id){
-            return redirect()->back()->with(['error'=>'الرقم الوطني مستخدم مسبقا!']);
-        }
-        if($request->file('logo_image')!=null){
-            $file =$request->file('logo_image');
-            $filename = $file->getClientOriginalName().time(). '.' . $file->extension();
-            $request->file('logo_image')->move('asset/logo_images', $filename);
-            $company->logo_image = 'asset/logo_images/'. $filename;
-        }
-        $company->save();
+
         return redirect()->back()->with(['success'=>'تمت عملية تحديث الصفحة الشخصية بنجاح !']);
     }
 

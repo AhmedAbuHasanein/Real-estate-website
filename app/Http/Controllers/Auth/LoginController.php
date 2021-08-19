@@ -58,7 +58,7 @@ class LoginController extends Controller
                 }elseif(User::all()->where('account_id','=',auth::user()->id)->isNotEmpty()){
                     $user->status = "نشط";
                     $user->save();
-                    return redirect()->route('user_index',$user->id);
+                    return redirect()->route('user_index');
                 }
 
             Auth::logout();
