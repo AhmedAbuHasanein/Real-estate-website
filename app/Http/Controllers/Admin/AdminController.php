@@ -95,8 +95,12 @@ class adminController extends Controller
         $profile->gender = $request->gender;
         $profile->country = $request->country;
         $profile->address_1 = $request->address_1;
-        if($request->address_2 != null){
+        if($request->address_2 == null){
+            $profile->address_2 = '';
+
+        }else{
             $profile->address_2 = $request->address_2;
+
         }
         if ($request->gender=="ذكر"){
             $profile->profile_image = 'asset/image_profile_users/male.jpg';

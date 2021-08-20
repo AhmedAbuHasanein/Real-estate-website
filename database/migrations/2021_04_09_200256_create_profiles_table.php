@@ -22,7 +22,7 @@ class CreateProfilesTable extends Migration
             $table->date("dob");
             $table->string("phone_number");
             $table->string("address_1");
-            $table->string("address_2");
+            $table->string("address_2")->nullable();
             $table->string("profile_image");
             $table->softDeletes();
             $table->timestamps();

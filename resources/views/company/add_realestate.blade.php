@@ -160,7 +160,7 @@
                                             </div>
                                             <div class="form-group row " style="justify-content: center; display: flex; margin-top: 20px;">
                                                 <div class="col-sm-4 col-lg-10 col-md-12" style="direction: ltr; text-align: right">
-                                                    <label>تحميل فيديو العقار</label>
+                                                    <label>(mp4)تحميل فيديو العقار</label>
                                                     <input type="file" class="file-upload-default @error('video_url') is-invalid @enderror" name="video_url"  required  />
                                                     <div class="input-group col-xs-12">
                                                         <input type="text" class="form-control file-upload-info" disabled="">
@@ -175,7 +175,7 @@
                                             </div>
                                             <div class="form-group row " style="justify-content: center; display: flex; margin-top: 20px;">
                                                 <div class="col-sm-4 col-lg-10 col-md-12" style="direction: ltr; text-align: right">
-                                                    <label>(mp4) تحميل صور العقار</label>
+                                                    <label> تحميل صور العقار</label>
                                                     <input type="file" class="file-upload-default @error('realestate_images') is-invalid @enderror" multiple  name="realestate_images[]"   />
                                                     <div class="input-group col-xs-12">
                                                         <input type="text" class="form-control file-upload-info" disabled="">
