@@ -195,8 +195,8 @@ class RealestateController extends Controller
 
                 $file =$request->file('video_url');
                 $filename = $file->getClientOriginalName().time(). '.' . $file->extension();
-                $request->file('video_url')->move('asset/video_realstates', $filename);
-                $realestate->video_url = 'asset/video_realstates/'. $filename;
+                $request->file('video_url')->move('asset/video_realestates', $filename);
+                $realestate->video_url = 'asset/video_realestates/'. $filename;
             }
 
             $realestate->save();

@@ -27,7 +27,7 @@ class RealestateFactory extends Factory
         $companies_id = Company::all()->pluck('id') ;
         $realestate_type_id = Realestate_type::all()->pluck('id');
         return [
-            'description' => $this->faker->text(200),
+            'description' => 'تطل على بحيرة وحمام سباحة مباشر وحديقة مركزية كبيرة جدا وممشى مرحلة 3 الفيلا تشطيب خاص جدا اول سكن ارضيات رخام من الريسيبشن حتى الرووف تجليدات نجف من كريستال عصفورالتكيفات سامسونج سمارت أجهزة المطبخ من جرونيا مفاتيح الكهرباء تاتش ويمكن تشغيلها من الموبايل',
             'space' => $this->faker->numberBetween(100,1000),
             'price' => $this->faker->numberBetween(100,1000),
             'location' => $this->faker->numberBetween(10,110).','.$this->faker->numberBetween(10,110),

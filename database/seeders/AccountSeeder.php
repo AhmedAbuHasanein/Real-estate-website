@@ -52,7 +52,7 @@ class AccountSeeder extends Seeder
         $account2->save();
         $company = new Company();
         $company->account_id = $account2->id;
-        $company->company_name = "company alhaia";
+        $company->company_name = "شركة الحياة";
         $company->ssid  = 4047849017;
         $company->score = 100;
         $company->logo_image ='asset/logo_images/logo_image.jpg';
