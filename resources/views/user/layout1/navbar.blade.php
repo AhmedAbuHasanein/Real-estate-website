@@ -22,6 +22,8 @@
                 </a>
                 <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                     <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{route('userEdit')}}" >
+                        <i class="mdi mdi-home mr-2 text-primary" style="padding-left: 10px" ></i>الصفحة الشخصية </a>
                     <a class="dropdown-item" href="{{route('logout')}}" >
                         <i class="mdi mdi-logout mr-2 text-primary" style="padding-left: 10px" ></i> تسجيل الخروج </a>
                 </div>

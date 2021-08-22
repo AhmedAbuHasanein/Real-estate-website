@@ -79,10 +79,15 @@ Route::middleware('auth')->group(function () {
     });
     //Routes User
     Route::prefix('User')->middleware("IsUser")->group(function () {
-        Route::get('/', 'User\ProfileController@index')->name('user_index');
+        Route::get('/', 'User\SearchController@index')->name('user_index');
         Route::get('/edit/','User\ProfileController@edit')->name('userEdit');
         Route::post('/edituser/','User\ProfileController@update')->name('user_update_profile');
         Route::get('realestate/comment/{id}','User/CommentController@store')->name('add_comment');
+
+        Route::get('/searchUser','User\SearchController@searchUser')->name('userSearch');
+        Route::get('searchUser/type/{id}','User\SearchController@show')->name('showByTypeUser');
+        Route::get('showRealestate/{id}','User\RealestateController@show')->name('user_show_realestate');
+
 
 
     });

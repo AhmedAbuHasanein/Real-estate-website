@@ -12,10 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
-   public function index(){
-       $profile = Auth::user()->profile;
-       return view('user/profile')->with('profile',$profile);
-   }
+
    public function edit(){
       $update = Auth::user();
       return view('user.edit')->with('user' , $update);

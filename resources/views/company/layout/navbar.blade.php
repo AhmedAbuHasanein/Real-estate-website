@@ -22,6 +22,16 @@
                 </a>
                 <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                     <div class="dropdown-divider"></div>
+                    <a class="nav-link" href="{{route('company_add_realestate_form')}}">
+                        <i class="mdi mdi-home text-primary " style="margin-left:10px "></i>
+                        إضافة عقار
+
+                    </a>
+                    <a class="nav-link" href="{{route('company_myProfile')}}">
+                        <i class="mdi mdi-account text-primary " style="margin-left:10px "></i>
+                        الصفحة الشخصية
+
+                    </a>
                     <a class="dropdown-item" href="{{route('logout')}}" >
                         <i class="mdi mdi-logout mr-2 text-primary" style="padding-left: 10px" ></i> تسجيل الخروج </a>
                 </div>

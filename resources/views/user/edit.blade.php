@@ -1,6 +1,6 @@
 @extends('user.layout1.app')
 @section('title')
-    <title>الصفحة الرئيسية</title>
+    <title>الصفحة الشخصية</title>
 @stop
 @section('body')
     onload="country_select('{{$user->profile->country}}')"
