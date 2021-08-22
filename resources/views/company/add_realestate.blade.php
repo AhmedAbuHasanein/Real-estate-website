@@ -148,7 +148,7 @@
                                                     <label>تحميل الصورة الرئيسة للعقار</label>
                                                     <input type="file" class="file-upload-default @error('main_image') is-invalid @enderror" name="main_image"  required  />
                                                     <div class="input-group col-xs-12">
-                                                        <input type="text" class="form-control file-upload-info" disabled="">
+                                                        <input type="text" class="form-control file-upload-info" required>
                                                         <span class="input-group-append">
                                                             <button class="file-upload-browse btn btn-gradient-primary" type="button"><b>تحميل</b></button>
                                                         </span>
@@ -163,7 +163,7 @@
                                                     <label>(mp4)تحميل فيديو العقار</label>
                                                     <input type="file" class="file-upload-default @error('video_url') is-invalid @enderror" name="video_url"  required  />
                                                     <div class="input-group col-xs-12">
-                                                        <input type="text" class="form-control file-upload-info" disabled="">
+                                                        <input type="text" class="form-control file-upload-info" required>
                                                         <span class="input-group-append">
                                                             <button class="file-upload-browse btn btn-gradient-primary" type="button"><b>تحميل</b></button>
                                                         </span>
