@@ -82,6 +82,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', 'User\ProfileController@index')->name('user_index');
         Route::get('/edit/','User\ProfileController@edit')->name('userEdit');
         Route::post('/edituser/','User\ProfileController@update')->name('user_update_profile');
+        Route::get('realestate/comment/{id}','User/CommentController@store')->name('add_comment');
 
 
     });

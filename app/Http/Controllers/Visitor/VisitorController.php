@@ -13,7 +13,7 @@ class VisitorController extends Controller
 {
     // show realestate by there type
     public function show($id){
-        $query =Realestate::where('realestate_type_id',$id)->Where('status','=', 'متاح')->paginate(10);
+        $query =Realestate::where('realestate_type_id',$id)->Where('status','=', 'متاح')->paginate(4);
         $types=Realestate_type::select()->get();
         return view('public.department')->with(['type_id'=>$query, 'types'=>$types]);
 
@@ -23,9 +23,7 @@ class VisitorController extends Controller
     //search engine
     public function search(Request $request){
         $search = $request['search'];
-        if($search == null){
-            return redirect()->back();
-        }
+
         $realestate_type_id = Realestate_type::where('type', 'LIKE', "%{$search}%")->pluck('id')->toArray() ;
         if($realestate_type_id == null){
             $realestate_type_id = [];
@@ -35,7 +33,7 @@ class VisitorController extends Controller
            ->orWhereIn('realestate_type_id' , $realestate_type_id)
            ->orWhere('price','=', $search)
            ->orWhere('space','=', $search)
-           ->orWhere('type','=', $search)->Where('status','=', 'متاح')-> paginate(10);
+           ->orWhere('type','=', $search)->Where('status','=', 'متاح')-> paginate(8);
         $types=Realestate_type::select()->get();
         return view('public.result')->with(['result'=>$result, 'search'=>$search, 'types'=>$types]);
     }

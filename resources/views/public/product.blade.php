@@ -51,29 +51,21 @@
                 </div>
             </div>
             <div  class="col-5"  >
-                <div class="home-inform">
-                    <h3 class="owner-name">
-
-                    </h3>
+                <div class="home-inform" style="background-color: black; opacity:75%; padding: 10%; margin-top: 7%;">
                     <div class="sp">
-                        <span style="margin-top: 61px">اسم المعلن : {{$realestate['company_name']}}</span>
-                        <span> السعر{{$realestate['price']}} $</span>
+                        <span >اسم المعلن : {{$realestate['company_name']}}</span>
+                        <span> السعر: {{$realestate['price']}} $</span>
                         <span> نوع العقار :{{$type['type']}}  </span>
                         <span>عنوان العقار : {{$realestate['address']}}</span>
                         <span>الحالة :{{$realestate['status']}} </span>
-                        <span>مساحة العقار : {{$realestate['space']}} متر </span>
-                        <div class="home-btn">
-                            <button type="button" class="btn btn-light "> {{$type['type']}}</button>
-
-                        </div>
-                        <div class="clearfix"></div>
-                        <p>تاريخ الإضافة : {{$realestate['created_at']}}</p>
-                        <p>تاريخ اخر تحديث : {{$realestate['updated_at']}}</p>
+                        <span>مساحة العقار : {{$realestate['space']}} متر<sup>2</sup> </span>
+                        <span>تاريخ الإضافة : {{$realestate['created_at']}}</span>
+                        <span>تاريخ اخر تحديث : {{$realestate['updated_at']}}</span>
                     </div>
                 </div>
             </div>
-            <div class="col-4" style="margin-top: 10px"  >
-                <div id="Map"  style="width: 100%; height: 400px">
+            <div class="col-4" style="margin-top: 30px"  >
+                <div id="Map"  style="width: 100%; height: 100%">
                 </div>
             </div>
         </div>
@@ -87,7 +79,7 @@
         <p>{{$realestate['description']}}</p>
         <div class="house-photos">
             @foreach($realestate->image_realestates as $image)
-              <a href="#"> <img src="{{asset($image->url)}}" width="170px" height="100px"></a>
+              <a href="#"> <img src="{{asset($image->url)}}" width="150px" height="100px"></a>
             @endforeach
         </div>
     </div>
@@ -106,7 +98,9 @@
 
 </div>
 
-<div class="clearfix"></div>
+
+<div class="clearfix">
+</div>
 
 @stop
 @section('css')
