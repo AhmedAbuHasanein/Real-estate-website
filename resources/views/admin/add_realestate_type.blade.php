@@ -40,7 +40,7 @@
                                                     <div class="col-sm-9" style="direction: ltr">
                                                         <input type="file" class="file-upload-default @error('emoji') is-invalid @enderror" name="emoji" value="{{old('emoji')}}" required  />
                                                         <div class="input-group col-xs-12">
-                                                            <input type="text" class="form-control file-upload-info" disabled="">
+                                                            <input type="text" class="form-control file-upload-info"  required>
                                                             <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button"><b>تحميل</b></button>
                           </span>
