@@ -36,7 +36,6 @@ class VisitorController extends Controller
            ->orWhere('type','=', $search)->Where('status','=', 'متاح')-> paginate(8);
         $types=Realestate_type::select()->get();
         return view('public.result')->with(['result'=>$result, 'search'=>$search, 'types'=>$types]);
-
     }
     //end search
 //show realestate details
