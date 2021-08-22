@@ -440,12 +440,23 @@
 
         }
         function abled_submit() {
-            var password = document.forms['forms']['old_password'].value;
-            if(password.length >= 8){
-                document.getElementById("submit").disabled = false;
-                document.getElementById("submit").style = 'background:#1bcfb4';
+            var old_password = document.forms['forms']['old_password'].value;
+            var password = document.forms['forms']['password'].value;
+            var verify_password = document.forms['forms']['verify_password'].value;
+
+            if (password.length <= 0 && verify_password.length <= 0) {
+                if (old_password.length >= 8) {
+                    document.getElementById("submit").disabled = false;
+                    document.getElementById("submit").style = 'background:#1bcfb4';
+                }
+            } else if (password.length >= 8 && verify_password.length >= 8) {
+                if (old_password.length >= 8) {
+                    document.getElementById("submit").disabled = false;
+                    document.getElementById("submit").style = 'background:#1bcfb4';
+                }
             }
         }
+
 
 
 

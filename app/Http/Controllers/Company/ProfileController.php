@@ -45,6 +45,10 @@ class ProfileController extends Controller
         if($validator->fails()){
             return redirect()->back()->withInput()->withErrors($validator->errors());
         }
+        if(strlen($request->password) <8){
+            return redirect()->back()->withInput()->with(['error'=>'كلمة المرور قصيرة يجب أن تكون أكثر من 8 حروف']);
+
+        }
         if(!(Hash::check($request->old_password,Auth::user()->password))){
             return redirect()->back()->with(['error'=>'كلمة المرور خطأ.']);
         }

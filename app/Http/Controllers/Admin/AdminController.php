@@ -65,7 +65,7 @@ class adminController extends Controller
         $rules =[
             'email' => 'required|email|unique:accounts|max:255',
             'user_name' => 'required|string|unique:accounts|max:150',
-            'password' => 'required|string|max:150',
+            'password' => 'required:string:min:8',
             'grade'=> 'required:number:max:'.$grade,
             'first_name' => 'required|string|max:150',
             'last_name' => 'required|string|max:150',
@@ -80,7 +80,10 @@ class adminController extends Controller
         if($validator->fails()){
             return redirect()->back()->withInput()->withErrors($validator->errors());
         }
+        if(strlen($request->password) <8){
+            return redirect()->back()->withInput()->with(['error'=>'كلمة المرور قصيرة يجب أن تكون أكثر من 8 حروف']);
 
+        }
         $account = new Account();
         $account->email = $request->email;
         $account->user_name = $request->user_name;

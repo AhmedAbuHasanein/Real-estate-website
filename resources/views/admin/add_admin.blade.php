@@ -2,6 +2,9 @@
 @section('title')
     <title>إضافة مشرف </title>
 @stop
+@section('body')
+    onload="country_select('{{old('country')}}')"
+@stop
 @section('page padding')
     <div class="content-wrapper" style="direction: rtl">
         <div class="page-header">
@@ -116,7 +119,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">رقم الهاتف</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" required  placeholder="720597485406"/>
+                                <input type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" required  placeholder="720597485406" value="{{old('phone_number')}}"/>
                                 @error('phone_number')
                                 <div class="badge badge-danger">{{ $message }}</div>
                                 @enderror
@@ -332,7 +335,7 @@
               <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <button class="btn btn-success" type="submit">حفظ</button>
+                            <button class="btn btn-success" id="submit" type="submit" disabled style="background-color: #ccc">حفظ</button>
                         </div>
                     </div>
                 </div>
@@ -355,16 +358,29 @@
             document.getElementById("submit").disabled =true;
             document.getElementById("submit").style = 'background: #ccc';
         }else {
-            if (verify_password != password) {
-                document.getElementById("verify").innerHTML = '<b>' + 'كلمة المرور غير متطابقة' + '</b>';
-                document.getElementById("submit").disabled = true;
-                document.getElementById("submit").style = 'background: #ccc';
-            } else {
+            if (verify_password.length>=8 && password.length>=8) {
                 document.getElementById("verify").innerHTML = '<b style="color:green; ">' + 'كلمة المرور متطابقة' + '</b>';
                 document.getElementById("submit").disabled = false;
                 document.getElementById("submit").style = 'background:#4CAF50';
+            }else{
+                document.getElementById("verify").innerHTML = '<b>' + 'كلمة المرور غير متطابقة' + '</b>';
+                document.getElementById("submit").disabled = true;
+                document.getElementById("submit").style = 'background: #ccc';
             }
         }
+    }
+    function country_select(value) {
+        var x ;
+        for (x in document.getElementById("country")) {
+            text = document.getElementById('country')[x].value;
+
+            if (text ===  value ) {
+                country[x].selected = "true";
+                country[x].disabled = false;
+
+            }
+        }
+
     }
 </script>
 @stop
