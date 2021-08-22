@@ -37,7 +37,7 @@
         <div class="d-flex justify-content-center" style="color: white; font-size: 30px"><p>نتائج البحث عن {{$search}}</p></div>
         <div class="col-12 ">
 
-                <div class="row d-flex mr-auto">
+                <div class="row justify-content-center d-flex mr-auto">
                     @foreach($result as $post)
                         <div class="card col-4 bg-dark text-white" style="width: 18rem; margin: 10px;padding: 10px" >
                             <img src="{{asset($post['main_image'])}}" class="card-img-top" alt="image">
