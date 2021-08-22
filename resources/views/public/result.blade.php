@@ -61,5 +61,31 @@
             @endif
         </div>
     </div>
-    <div class="d-flex justify-content-center "  style="margin-top: 20px" >   {{$result->links()}} </div>
+    <br>
+    <div class="d-flex justify-content-center"  style="margin-top: 20px" >
+        {{$result->links()}}
+    </div>
+    <br>
 @stop
+@section('css')
+    <style>
+        [aria-current] .page-link {
+            background-color: orange !important;
+        }
+
+        [rel='prev'], [rel='next'] {
+            background-color: #202326 !important;
+        }
+
+        .pagination > li :not([rel='prev'],[rel='next'],[aria-current] .page-link) {
+            background-color: #202326 !important;
+        }
+        .pagination > li > a,
+        .pagination > li > span {
+            color: orange ;
+        }
+    </style>
+    @stop
+
+
+

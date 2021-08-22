@@ -79,7 +79,7 @@
         <p>{{$realestate['description']}}</p>
         <div class="house-photos">
             @foreach($realestate->image_realestates as $image)
-              <a href="#"> <img src="{{asset($image->url)}}" width="50%" height="80%"></a>
+              <a href="#"> <img src="{{asset($image->url)}}" width="150px" height="100px"></a>
             @endforeach
         </div>
     </div>
@@ -99,7 +99,8 @@
 </div>
 
 
-<div class="clearfix"></div>
+<div class="clearfix">
+</div>
 
 @stop
 @section('css')
