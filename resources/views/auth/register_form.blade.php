@@ -263,7 +263,7 @@
                                         </div>
                                     </div>
                                     <div class="form-row">
-                                        <input disabled type="submit" id="submit">
+                                        <input disabled type="submit" id="submit" value="إنشاء">
                                     </div>
                                 </div>
                             </section>

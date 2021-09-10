@@ -23,9 +23,9 @@ class LoginController extends Controller
 
     public  function  login(){
         if (Auth::check()){
-
             Auth::logout();
         }
+
         return view('auth.login');
     }
     public function __construct()
@@ -45,6 +45,10 @@ class LoginController extends Controller
         {
 
             $user = Auth::guard('web')->user();
+            if($request->remember_me ){
+                Cookie::queue('remember_me' , $user->username ,3*24*60*60);
+            }
+
 
                 if( Admin::all()->where('account_id','=',auth::user()->id)->isNotEmpty()){
                     $user->status = "نشط";
